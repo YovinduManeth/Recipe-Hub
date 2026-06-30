@@ -102,9 +102,10 @@ The next phases of the project will include:
 
 ---
 
-## Author
+## Authors
 
 **M.A.Y. Maneth**
+
 **W.M.D.R. Dayarathna**
 
 ICT Undergraduate
