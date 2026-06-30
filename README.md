@@ -108,7 +108,8 @@ The next phases of the project will include:
 
 **W.M.D.R. Dayarathna**
 
-ICT Undergraduate
+ICT Undergraduates
+
 Faculty of Technology
 
 Rajarata University of Sri Lanka
