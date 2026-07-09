@@ -61,24 +61,6 @@ The following wireframes have been designed using Figma:
 
 ---
 
-## Repository Structure
-
-```
-Recipe-Hub/
-│
-├── Proposal/
-│   └── Project_Proposal.pdf
-│
-├── Wireframes/
-│   ├── Login_Page.png
-│   ├── Home_Page.png
-│   └── Recipe_Details_Page.png
-│
-└── README.md
-```
-
----
-
 ## Current Status
 
 ✅ Phase 1 Completed
