@@ -1,6 +1,6 @@
  ## Recipe Hub
 
-Phase 1 – Project Proposal & Wireframes
+## Phase 1 – Project Proposal & Wireframes
 
 Recipe Hub is a web application designed to help users discover, search, and save traditional Sri Lankan recipes. The project aims to provide a simple and user-friendly platform where users can explore recipes by category, view detailed cooking instructions, and manage their favourite recipes.
 
@@ -18,7 +18,7 @@ This repository has been created for the **Web Application Development** module 
 
 
 
- Objectives
+ ## Objectives
 
 - Create an easy-to-use recipe sharing platform.
 - Promote traditional Sri Lankan cuisine.
@@ -79,6 +79,19 @@ The next phases of the project will include:
 - User Authentication
 - Recipe Management
 - Testing and Deployment
+
+Newly added features for phase 2
+
+
+- Browse recipes by categories
+- View detailed recipe information
+- Display ingredients and cooking instructions
+- Recipe image gallery
+- Add recipes to favourites
+- User registration system
+- Contact form with validation
+- Dark mode option
+- Responsive design for different screen sizes
 
 
 
