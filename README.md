@@ -107,8 +107,8 @@ Features
 - Toggle between light and dark themes
 
 👤 User Registration
-Simple registration system
-User information stored using Local Storage
+- Simple registration system
+- User information stored using Local Storage
 
 📩 Contact Form
 - Form validation for user messages
