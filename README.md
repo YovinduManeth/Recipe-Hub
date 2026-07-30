@@ -89,10 +89,6 @@ Features
 - Featured recipes
 - Recipe categories
 
-🔍 Recipe Search
-- Search recipes by name
-- Auto-suggestion feature while typing
-
 🍛 Recipe Details
 - Recipe image
 - Description
