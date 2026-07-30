@@ -90,8 +90,8 @@ Features
 - Recipe categories
 
 🔍 Recipe Search
-Search recipes by name
-Auto-suggestion feature while typing
+- Search recipes by name
+- Auto-suggestion feature while typing
 
 🍛 Recipe Details
 - Recipe image
@@ -108,7 +108,7 @@ Auto-suggestion feature while typing
 - Users can share recipes using the share button
 
 🌙 Dark Mode
-Toggle between light and dark themes
+- Toggle between light and dark themes
 
 👤 User Registration
 Simple registration system
@@ -118,7 +118,7 @@ User information stored using Local Storage
 - Form validation for user messages
 
 📱 Responsive Design
-Works on desktop, tablet, and mobile devices
+- Works on desktop, tablet, and mobile devices
 
 
 ### Recipe Sharing Feature
