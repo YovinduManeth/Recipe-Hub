@@ -1,14 +1,14 @@
-# Recipe Hub
+ ## Recipe Hub
 
-## Phase 1 – Project Proposal & Wireframes
+Phase 1 – Project Proposal & Wireframes
 
 Recipe Hub is a web application designed to help users discover, search, and save traditional Sri Lankan recipes. The project aims to provide a simple and user-friendly platform where users can explore recipes by category, view detailed cooking instructions, and manage their favourite recipes.
 
 This repository has been created for the **Web Application Development** module and currently contains the Phase 1 deliverables.
 
----
 
-## Project Information
+
+ Project Information
 
 **Project Title:** Recipe Hub – Sri Lankan Recipe Sharing Web Application
 
@@ -16,9 +16,9 @@ This repository has been created for the **Web Application Development** module 
 
 **Project Phase:** Phase 1 – Proposal & Wireframes
 
----
 
-## Objectives
+
+ Objectives
 
 - Create an easy-to-use recipe sharing platform.
 - Promote traditional Sri Lankan cuisine.
@@ -26,7 +26,6 @@ This repository has been created for the **Web Application Development** module 
 - Organize recipes into categories.
 - Enable users to save favourite recipes.
 
----
 
 ## Planned Features
 
@@ -37,7 +36,7 @@ This repository has been created for the **Web Application Development** module 
 - Favourite Recipes
 - Share Recipes
 
----
+
 
 ## Technology Stack
 
@@ -49,7 +48,6 @@ This repository has been created for the **Web Application Development** module 
 - Git & GitHub
 - Figma
 
----
 
 ## Wireframes
 
@@ -59,7 +57,7 @@ The following wireframes have been designed using Figma:
 - Home Page
 - Recipe Details Page
 
----
+
 
 ## Current Status
 
@@ -69,7 +67,7 @@ The following wireframes have been designed using Figma:
 - Wireframes
 - GitHub Repository Setup
 
----
+
 
 ## Future Development
 
@@ -82,13 +80,13 @@ The next phases of the project will include:
 - Recipe Management
 - Testing and Deployment
 
----
+
 
 ## Authors
 
-**M.A.Y. Maneth**
+**M.A.Y. Maneth - ITT/2024/066**
 
-**W.M.D.R. Dayarathna**
+**W.M.D.R. Dayarathna - ITT/2024/028**
 
 ICT Undergraduates
 
