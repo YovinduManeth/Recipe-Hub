@@ -95,7 +95,7 @@ Newly added features for phase 2
 
 
 
-## Authors
+## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
 
