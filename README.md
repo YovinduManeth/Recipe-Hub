@@ -94,18 +94,18 @@ Search recipes by name
 Auto-suggestion feature while typing
 
 🍛 Recipe Details
-Recipe image
-Description
-Ingredients list
-Step-by-step cooking instructions
-Preparation and cooking time
+- Recipe image
+- Description
+- Ingredients list
+- Step-by-step cooking instructions
+- Preparation and cooking time
 
 ❤️ Favourite Recipes
-Users can save favourite recipes
-Favourite recipes are stored using browser Local Storage
+- Users can save favourite recipes
+- Favourite recipes are stored using browser Local Storage
 
 🔗 Recipe Sharing
-Users can share recipes using the share button
+- Users can share recipes using the share button
 
 🌙 Dark Mode
 Toggle between light and dark themes
@@ -115,7 +115,7 @@ Simple registration system
 User information stored using Local Storage
 
 📩 Contact Form
-Form validation for user messages
+- Form validation for user messages
 
 📱 Responsive Design
 Works on desktop, tablet, and mobile devices
