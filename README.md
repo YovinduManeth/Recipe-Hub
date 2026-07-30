@@ -82,18 +82,34 @@ The next phases of the project will include:
 
 ## Phase 2 – Frontend Layout & Design
 
-Newly added features for phase 2
+Features
+Home Page
+- Introduction to Recipe Hub
+- Featured recipes
+- Recipe categories
+Recipe Details
+- Recipe image
+- Description
+- Ingredients list
+- Step-by-step cooking instructions
+- Preparation and cooking time
+Favourite Recipes
+- Users can save favourite recipes
+- Favourite recipes are stored using browser Local Storage
+Recipe Sharing
+- Users can share recipes using the share button
+Dark Mode
+- Toggle between light and dark themes
+User Registration
+- Simple registration system
+- User information stored using Local Storage
+Contact Form
+- Form validation for user messages
+Responsive Design
+- Works on desktop, tablet, and mobile devices
 
 
-- Browse recipes by categories
-- View detailed recipe information
-- Display ingredients and cooking instructions
-- Recipe image gallery
-- Add recipes to favourites
-- User registration system
-- Contact form with validation
-- Dark mode option
-- Responsive design for different screen sizes
+
 
 ### Recipe Sharing Feature
 
