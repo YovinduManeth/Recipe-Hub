@@ -80,6 +80,8 @@ The next phases of the project will include:
 - Recipe Management
 - Testing and Deployment
 
+## Phase 2 – Frontend Layout & Design
+
 Newly added features for phase 2
 
 
