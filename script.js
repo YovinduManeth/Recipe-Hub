@@ -3880,3 +3880,58 @@ fadeElements.forEach(element=>{
     observer.observe(element);
 
 });
+
+// SHARE RECIPE FUNCTION
+
+const shareButton = document.getElementById("shareBtn");
+
+if(shareButton){
+
+    shareButton.addEventListener("click", function(){
+
+        const recipeName = document.getElementById("recipeTitle").textContent;
+
+        const recipeURL = window.location.href;
+
+
+        if(navigator.share){
+
+            navigator.share({
+
+                title: recipeName,
+
+                text: "Check out this delicious recipe from Recipe Hub ❤️",
+
+                url: recipeURL
+
+            })
+
+            .then(function(){
+
+                console.log("Recipe shared successfully");
+
+            })
+
+            .catch(function(error){
+
+                console.log("Share cancelled", error);
+
+            });
+
+
+        }
+
+        else{
+
+
+            navigator.clipboard.writeText(recipeURL);
+
+
+            alert("Recipe link copied!");
+
+        }
+
+
+    });
+
+}
