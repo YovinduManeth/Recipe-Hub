@@ -121,9 +121,8 @@ Features
 
 A recipe sharing feature was implemented to allow users to share their favourite recipes easily. When the user clicks the share button, the system generates a share option using the browser sharing functionality, allowing users to share recipe links with others.
 
-JavaScript Features Implemented
+## JavaScript Features Implemented
 
-:
 
 📖 Dynamic Recipe Details Loading
 
