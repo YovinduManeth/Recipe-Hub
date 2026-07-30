@@ -121,6 +121,43 @@ Features
 
 A recipe sharing feature was implemented to allow users to share their favourite recipes easily. When the user clicks the share button, the system generates a share option using the browser sharing functionality, allowing users to share recipe links with others.
 
+JavaScript Features Implemented
+
+:
+
+📖 Dynamic Recipe Details Loading
+
+- Recipe information is loaded dynamically based on the selected recipe.
+- Displays recipe name, image, description, ingredients, instructions, preparation time, cooking time, and servings.
+
+❤️ Favourite Recipe Management
+
+- Users can add recipes to their favourites.
+- Favourite recipes are stored using browser Local Storage and displayed on the Favourite page.
+
+🔗 Recipe Sharing Functionality
+
+- Users can share recipe details using the built-in share button.
+
+🌙 Dark Mode Toggle
+
+- Allows users to switch between light mode and dark mode.
+- User preference is saved using Local Storage.
+
+👤 User Registration and Profile Management
+
+- Handles user registration form validation.
+- Stores user information using Local Storage and displays profile details.
+
+📩 Contact Form Validation
+
+- Validates contact form fields before submission.
+- Provides success and error messages to improve user experience.
+
+✨ Scroll Fade-in Animation
+
+- Adds smooth animation effects when elements appear while scrolling
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
