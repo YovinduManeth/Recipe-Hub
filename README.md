@@ -85,9 +85,9 @@ The next phases of the project will include:
 Features
 
 🏠 Home Page
-Introduction to Recipe Hub
-Featured recipes
-Recipe categories
+- Introduction to Recipe Hub
+- Featured recipes
+- Recipe categories
 
 🔍 Recipe Search
 Search recipes by name
