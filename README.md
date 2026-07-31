@@ -166,6 +166,16 @@ A recipe sharing feature was implemented to allow users to share their favourite
 - Users can search recipes by typing keywords or partial names (e.g., typing "ch" suggests chocolate-related recipes).
 - Recipe suggestions dynamically display matching recipes and redirect users to the relevant recipe details page.
 - Recipe details, favourite recipes, and recipe sharing features are implemented using JavaScript.
+
+  ## Bootstrap 5 Components Used
+
+The project uses Bootstrap 5 components to create a responsive and user-friendly interface.
+
+- **Navbar** - Used to create a consistent navigation bar across web pages.
+- **Carousel** - Implemented on the home page to display food images in an interactive slider.
+- **Cards** - Used to display recipe categories, recipe lists, and favourite recipes in an organized layout.
+- **Modal** - Used in the Favourite section to display popup content and provide an interactive user experience.
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
