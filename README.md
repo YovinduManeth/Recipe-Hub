@@ -157,6 +157,15 @@ A recipe sharing feature was implemented to allow users to share their favourite
 
 - Adds smooth animation effects when elements appear while scrolling
 
+
+## Implemented Features
+
+- Recipe search functionality added to the Home page.
+- Search bar is available only on `Home.html` to provide a cleaner user interface.
+- Removed unnecessary search bars from other pages.
+- Users can search recipes by typing keywords or partial names (e.g., typing "ch" suggests chocolate-related recipes).
+- Recipe suggestions dynamically display matching recipes and redirect users to the relevant recipe details page.
+- Recipe details, favourite recipes, and recipe sharing features are implemented using JavaScript.
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
