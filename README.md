@@ -1,4 +1,4 @@
-# Recipe Hub
+ ## Recipe Hub
 
 ## Phase 1 – Project Proposal & Wireframes
 
@@ -6,9 +6,9 @@ Recipe Hub is a web application designed to help users discover, search, and sav
 
 This repository has been created for the **Web Application Development** module and currently contains the Phase 1 deliverables.
 
----
 
-## Project Information
+
+ Project Information
 
 **Project Title:** Recipe Hub – Sri Lankan Recipe Sharing Web Application
 
@@ -16,9 +16,9 @@ This repository has been created for the **Web Application Development** module 
 
 **Project Phase:** Phase 1 – Proposal & Wireframes
 
----
 
-## Objectives
+
+ ## Objectives
 
 - Create an easy-to-use recipe sharing platform.
 - Promote traditional Sri Lankan cuisine.
@@ -26,7 +26,6 @@ This repository has been created for the **Web Application Development** module 
 - Organize recipes into categories.
 - Enable users to save favourite recipes.
 
----
 
 ## Planned Features
 
@@ -37,7 +36,7 @@ This repository has been created for the **Web Application Development** module 
 - Favourite Recipes
 - Share Recipes
 
----
+
 
 ## Technology Stack
 
@@ -49,7 +48,6 @@ This repository has been created for the **Web Application Development** module 
 - Git & GitHub
 - Figma
 
----
 
 ## Wireframes
 
@@ -59,7 +57,7 @@ The following wireframes have been designed using Figma:
 - Home Page
 - Recipe Details Page
 
----
+
 
 ## Current Status
 
@@ -69,7 +67,7 @@ The following wireframes have been designed using Figma:
 - Wireframes
 - GitHub Repository Setup
 
----
+
 
 ## Future Development
 
@@ -82,13 +80,88 @@ The next phases of the project will include:
 - Recipe Management
 - Testing and Deployment
 
----
+## Phase 2 – Frontend Layout & Design
 
-## Authors
+Features
 
-**M.A.Y. Maneth**
+🏠 Home Page
+- Introduction to Recipe Hub
+- Featured recipes
+- Recipe categories
 
-**W.M.D.R. Dayarathna**
+🍛 Recipe Details
+- Recipe image
+- Description
+- Ingredients list
+- Step-by-step cooking instructions
+- Preparation and cooking time
+
+❤️ Favourite Recipes
+- Users can save favourite recipes
+- Favourite recipes are stored using browser Local Storage
+
+🔗 Recipe Sharing
+- Users can share recipes using the share button
+
+🌙 Dark Mode
+- Toggle between light and dark themes
+
+👤 User Registration
+- Simple registration system
+- User information stored using Local Storage
+
+📩 Contact Form
+- Form validation for user messages
+
+📱 Responsive Design
+- Works on desktop, tablet, and mobile devices
+
+
+### Recipe Sharing Feature
+
+A recipe sharing feature was implemented to allow users to share their favourite recipes easily. When the user clicks the share button, the system generates a share option using the browser sharing functionality, allowing users to share recipe links with others.
+
+## JavaScript Features Implemented
+
+
+📖 Dynamic Recipe Details Loading
+
+- Recipe information is loaded dynamically based on the selected recipe.
+- Displays recipe name, image, description, ingredients, instructions, preparation time, cooking time, and servings.
+
+❤️ Favourite Recipe Management
+
+- Users can add recipes to their favourites.
+- Favourite recipes are stored using browser Local Storage and displayed on the Favourite page.
+
+🔗 Recipe Sharing Functionality
+
+- Users can share recipe details using the built-in share button.
+
+🌙 Dark Mode Toggle
+
+- Allows users to switch between light mode and dark mode.
+- User preference is saved using Local Storage.
+
+👤 User Registration and Profile Management
+
+- Handles user registration form validation.
+- Stores user information using Local Storage and displays profile details.
+
+📩 Contact Form Validation
+
+- Validates contact form fields before submission.
+- Provides success and error messages to improve user experience.
+
+✨ Scroll Fade-in Animation
+
+- Adds smooth animation effects when elements appear while scrolling
+
+## Developers
+
+**M.A.Y. Maneth - ITT/2024/066**
+
+**W.M.D.R. Dayarathna - ITT/2024/028**
 
 ICT Undergraduates
 
