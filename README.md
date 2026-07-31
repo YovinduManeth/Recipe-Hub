@@ -176,6 +176,8 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 - **Cards** - Used to display recipe categories, recipe lists, and favourite recipes in an organized layout.
 - **Modal** - Used in the Favourite section to display popup content and provide an interactive user experience.
 
+
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
