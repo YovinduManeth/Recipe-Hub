@@ -167,7 +167,7 @@ A recipe sharing feature was implemented to allow users to share their favourite
 - Recipe suggestions dynamically display matching recipes and redirect users to the relevant recipe details page.
 - Recipe details, favourite recipes, and recipe sharing features are implemented using JavaScript.
 
-  ## Bootstrap 5 Components Used
+## Bootstrap 5 Components Used
 
 The project uses Bootstrap 5 components to create a responsive and user-friendly interface.
 
