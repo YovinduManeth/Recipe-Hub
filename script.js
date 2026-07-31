@@ -3880,3 +3880,148 @@ fadeElements.forEach(element=>{
     observer.observe(element);
 
 });
+
+// SHARE RECIPE FUNCTION
+
+const shareButton = document.getElementById("shareRecipeBtn");
+
+
+if(shareButton){
+
+    shareButton.addEventListener("click", function(){
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const recipeId = urlParams.get("recipe");
+
+        const recipe = recipeData[recipeId];
+
+
+        if(recipe){
+
+
+            const shareData = {
+
+                title: recipe.title,
+
+                text: recipe.description,
+
+                url: window.location.href
+
+            };
+
+
+            // Mobile and supported browsers
+
+            if(navigator.share){
+
+
+                navigator.share(shareData)
+
+                .then(()=>{
+
+                    console.log("Recipe shared successfully");
+
+                })
+
+                .catch((error)=>{
+
+                    console.log("Sharing cancelled");
+
+                });
+
+
+            }
+
+
+            // For browsers without share support
+
+            else{
+
+
+                navigator.clipboard.writeText(window.location.href);
+
+
+                alert("Recipe link copied! Share it with others ❤️");
+
+
+            }
+
+
+        }
+
+
+    });
+
+
+}
+
+// ===========================
+// RECIPE SEARCH SUGGESTIONS
+// ===========================
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const searchInput = document.getElementById("searchInput");
+    const searchSuggestions = document.getElementById("searchSuggestions");
+
+
+    if(searchInput && searchSuggestions){
+
+
+        searchInput.addEventListener("input", function(){
+
+
+            const value = searchInput.value.toLowerCase().trim();
+
+
+            searchSuggestions.innerHTML = "";
+
+
+            if(value === ""){
+                return;
+            }
+
+
+            Object.keys(recipeData).forEach(function(recipeId){
+
+
+                const recipe = recipeData[recipeId];
+
+
+                if(recipe.title.toLowerCase().includes(value)){
+
+
+                    const suggestion = document.createElement("div");
+
+
+                    suggestion.classList.add("suggestion-item");
+
+
+                    suggestion.textContent = recipe.title;
+
+
+                    suggestion.onclick = function(){
+
+                        window.location.href =
+                        "recipe-details.html?recipe=" + recipeId;
+
+                    };
+
+
+                    searchSuggestions.appendChild(suggestion);
+
+
+                }
+
+
+            });
+
+
+        });
+
+
+    }
+
+
+});
