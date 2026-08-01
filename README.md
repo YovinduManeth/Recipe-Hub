@@ -187,6 +187,14 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 - Created recipe categories and recipe details pages
 - Added dynamic recipe loading using JavaScript
 - Implemented recipe search with autocomplete suggestions
+- Added Add to Favourites functionality using Local Storage
+- Implemented recipe sharing feature
+- Added dark mode functionality
+- Added contact form validation
+- Implemented user registration using Local Storage
+- Added scroll fade-in animations
+- Updated README documentation
+- Pushed all Phase 2 work to GitHub with meaningful commit messages
 
 
 
