@@ -82,7 +82,7 @@ The next phases of the project will include:
 
 ## Phase 2 – Frontend Layout & Design
 
-Features
+## Features
 
 🏠 Home Page
 - Introduction to Recipe Hub
