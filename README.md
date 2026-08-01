@@ -178,6 +178,18 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 
 
 
+## Current Status
+
+✅ Phase 2 Completed
+
+- Developed responsive web pages using HTML5, CSS3, and Bootstrap 5
+- Implemented Bootstrap components (Navbar, Carousel, Cards, Modal)
+- Created recipe categories and recipe details pages
+- Added dynamic recipe loading using JavaScript
+- Implemented recipe search with autocomplete suggestions
+
+
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
