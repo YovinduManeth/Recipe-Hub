@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2026 at 03:17 PM
+-- Generation Time: Aug 03, 2026 at 05:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,15 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `recipes`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `recipes` (
   `id` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(225) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `title` varchar(255) NOT NULL,
+  `ingredients` text NOT NULL,
+  `instructions` text NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -40,9 +40,9 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `users`
+-- Indexes for table `recipes`
 --
-ALTER TABLE `users`
+ALTER TABLE `recipes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -50,9 +50,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `recipes`
 --
-ALTER TABLE `users`
+ALTER TABLE `recipes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
