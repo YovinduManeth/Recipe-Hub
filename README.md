@@ -214,7 +214,7 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 ✅ Secure password hashing  
 ✅ Form validation  
 ✅ Error handling messages  
-✅ Responsive registration interface
+
 
 ## Developers
 
