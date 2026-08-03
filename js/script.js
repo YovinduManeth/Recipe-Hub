@@ -1,0 +1,982 @@
+// LOGIN FORM 
+
+console.log("JavaScript connected");
+
+
+const loginForm = document.getElementById("loginForm");
+
+
+if(loginForm){
+
+    loginForm.addEventListener("submit", function(event){
+
+        event.preventDefault();
+
+
+        let username = document.getElementById("username").value.trim();
+
+        let enteredPassword = document.getElementById("password").value.trim();
+
+        const savedUser = JSON.parse(
+        localStorage.getItem("recipeHubUser")
+        );
+        
+
+
+
+        // Demo login credentials
+        const correctUsername = "user@gmail.com";
+        const correctPassword = "12345";
+
+
+
+        if(username === "" || enteredPassword === ""){
+
+
+    alert("Please fill all fields");
+
+
+}
+    
+    
+
+
+else if(savedUser && 
+(username === savedUser.email || username === savedUser.username)
+&& enteredPassword === savedUser.password){
+
+
+    alert("Login successful!");
+
+
+    window.location.href = "home.html";
+
+
+}
+
+
+else{
+
+    alert("Invalid username/email or password");
+
+}
+
+    });
+
+}
+    
+
+
+
+
+const togglePassword = document.getElementById("togglePassword");
+
+const password = document.getElementById("password");
+
+
+if(togglePassword && password){
+
+
+    togglePassword.addEventListener("click", function(){
+
+
+        if(password.type === "password"){
+
+
+            password.type = "text";
+
+
+            togglePassword.classList.remove("fa-eye");
+
+            togglePassword.classList.add("fa-eye-slash");
+
+
+        }
+
+        else{
+
+
+            password.type = "password";
+
+
+            togglePassword.classList.remove("fa-eye-slash");
+
+            togglePassword.classList.add("fa-eye");
+
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+
+// POPULAR SEARCHES 
+
+
+const popularSearches = document.querySelectorAll(".popular-search");
+
+const modalSearchInput = document.getElementById("modalSearchInput");
+
+
+if(modalSearchInput){
+
+
+    popularSearches.forEach(function(item){
+
+
+        item.addEventListener("click", function(){
+
+
+            modalSearchInput.value = item.textContent.trim();
+
+
+        });
+
+
+    });
+
+
+}
+
+
+// RECIPE SEARCH 
+
+
+const searchInput = document.getElementById("recipeSearch");
+
+console.log(searchInput);
+
+if(searchInput){
+
+
+    searchInput.addEventListener("input", function(){
+
+
+        let searchValue = this.value.toLowerCase();
+
+
+        const recipeCards = document.querySelectorAll(".recipe-card");
+
+
+        recipeCards.forEach(function(card){
+
+
+            const recipeName = card
+            .querySelector(".recipe-name")
+            .textContent
+            .toLowerCase();
+
+
+
+            if(recipeName.includes(searchValue)){
+
+
+                card.style.display = "";
+
+
+            }
+
+            else{
+
+
+                card.style.display = "none";
+
+
+            }
+
+
+        });
+
+
+    });
+
+
+}
+
+// LOAD RECIPE DETAILS 
+
+
+const recipeTitle = document.getElementById("recipeTitle");
+const recipeImage = document.getElementById("recipeImage");
+const recipeDescription = document.getElementById("recipeDescription");
+const recipeIngredients = document.getElementById("recipeIngredients");
+const recipeInstructions = document.getElementById("recipeInstructions");
+const recipeCategory = document.getElementById("recipeCategory");
+const recipeBreadcrumb = document.getElementById("recipeBreadcrumb");
+
+
+if(recipeTitle){
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const selectedRecipe = urlParams.get("recipe") ;
+
+    if (!recipeData[selectedRecipe]) {
+    window.location.href = "recipes.html";
+} else {
+
+    const recipe = recipeData[selectedRecipe];
+
+    recipeTitle.textContent = recipe.title;
+    recipeImage.src = recipe.image;
+    recipeImage.alt = recipe.title;
+
+    recipeDescription.textContent = recipe.description;
+
+    document.getElementById("recipeTime").textContent = recipe.totalTime;
+    document.getElementById("recipeServings").textContent = recipe.servings;
+
+    recipeCategory.textContent = recipe.category;
+    recipeBreadcrumb.textContent = recipe.title;
+
+    document.getElementById("prepTime").textContent = recipe.prepTime;
+    document.getElementById("cookTime").textContent = recipe.cookTime;
+    document.getElementById("totalTime").textContent = recipe.totalTime;
+
+    recipeIngredients.innerHTML = "";
+    recipe.ingredients.forEach(function(item){
+        recipeIngredients.innerHTML += `<li>${item}</li>`;
+    });
+
+    recipeInstructions.innerHTML = "";
+    recipe.instructions.forEach(function(step){
+        recipeInstructions.innerHTML += `<li>${step}</li>`;
+    });
+
+}
+
+
+
+    const recipe = recipeData[selectedRecipe];
+
+
+    if(recipe){
+
+
+        recipeTitle.textContent = recipe.title;
+
+
+        recipeImage.src = recipe.image;
+
+        recipeImage.alt = recipe.title;
+
+
+        recipeDescription.textContent = recipe.description;
+
+        document.getElementById("recipeTime").textContent = recipe.totalTime;
+
+        document.getElementById("recipeServings").textContent = recipe.servings;
+
+
+        recipeCategory.textContent = recipe.category;
+
+
+        recipeBreadcrumb.textContent = recipe.title;
+
+        document.getElementById("prepTime").textContent = recipe.prepTime;
+
+        document.getElementById("cookTime").textContent = recipe.cookTime;
+
+        document.getElementById("totalTime").textContent = recipe.totalTime;
+
+
+
+        recipeIngredients.innerHTML = "";
+
+
+        recipe.ingredients.forEach(function(item){
+
+            recipeIngredients.innerHTML += 
+            `<li>${item}</li>`;
+
+        });
+
+
+
+        recipeInstructions.innerHTML = "";
+
+
+        recipe.instructions.forEach(function(step){
+
+            recipeInstructions.innerHTML +=
+            `<li>${step}</li>`;
+
+        });
+
+
+    }
+
+}
+
+
+// ADD / REMOVE FAVOURITES
+
+
+const favouriteButton = document.getElementById("addFavouriteBtn");
+
+
+if(favouriteButton){
+
+
+    const selectedRecipe = new URLSearchParams(window.location.search)
+    .get("recipe");
+
+
+    let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+
+
+
+    function updateFavouriteButton(){
+
+
+        if(favourites.includes(selectedRecipe)){
+
+
+            favouriteButton.textContent = "💔 Remove Favourite";
+
+
+        }
+
+        else{
+
+
+            favouriteButton.textContent = "❤️ Add Favourite";
+
+
+        }
+
+
+    }
+
+
+
+    updateFavouriteButton();
+
+
+
+    favouriteButton.addEventListener("click", function(){
+
+
+
+        if(favourites.includes(selectedRecipe)){
+
+
+            favourites = favourites.filter(function(item){
+
+
+                return item !== selectedRecipe;
+
+
+            });
+
+
+            alert("Recipe removed from favourites 💔");
+
+
+        }
+
+
+        else{
+
+
+            favourites.push(selectedRecipe);
+
+
+            alert("Recipe added to favourites ❤️");
+
+
+        }
+
+
+
+        localStorage.setItem(
+            "favourites",
+            JSON.stringify(favourites)
+        );
+
+
+
+        updateFavouriteButton();
+
+
+
+    });
+
+
+}
+
+// DISPLAY FAVOURITES 
+
+
+const favouriteList = document.getElementById("favouriteList");
+
+
+if(favouriteList){
+
+
+    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+
+
+    if(favourites.length === 0){
+
+
+        favouriteList.innerHTML =
+        `
+        <p>No favourite recipes added yet ❤️</p>
+        `;
+
+
+    }
+
+    else{
+
+
+        favourites.forEach(function(recipeId){
+
+
+            const recipe = recipeData[recipeId];
+
+
+            if(recipe){
+
+
+                favouriteList.innerHTML +=
+                `
+
+                <div class="col">
+
+
+                    <div class="card h-100">
+
+
+                        <img src="${recipe.image}"
+                        class="card-img-top">
+
+
+                        <div class="card-body">
+
+
+                            <h5 class="card-title">
+                            ${recipe.title}
+                            </h5>
+
+
+                            <p class="card-text">
+                            ${recipe.description}
+                            </p>
+
+
+                            <a href="recipe-details.html?recipe=${recipeId}"
+                                class="btn btn-warning">
+
+                                    View Recipe
+
+                            </a>
+
+
+                                <button onclick="removeFavourite('${recipeId}')"
+                                    class="btn btn-danger">
+
+                                    Remove
+
+                                </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                `;
+
+
+            }
+
+
+        });
+
+
+    }
+
+
+}
+
+function removeFavourite(recipeId){
+
+
+    let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+
+
+    favourites = favourites.filter(function(item){
+
+        return item !== recipeId;
+
+    });
+
+
+    localStorage.setItem(
+        "favourites",
+        JSON.stringify(favourites)
+    );
+
+
+    alert("Removed from favourites 💔");
+
+
+    location.reload();
+
+
+}
+
+// CONTACT FORM VALIDATION 
+
+document.addEventListener("DOMContentLoaded", function(){
+
+
+    const contactForm = document.getElementById("contactForm");
+
+
+    if(contactForm){
+
+
+        contactForm.addEventListener("submit", function(event){
+
+
+            event.preventDefault();
+
+
+            const name = document.getElementById("contactName").value.trim();
+
+            const email = document.getElementById("contactEmail").value.trim();
+
+            const subject = document.getElementById("contactSubject").value.trim();
+
+            const message = document.getElementById("contactMessage").value.trim();
+
+
+
+            if(name === "" || email === "" || subject === "" || message === ""){
+
+
+                alert("Please fill all fields");
+
+
+            }
+
+            else{
+
+
+                alert("Message sent successfully ❤️");
+
+
+                contactForm.reset();
+
+
+            }
+
+
+        });
+
+
+    }
+
+
+});
+
+
+
+
+// DARK MODE 
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+
+    const modeButton = document.querySelector(".mode-icon");
+
+
+    if(!modeButton) return;
+
+
+
+    // Load saved mode
+
+    if(localStorage.getItem("darkMode") === "enabled"){
+
+
+        document.body.classList.add("dark-mode");
+
+
+        modeButton.classList.remove("fa-moon");
+
+        modeButton.classList.add("fa-sun");
+
+
+    }
+
+
+
+    modeButton.addEventListener("click", function(){
+
+
+
+        document.body.classList.toggle("dark-mode");
+
+
+
+        if(document.body.classList.contains("dark-mode")){
+
+
+            localStorage.setItem(
+                "darkMode",
+                "enabled"
+            );
+
+
+            modeButton.classList.remove("fa-moon");
+
+            modeButton.classList.add("fa-sun");
+
+
+        }
+
+        else{
+
+
+            localStorage.removeItem("darkMode");
+
+
+            modeButton.classList.remove("fa-sun");
+
+            modeButton.classList.add("fa-moon");
+
+
+        }
+
+
+
+    });
+
+
+
+});
+
+
+
+/// REGISTER SYSTEM 
+
+const registerForm = document.getElementById("registerForm");
+
+
+if(registerForm){
+
+
+    registerForm.addEventListener("submit", function(event){
+
+
+        event.preventDefault();
+
+
+        const email = document.getElementById("registerEmail").value.trim();
+
+        const username = document.getElementById("registerUsername").value.trim();
+
+        const password = document.getElementById("registerPassword").value.trim();
+
+        const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+        const terms = document.getElementById("termsCheck").checked;
+
+
+
+        if(email === "" || username === "" || password === "" || confirmPassword === ""){
+
+            alert("Please fill all fields");
+            return;
+
+        }
+
+
+
+        if(password !== confirmPassword){
+
+            alert("Passwords do not match");
+            return;
+
+        }
+
+
+
+        if(!terms){
+
+            alert("Please accept Terms and Conditions");
+            return;
+
+        }
+
+
+
+        const user = {
+
+            email: email,
+            username: username,
+            password: password
+
+        };
+
+
+
+        localStorage.setItem(
+            "recipeHubUser",
+            JSON.stringify(user)
+        );
+
+
+
+        alert("Account created successfully!");
+
+
+
+        window.location.href = "home.html";
+
+
+    });
+
+
+}
+
+// USER DROPDOWN 
+
+
+const dropdownUsername = document.getElementById("dropdownUsername");
+
+const dropdownEmail = document.getElementById("dropdownEmail");
+
+
+const savedUser = JSON.parse(
+    localStorage.getItem("recipeHubUser")
+);
+
+
+
+if(savedUser){
+
+
+    if(dropdownUsername){
+
+        dropdownUsername.textContent =
+        savedUser.username;
+
+    }
+
+
+    if(dropdownEmail){
+
+        dropdownEmail.textContent =
+        savedUser.email;
+
+    }
+
+
+}
+
+function logout(){
+
+    localStorage.removeItem("recipeHubUser");
+
+    alert("Logged out successfully!");
+
+    window.location.href="login.html";
+
+}
+
+
+// SCROLL FADE-IN ANIMATION
+
+
+const fadeElements = document.querySelectorAll(".fade-in");
+
+
+const observer = new IntersectionObserver((entries)=>{
+
+
+    entries.forEach(entry=>{
+
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+
+    });
+
+
+},
+{
+    threshold:0.2
+});
+
+
+
+fadeElements.forEach(element=>{
+
+    observer.observe(element);
+
+});
+
+// SHARE RECIPE FUNCTION
+
+const shareButton = document.getElementById("shareRecipeBtn");
+
+
+if(shareButton){
+
+    shareButton.addEventListener("click", function(){
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const recipeId = urlParams.get("recipe");
+
+        const recipe = recipeData[recipeId];
+
+
+        if(recipe){
+
+
+            const shareData = {
+
+                title: recipe.title,
+
+                text: recipe.description,
+
+                url: window.location.href
+
+            };
+
+
+            // Mobile and supported browsers
+
+            if(navigator.share){
+
+
+                navigator.share(shareData)
+
+                .then(()=>{
+
+                    console.log("Recipe shared successfully");
+
+                })
+
+                .catch((error)=>{
+
+                    console.log("Sharing cancelled");
+
+                });
+
+
+            }
+
+
+            // For browsers without share support
+
+            else{
+
+
+                navigator.clipboard.writeText(window.location.href);
+
+
+                alert("Recipe link copied! Share it with others ❤️");
+
+
+            }
+
+
+        }
+
+
+    });
+
+
+}
+
+// ===========================
+// RECIPE SEARCH SUGGESTIONS
+// ===========================
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const searchInput = document.getElementById("searchInput");
+    const searchSuggestions = document.getElementById("searchSuggestions");
+
+
+    if(searchInput && searchSuggestions){
+
+
+        searchInput.addEventListener("input", function(){
+
+
+            const value = searchInput.value.toLowerCase().trim();
+
+
+            searchSuggestions.innerHTML = "";
+
+
+            if(value === ""){
+                return;
+            }
+
+
+            Object.keys(recipeData).forEach(function(recipeId){
+
+
+                const recipe = recipeData[recipeId];
+
+
+                if(recipe.title.toLowerCase().includes(value)){
+
+
+                    const suggestion = document.createElement("div");
+
+
+                    suggestion.classList.add("suggestion-item");
+
+
+                    suggestion.textContent = recipe.title;
+
+
+                    suggestion.onclick = function(){
+
+                        window.location.href =
+                        "recipe-details.html?recipe=" + recipeId;
+
+                    };
+
+
+                    searchSuggestions.appendChild(suggestion);
+
+
+                }
+
+
+            });
+
+
+        });
+
+
+    }
+
+
+});

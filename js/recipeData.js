@@ -1,209 +1,3 @@
-// LOGIN FORM 
-
-console.log("JavaScript connected");
-
-
-const loginForm = document.getElementById("loginForm");
-
-
-if(loginForm){
-
-    loginForm.addEventListener("submit", function(event){
-
-        event.preventDefault();
-
-
-        let username = document.getElementById("username").value.trim();
-
-        let enteredPassword = document.getElementById("password").value.trim();
-
-        const savedUser = JSON.parse(
-        localStorage.getItem("recipeHubUser")
-        );
-        
-
-
-
-        // Demo login credentials
-        const correctUsername = "user@gmail.com";
-        const correctPassword = "12345";
-
-
-
-        if(username === "" || enteredPassword === ""){
-
-
-    alert("Please fill all fields");
-
-
-}
-    
-    
-
-
-else if(savedUser && 
-(username === savedUser.email || username === savedUser.username)
-&& enteredPassword === savedUser.password){
-
-
-    alert("Login successful!");
-
-
-    window.location.href = "home.html";
-
-
-}
-
-
-else{
-
-    alert("Invalid username/email or password");
-
-}
-
-    });
-
-}
-    
-
-
-
-
-const togglePassword = document.getElementById("togglePassword");
-
-const password = document.getElementById("password");
-
-
-if(togglePassword && password){
-
-
-    togglePassword.addEventListener("click", function(){
-
-
-        if(password.type === "password"){
-
-
-            password.type = "text";
-
-
-            togglePassword.classList.remove("fa-eye");
-
-            togglePassword.classList.add("fa-eye-slash");
-
-
-        }
-
-        else{
-
-
-            password.type = "password";
-
-
-            togglePassword.classList.remove("fa-eye-slash");
-
-            togglePassword.classList.add("fa-eye");
-
-
-        }
-
-
-    });
-
-
-}
-
-
-
-
-
-// POPULAR SEARCHES 
-
-
-const popularSearches = document.querySelectorAll(".popular-search");
-
-const modalSearchInput = document.getElementById("modalSearchInput");
-
-
-if(modalSearchInput){
-
-
-    popularSearches.forEach(function(item){
-
-
-        item.addEventListener("click", function(){
-
-
-            modalSearchInput.value = item.textContent.trim();
-
-
-        });
-
-
-    });
-
-
-}
-
-
-// RECIPE SEARCH 
-
-
-const searchInput = document.getElementById("recipeSearch");
-
-console.log(searchInput);
-
-if(searchInput){
-
-
-    searchInput.addEventListener("input", function(){
-
-
-        let searchValue = this.value.toLowerCase();
-
-
-        const recipeCards = document.querySelectorAll(".recipe-card");
-
-
-        recipeCards.forEach(function(card){
-
-
-            const recipeName = card
-            .querySelector(".recipe-name")
-            .textContent
-            .toLowerCase();
-
-
-
-            if(recipeName.includes(searchValue)){
-
-
-                card.style.display = "";
-
-
-            }
-
-            else{
-
-
-                card.style.display = "none";
-
-
-            }
-
-
-        });
-
-
-    });
-
-
-}
-
-
-
-
-// DYNAMIC RECIPE DETAILS 
-
 const recipeData = {
 
 
@@ -213,7 +7,7 @@ const recipeData = {
 
     title: "Sri Lankan Chicken Kottu",
 
-    image: "Koththu.webp",
+    image: "Images/Recipes/Koththu.webp",
 
     prepTime: "15 mins",
 
@@ -265,7 +59,7 @@ const recipeData = {
 
     title: "Sri Lankan Hoppers",
 
-    image: "Hoppers.jpg",
+    image: "Images/Recipes/Hoppers.jpg",
 
     description:
     "Sri Lankan Hoppers are a traditional bowl-shaped pancake made with fermented rice flour batter and coconut milk. They are crispy around the edges with a soft, fluffy center and are commonly enjoyed as a breakfast or dinner dish. Hoppers are usually served with coconut sambol, spicy curries, or a fried egg placed in the middle, making them one of the most loved foods in Sri Lankan cuisine.",
@@ -308,7 +102,7 @@ const recipeData = {
 
     title: "Sri Lankan String Hoppers",
 
-    image: "String_hoppers.jpg",
+    image: "Images/Recipes/String_hoppers.jpg",
 
     description:
     "Sri Lankan String Hoppers are a traditional steamed food made from rice flour dough pressed into thin noodle-like strands. They are soft, light, and commonly enjoyed as a breakfast or dinner meal in Sri Lankan households. String hoppers are usually served with coconut sambol, dhal curry, or different types of spicy curries, making them a popular and healthy traditional dish.",
@@ -350,7 +144,7 @@ const recipeData = {
 
     title: "Fish Ambul Thiyal",
 
-    image: "Malu.jpg",
+    image: "Images/Recipes/Malu.jpg",
 
     description:
     "Fish Ambul Thiyal is a famous traditional Sri Lankan dry fish curry known for its unique sour and spicy flavour. This dish is prepared by cooking fish pieces with goraka, black pepper, and aromatic spices until the flavours are deeply absorbed. Originally popular in the southern coastal areas of Sri Lanka, Ambul Thiyal is usually served with steamed rice and is loved for its rich taste and long shelf life.",
@@ -394,7 +188,7 @@ const recipeData = {
 
     title: "Sri Lankan Dhal Curry",
 
-    image: "Dhal.jpg",
+    image: "Images/Recipes/Dhal.jpg",
 
     description:
     "Sri Lankan Dhal Curry is a popular traditional dish made with red lentils, creamy coconut milk, and aromatic spices. It is a simple yet flavorful curry that is enjoyed in many Sri Lankan households. With its rich texture and mild spicy taste, dhal curry is commonly served with steamed rice, roti, string hoppers, or other traditional meals.",
@@ -440,7 +234,7 @@ const recipeData = {
 
     title: "Watalappam",
 
-    image: "Watalappam.jpg",
+    image: "Images/Recipes/Watalappam.jpg",
 
     description:
     "Watalappam is a traditional Sri Lankan coconut custard dessert with a rich and creamy texture. It is made using coconut milk, jaggery, eggs, and aromatic spices such as cardamom. This popular dessert has strong cultural connections with Sri Lankan Muslim cuisine and is commonly served during special occasions, celebrations, and festivals. Its sweet caramel flavour and smooth texture make it one of the most loved Sri Lankan desserts.",
@@ -483,7 +277,7 @@ vegetablebiriyani: {
 
     title: "Vegetable Biriyani",
 
-    image: "Vegetable_Biriyani.jpg",
+    image: "Images/Recipes/Vegetable_Biriyani.jpg",
 
 
     description:
@@ -557,7 +351,7 @@ category: "Rice Dishes",
 
 title: "Chicken Fried Rice",
 
-image: "Chicken_Fried_Rice.jpg",
+image: "Images/Recipes/Chicken_Fried_Rice.jpg",
 
 description:
 "Chicken Fried Rice is a popular and delicious dish made by combining cooked rice with tender chicken pieces, vegetables, eggs, and flavorful sauces. The rice is stir-fried with aromatic ingredients such as garlic, ginger, and spices to create a restaurant-style meal. This dish is loved for its rich taste, simple preparation, and ability to be enjoyed as a complete meal.",
@@ -599,7 +393,7 @@ category:"Rice Dishes",
 
 title:"Paneer Rice",
 
-image:"Paneer_Rice.jpg",
+image:"Images/Recipes/Paneer_Rice.jpg",
 
 description:
 "Paneer Rice is a delicious vegetarian rice dish prepared with soft paneer cubes, basmati rice, vegetables, butter, and aromatic spices. The combination of creamy paneer and flavorful rice creates a rich and satisfying meal. This dish is a great choice for vegetarians and can be served for lunch, dinner, or special gatherings.",
@@ -646,7 +440,7 @@ category:"Rice Dishes",
 
 title:"Prawns Masala Rice",
 
-image:"Prawns_Masala_Rice.jpg",
+image:"Images/Recipes/Prawns_Masala_Rice.jpg",
 
 description:
 "Prawns Masala Rice is a flavorful seafood rice dish prepared with juicy prawns, basmati rice, and a blend of traditional spices. The prawns are cooked with a rich masala mixture before being combined with aromatic rice to create a delicious combination of seafood and spicy flavours. This dish is ideal for seafood lovers who enjoy a special and satisfying rice meal.",
@@ -690,7 +484,7 @@ category:"Rice Dishes",
 
 title:"Exposed Rice (Dunthel Bath)",
 
-image:"Dunthel_Bath.jpg",
+image:"Images/Recipes/Dunthel_Bath.jpg",
 
 description:
 "Exposed Bath, also known as Dunthel Bath, is a traditional Sri Lankan royal rice dish prepared with fragrant rice, coconut milk, ghee, cashews, raisins, and aromatic spices. This special rice dish has a rich aroma and unique flavour that makes it popular during celebrations, festivals, and important occasions. The combination of sweet and savoury flavours gives Dunthel Bath its unique traditional taste.",
@@ -731,7 +525,7 @@ potatocurry: {
 
     title: "Sri Lankan Potato Curry",
 
-    image: "Potato_Curry.jpg",
+    image: "Images/Recipes/Potato_Curry.jpg",
 
     description:
      "Sri Lankan Potato Curry is a comforting traditional dish prepared with soft potato pieces cooked in a rich coconut milk gravy with aromatic spices. The combination of curry leaves, onions, green chilli, and Sri Lankan spices creates a delicious flavour that perfectly matches with steamed rice, string hoppers, or roti. This simple yet tasty curry is a popular choice in everyday Sri Lankan rice and curry meals.",
@@ -775,7 +569,7 @@ dhal: {
 
     title: "Sri Lankan Dhal Curry",
 
-    image: "Dhal.jpg",
+    image: "Images/Recipes/Dhal.jpg",
 
     description:
     "Sri Lankan Dhal Curry is a popular traditional curry prepared with red lentils, coconut milk, and aromatic spices. This creamy and comforting dish is a must-have in Sri Lankan rice and curry meals. It is loved for its rich flavour, smooth texture, and ability to perfectly complement rice, roti, string hoppers, and other Sri Lankan foods.",
@@ -825,7 +619,7 @@ brinjalcurry: {
 
     title: "Sri Lankan Brinjal Curry",
 
-    image: "Brinjal_Curry.jpg",
+    image: "Images/Recipes/Brinjal_Curry.jpg",
 
     description:
     "Sri Lankan Brinjal Curry is a flavourful traditional curry made with fried or roasted eggplant pieces cooked with coconut milk, onions, curry leaves, and a special blend of spices. The soft texture of brinjal combined with the rich and spicy gravy creates a unique taste loved by many Sri Lankan families. It is commonly served with rice and other side dishes as part of a traditional meal.",
@@ -869,7 +663,7 @@ pumpkincurry: {
 
     title: "Sri Lankan Pumpkin Curry",
 
-    image: "Pumpkin_Curry.webp",
+    image: "Images/Recipes/Pumpkin_Curry.webp",
 
     description:
     "A traditional Sri Lankan pumpkin curry prepared with sweet pumpkin pieces, coconut milk, and mild spices. This creamy curry has a unique sweet and spicy flavour and is commonly enjoyed with rice and other traditional dishes.",
@@ -911,7 +705,7 @@ jackfruitcurry: {
 
     title: "Sri Lankan Jackfruit Curry",
 
-    image: "Jackfruit_Curry.jpg",
+    image: "Images/Recipes/Jackfruit_Curry.jpg",
 
     description:
     "Sri Lankan Jackfruit Curry, also known as Polos Curry when made with young jackfruit, is a traditional dish cooked with coconut milk and a rich blend of spices. This flavorful curry has a meat-like texture and is a popular choice in Sri Lankan vegetarian cuisine.",
@@ -954,7 +748,7 @@ jackfruitcurry: {
 
     title: "Spicy Tuna Fish Curry",
 
-    image: "Tuna_Fish_Curry.avif",
+    image: "Images/Recipes/Tuna_Fish_Curry.avif",
 
 
     description:
@@ -1019,7 +813,7 @@ sailfishcurry: {
 
     title: "Sri Lankan Sailfish Curry",
 
-    image: "Sailfish_Curry.jpg",
+    image: "Images/Recipes/Sailfish_Curry.jpg",
 
 
     description:
@@ -1078,7 +872,7 @@ chickencurry: {
 
     title: "Sri Lankan Chicken Curry",
 
-    image: "Chicken_Curry.jpg",
+    image: "Images/Recipes/Chicken_Curry.jpg",
 
 
     description:
@@ -1139,7 +933,7 @@ beefcurry: {
 
     title: "Sri Lankan Beef Curry",
 
-    image: "Beef_Curry.jpg",
+    image: "Images/Recipes/Beef_Curry.jpg",
 
 
     description:
@@ -1200,7 +994,7 @@ buttercake: {
 
     title: "Sri Lankan Butter Cake",
 
-    image: "Butter_Cake.jpg",
+    image: "Images/Recipes/Butter_Cake.jpg",
 
 
     description:
@@ -1269,7 +1063,7 @@ chocolatecake: {
 
     title: "Sri Lankan Chocolate Cake",
 
-    image: "Chocolate_Cake.jpg",
+    image: "Images/Recipes/Chocolate_Cake.jpg",
 
 
     description:
@@ -1373,7 +1167,7 @@ ribboncake: {
 
     title: "Sri Lankan Ribbon Cake",
 
-    image: "Ribbon_Cake.jpg",
+    image: "Images/Recipes/Ribbon_Cake.jpg",
 
 
     description:
@@ -1454,7 +1248,7 @@ coconutcake: {
 
     title: "Sri Lankan Coconut Cake (Bibikkan)",
 
-    image: "Coconut_Cake.jpg",
+    image: "Images/Recipes/Coconut_Cake.jpg",
 
 
     description:
@@ -1543,7 +1337,7 @@ coffeecake: {
 
     title: "Sri Lankan Coffee Cake",
 
-    image: "Coffee_Cake.jpg",
+    image: "Images/Recipes/Coffee_Cake.jpg",
 
 
     description:
@@ -1624,7 +1418,7 @@ woodapplejuice: {
 
     title: "Sri Lankan Wood Apple Juice",
 
-    image: "Wood_Apple_Juice.jpg",
+    image: "Images/Recipes/Wood_Apple_Juice.jpg",
 
 
     description:
@@ -1689,7 +1483,7 @@ mangojuice: {
 
     title: "Sri Lankan Mango Juice",
 
-    image: "Mango_Juice.jpg",
+    image: "Images/Recipes/Mango_Juice.jpg",
 
 
     description:
@@ -1746,7 +1540,7 @@ orangejuice: {
 
     title: "Fresh Orange Juice",
 
-    image: "Orange_Juice.jpg",
+    image: "Images/Recipes/Orange_Juice.jpg",
 
 
     description:
@@ -1801,7 +1595,7 @@ watermelonjuice: {
 
     title: "Sri Lankan Watermelon Juice",
 
-    image: "Watermelon_Juice.jpg",
+    image: "Images/Recipes/Watermelon_Juice.jpg",
 
 
     description:
@@ -1860,7 +1654,7 @@ avocadojuice: {
 
     title: "Avocado Juice",
 
-    image: "Avocado_Juice.jpg",
+    image: "Images/Recipes/Avocado_Juice.jpg",
 
 
     description:
@@ -1921,7 +1715,7 @@ milkrice: {
 
     title: "Sri Lankan Milk Rice (Kiribath)",
 
-    image: "Milk_Rice.jpg",
+    image: "Images/Recipes/Milk_Rice.jpg",
 
 
     description:
@@ -1977,7 +1771,7 @@ athirasa: {
 
     title: "Sri Lankan Athirasa",
 
-    image: "Athirasa.jpg",
+    image: "Images/Recipes/Athirasa.jpg",
 
 
     description:
@@ -2050,7 +1844,7 @@ kokis: {
 
     title: "Sri Lankan Kokis",
 
-    image: "Kokis.jpg",
+    image: "Images/Recipes/Kokis.jpg",
 
 
     description:
@@ -2121,7 +1915,7 @@ aluwa: {
 
     title: "Sri Lankan Aluwa",
 
-    image: "Aluwa.jpg",
+    image: "Images/Recipes/Aluwa.jpg",
 
 
     description:
@@ -2187,7 +1981,7 @@ mungkawum: {
 
     title: "Sri Lankan Mung Kawum",
 
-    image: "Mung_Kawum.jpg",
+    image: "Images/Recipes/Mung_Kawum.jpg",
 
 
     description:
@@ -2270,7 +2064,7 @@ sweetpongal: {
 
     title: "Sweet Pongal (Sakkarai Pongal)",
 
-    image: "Sweet_Pongal.jpg",
+    image: "Images/Recipes/Sweet_Pongal.jpg",
 
 
     description:
@@ -2337,7 +2131,7 @@ savorypongal: {
 
     title: "Savory Pongal (Ven Pongal)",
 
-    image: "Savory_Pongal.webp",
+    image: "Images/Recipes/Savory_Pongal.webp",
 
 
     description:
@@ -2406,7 +2200,7 @@ vegetablestew: {
 
     title: "Vegetable Stew (Pongal Kootu)",
 
-    image: "Vegetable_Stew.jpg",
+    image: "Images/Recipes/Vegetable_Stew.jpg",
 
 
     description:
@@ -2479,7 +2273,7 @@ meduvada: {
 
     title: "Medu Vada (Crispy Lentil Fritters)",
 
-    image: "Medu_Vada.jpg",
+    image: "Images/Recipes/Medu_Vada.jpg",
 
 
     description:
@@ -2542,7 +2336,7 @@ paalpayasam: {
 
     title: "Paal Payasam (Festive Rice Kheer)",
 
-    image: "Paal_Payasam.jpg",
+    image: "Images/Recipes/Paal_Payasam.jpg",
 
 
     description:
@@ -2603,7 +2397,7 @@ watalappan: {
 
     title: "Sri Lankan Watalappan",
 
-    image: "Watalappan.jpg",
+    image: "Images/Recipes/Watalappan.jpg",
 
 
     description:
@@ -2668,7 +2462,7 @@ gulabjamun: {
 
     title: "Gulab Jamun",
 
-    image: "Gulab_Jamun.jpg",
+    image: "Images/Recipes/Gulab_Jamun.jpg",
 
 
     description:
@@ -2739,7 +2533,7 @@ basbousa: {
 
     title: "Basbousa (Semolina Coconut Cake)",
 
-    image: "Basbousa.jpg",
+    image: "Images/Recipes/Basbousa.jpg",
 
 
     description:
@@ -2806,7 +2600,7 @@ vermicellifruitcustard: {
 
     title: "Vermicelli Fruit Custard",
 
-    image: "Vermicelli_Fruit_Custard.avif",
+    image: "Images/Recipes/Vermicelli_Fruit_Custard.avif",
 
 
     description:
@@ -2875,7 +2669,7 @@ rasmalai: {
 
     title: "Rasmalai",
 
-    image: "Rasmalai.avif",
+    image: "Images/Recipes/Rasmalai.avif",
 
 
     description:
@@ -2940,7 +2734,7 @@ christmascake: {
 
     title: "Sri Lankan Joyous Christmas Cake",
 
-    image: "Christmas_Cake.avif",
+    image: "Images/Recipes/Christmas_Cake.avif",
 
 
     description:
@@ -3011,7 +2805,7 @@ christmasfudge: {
 
     title: "Jolly Christmas Fudge",
 
-    image: "Christmas_Fudge.avif",
+    image: "Images/Recipes/Christmas_Fudge.avif",
 
 
     description:
@@ -3078,7 +2872,7 @@ gingerbreadcookies: {
 
     title: "Merry Gingerbread Cookies",
 
-    image: "Gingerbread_Cookies.avif",
+    image: "Images/Recipes/Gingerbread_Cookies.avif",
 
 
     description:
@@ -3153,7 +2947,7 @@ sprinklecookies: {
 
     title: "Sprinkle Cookies",
 
-    image: "Sprinkle_Cookies.avif",
+    image: "Images/Recipes/Sprinkle_Cookies.avif",
 
 
     description:
@@ -3222,7 +3016,7 @@ christmasjellies: {
 
     title: "Christmas Jellies",
 
-    image: "Christmas_Jellies.jpg",
+    image: "Images/Recipes/Christmas_Jellies.jpg",
 
 
     description:
@@ -3288,740 +3082,3 @@ christmasjellies: {
 },
 
 }
-
-
-
-
-
-
-
-// LOAD RECIPE DETAILS 
-
-
-const recipeTitle = document.getElementById("recipeTitle");
-const recipeImage = document.getElementById("recipeImage");
-const recipeDescription = document.getElementById("recipeDescription");
-const recipeIngredients = document.getElementById("recipeIngredients");
-const recipeInstructions = document.getElementById("recipeInstructions");
-const recipeCategory = document.getElementById("recipeCategory");
-const recipeBreadcrumb = document.getElementById("recipeBreadcrumb");
-
-
-if(recipeTitle){
-
-    const urlParams = new URLSearchParams(window.location.search);
-
-    const selectedRecipe = urlParams.get("recipe") || "kottu";
-
-    const recipe = recipeData[selectedRecipe];
-
-
-    if(recipe){
-
-
-        recipeTitle.textContent = recipe.title;
-
-
-        recipeImage.src = recipe.image;
-
-        recipeImage.alt = recipe.title;
-
-
-        recipeDescription.textContent = recipe.description;
-
-        document.getElementById("recipeTime").textContent = recipe.totalTime;
-
-        document.getElementById("recipeServings").textContent = recipe.servings;
-
-
-        recipeCategory.textContent = recipe.category;
-
-
-        recipeBreadcrumb.textContent = recipe.title;
-
-        document.getElementById("prepTime").textContent = recipe.prepTime;
-
-        document.getElementById("cookTime").textContent = recipe.cookTime;
-
-        document.getElementById("totalTime").textContent = recipe.totalTime;
-
-
-
-        recipeIngredients.innerHTML = "";
-
-
-        recipe.ingredients.forEach(function(item){
-
-            recipeIngredients.innerHTML += 
-            `<li>${item}</li>`;
-
-        });
-
-
-
-        recipeInstructions.innerHTML = "";
-
-
-        recipe.instructions.forEach(function(step){
-
-            recipeInstructions.innerHTML +=
-            `<li>${step}</li>`;
-
-        });
-
-
-    }
-
-}
-
-
-
-if(recipeTitle){
-
-
-    const urlParams = new URLSearchParams(window.location.search);
-
-
-    const selectedRecipe = urlParams.get("recipe");
-
-
-
-    const recipe = recipeData[selectedRecipe];
-
-
-
-    if(recipe){
-
-
-        recipeTitle.textContent = recipe.title;
-
-        document.getElementById("recipeCategory").textContent = recipe.category;
-
-        document.getElementById("recipeBreadcrumb").textContent = recipe.title;
-
-
-        recipeImage.src = recipe.image;
-
-        recipeImage.alt = recipe.title;
-
-
-        recipeDescription.textContent = recipe.description;
-
-
-
-        recipeIngredients.innerHTML = "";
-
-
-        recipe.ingredients.forEach(function(item){
-
-
-            recipeIngredients.innerHTML += 
-            `<li>${item}</li>`;
-
-
-        });
-
-
-
-        recipeInstructions.innerHTML = "";
-
-
-        recipe.instructions.forEach(function(step){
-
-
-            recipeInstructions.innerHTML += 
-            `<li>${step}</li>`;
-
-
-        });
-
-
-    }
-
-
-}
-
-
-//  ADD TO FAVOURITES 
-
-const favouriteButton = document.getElementById("addFavouriteBtn");
-
-
-if(favouriteButton){
-
-
-    favouriteButton.addEventListener("click", function(){
-
-
-        const selectedRecipe = new URLSearchParams(window.location.search)
-        .get("recipe");
-
-
-        let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
-
-
-        if(!favourites.includes(selectedRecipe)){
-
-
-            favourites.push(selectedRecipe);
-
-
-            localStorage.setItem(
-                "favourites",
-                JSON.stringify(favourites)
-            );
-
-
-            alert("Recipe added to favourites ❤️");
-
-
-        }
-
-        else{
-
-
-            alert("Recipe already exists in favourites ❤️");
-
-
-        }
-
-
-    });
-
-
-}
-
-// DISPLAY FAVOURITES 
-
-
-const favouriteList = document.getElementById("favouriteList");
-
-
-if(favouriteList){
-
-
-    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
-
-
-    if(favourites.length === 0){
-
-
-        favouriteList.innerHTML =
-        `
-        <p>No favourite recipes added yet ❤️</p>
-        `;
-
-
-    }
-
-    else{
-
-
-        favourites.forEach(function(recipeId){
-
-
-            const recipe = recipeData[recipeId];
-
-
-            if(recipe){
-
-
-                favouriteList.innerHTML +=
-                `
-
-                <div class="col">
-
-
-                    <div class="card h-100">
-
-
-                        <img src="${recipe.image}"
-                        class="card-img-top">
-
-
-                        <div class="card-body">
-
-
-                            <h5 class="card-title">
-                            ${recipe.title}
-                            </h5>
-
-
-                            <p class="card-text">
-                            ${recipe.description}
-                            </p>
-
-
-                            <a href="recipe-details.html?recipe=${recipeId}"
-                            class="btn btn-warning">
-
-                            View Recipe
-
-                            </a>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-
-                `;
-
-
-            }
-
-
-        });
-
-
-    }
-
-
-}
-
-// CONTACT FORM VALIDATION 
-
-document.addEventListener("DOMContentLoaded", function(){
-
-
-    const contactForm = document.getElementById("contactForm");
-
-
-    if(contactForm){
-
-
-        contactForm.addEventListener("submit", function(event){
-
-
-            event.preventDefault();
-
-
-            const name = document.getElementById("contactName").value.trim();
-
-            const email = document.getElementById("contactEmail").value.trim();
-
-            const subject = document.getElementById("contactSubject").value.trim();
-
-            const message = document.getElementById("contactMessage").value.trim();
-
-
-
-            if(name === "" || email === "" || subject === "" || message === ""){
-
-
-                alert("Please fill all fields");
-
-
-            }
-
-            else{
-
-
-                alert("Message sent successfully ❤️");
-
-
-                contactForm.reset();
-
-
-            }
-
-
-        });
-
-
-    }
-
-
-});
-
-
-
-
-// DARK MODE 
-
-
-document.addEventListener("DOMContentLoaded", function(){
-
-
-    const modeButton = document.querySelector(".mode-icon");
-
-
-    if(!modeButton) return;
-
-
-
-    // Load saved mode
-
-    if(localStorage.getItem("darkMode") === "enabled"){
-
-
-        document.body.classList.add("dark-mode");
-
-
-        modeButton.classList.remove("fa-moon");
-
-        modeButton.classList.add("fa-sun");
-
-
-    }
-
-
-
-    modeButton.addEventListener("click", function(){
-
-
-
-        document.body.classList.toggle("dark-mode");
-
-
-
-        if(document.body.classList.contains("dark-mode")){
-
-
-            localStorage.setItem(
-                "darkMode",
-                "enabled"
-            );
-
-
-            modeButton.classList.remove("fa-moon");
-
-            modeButton.classList.add("fa-sun");
-
-
-        }
-
-        else{
-
-
-            localStorage.removeItem("darkMode");
-
-
-            modeButton.classList.remove("fa-sun");
-
-            modeButton.classList.add("fa-moon");
-
-
-        }
-
-
-
-    });
-
-
-
-});
-
-
-
-/// REGISTER SYSTEM 
-
-const registerForm = document.getElementById("registerForm");
-
-
-if(registerForm){
-
-
-    registerForm.addEventListener("submit", function(event){
-
-
-        event.preventDefault();
-
-
-        const email = document.getElementById("registerEmail").value.trim();
-
-        const username = document.getElementById("registerUsername").value.trim();
-
-        const password = document.getElementById("registerPassword").value.trim();
-
-        const confirmPassword = document.getElementById("confirmPassword").value.trim();
-
-        const terms = document.getElementById("termsCheck").checked;
-
-
-
-        if(email === "" || username === "" || password === "" || confirmPassword === ""){
-
-            alert("Please fill all fields");
-            return;
-
-        }
-
-
-
-        if(password !== confirmPassword){
-
-            alert("Passwords do not match");
-            return;
-
-        }
-
-
-
-        if(!terms){
-
-            alert("Please accept Terms and Conditions");
-            return;
-
-        }
-
-
-
-        const user = {
-
-            email: email,
-            username: username,
-            password: password
-
-        };
-
-
-
-        localStorage.setItem(
-            "recipeHubUser",
-            JSON.stringify(user)
-        );
-
-
-
-        alert("Account created successfully!");
-
-
-
-        window.location.href = "home.html";
-
-
-    });
-
-
-}
-
-// USER DROPDOWN 
-
-
-const dropdownUsername = document.getElementById("dropdownUsername");
-
-const dropdownEmail = document.getElementById("dropdownEmail");
-
-
-const savedUser = JSON.parse(
-    localStorage.getItem("recipeHubUser")
-);
-
-
-
-if(savedUser){
-
-
-    if(dropdownUsername){
-
-        dropdownUsername.textContent =
-        savedUser.username;
-
-    }
-
-
-    if(dropdownEmail){
-
-        dropdownEmail.textContent =
-        savedUser.email;
-
-    }
-
-
-}
-
-function logout(){
-
-    localStorage.removeItem("recipeHubUser");
-
-    alert("Logged out successfully!");
-
-    window.location.href="login.html";
-
-}
-
-
-// SCROLL FADE-IN ANIMATION
-
-
-const fadeElements = document.querySelectorAll(".fade-in");
-
-
-const observer = new IntersectionObserver((entries)=>{
-
-
-    entries.forEach(entry=>{
-
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-
-    });
-
-
-},
-{
-    threshold:0.2
-});
-
-
-
-fadeElements.forEach(element=>{
-
-    observer.observe(element);
-
-});
-
-// SHARE RECIPE FUNCTION
-
-const shareButton = document.getElementById("shareRecipeBtn");
-
-
-if(shareButton){
-
-    shareButton.addEventListener("click", function(){
-
-        const urlParams = new URLSearchParams(window.location.search);
-
-        const recipeId = urlParams.get("recipe");
-
-        const recipe = recipeData[recipeId];
-
-
-        if(recipe){
-
-
-            const shareData = {
-
-                title: recipe.title,
-
-                text: recipe.description,
-
-                url: window.location.href
-
-            };
-
-
-            // Mobile and supported browsers
-
-            if(navigator.share){
-
-
-                navigator.share(shareData)
-
-                .then(()=>{
-
-                    console.log("Recipe shared successfully");
-
-                })
-
-                .catch((error)=>{
-
-                    console.log("Sharing cancelled");
-
-                });
-
-
-            }
-
-
-            // For browsers without share support
-
-            else{
-
-
-                navigator.clipboard.writeText(window.location.href);
-
-
-                alert("Recipe link copied! Share it with others ❤️");
-
-
-            }
-
-
-        }
-
-
-    });
-
-
-}
-
-// ===========================
-// RECIPE SEARCH SUGGESTIONS
-// ===========================
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const searchInput = document.getElementById("searchInput");
-    const searchSuggestions = document.getElementById("searchSuggestions");
-
-
-    if(searchInput && searchSuggestions){
-
-
-        searchInput.addEventListener("input", function(){
-
-
-            const value = searchInput.value.toLowerCase().trim();
-
-
-            searchSuggestions.innerHTML = "";
-
-
-            if(value === ""){
-                return;
-            }
-
-
-            Object.keys(recipeData).forEach(function(recipeId){
-
-
-                const recipe = recipeData[recipeId];
-
-
-                if(recipe.title.toLowerCase().includes(value)){
-
-
-                    const suggestion = document.createElement("div");
-
-
-                    suggestion.classList.add("suggestion-item");
-
-
-                    suggestion.textContent = recipe.title;
-
-
-                    suggestion.onclick = function(){
-
-                        window.location.href =
-                        "recipe-details.html?recipe=" + recipeId;
-
-                    };
-
-
-                    searchSuggestions.appendChild(suggestion);
-
-
-                }
-
-
-            });
-
-
-        });
-
-
-    }
-
-
-});
