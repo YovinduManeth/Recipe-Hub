@@ -49,7 +49,7 @@ else if(savedUser &&
     alert("Login successful!");
 
 
-    window.location.href = "home.html";
+    window.location.href = "../home.html";
 
 
 }
@@ -671,89 +671,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-
-
-/// REGISTER SYSTEM 
-
-const registerForm = document.getElementById("registerForm");
-
-
-if(registerForm){
-
-
-    registerForm.addEventListener("submit", function(event){
-
-
-        event.preventDefault();
-
-
-        const email = document.getElementById("registerEmail").value.trim();
-
-        const username = document.getElementById("registerUsername").value.trim();
-
-        const password = document.getElementById("registerPassword").value.trim();
-
-        const confirmPassword = document.getElementById("confirmPassword").value.trim();
-
-        const terms = document.getElementById("termsCheck").checked;
-
-
-
-        if(email === "" || username === "" || password === "" || confirmPassword === ""){
-
-            alert("Please fill all fields");
-            return;
-
-        }
-
-
-
-        if(password !== confirmPassword){
-
-            alert("Passwords do not match");
-            return;
-
-        }
-
-
-
-        if(!terms){
-
-            alert("Please accept Terms and Conditions");
-            return;
-
-        }
-
-
-
-        const user = {
-
-            email: email,
-            username: username,
-            password: password
-
-        };
-
-
-
-        localStorage.setItem(
-            "recipeHubUser",
-            JSON.stringify(user)
-        );
-
-
-
-        alert("Account created successfully!");
-
-
-
-        window.location.href = "home.html";
-
-
-    });
-
-
-}
 
 // USER DROPDOWN 
 
