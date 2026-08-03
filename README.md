@@ -157,16 +157,6 @@ A recipe sharing feature was implemented to allow users to share their favourite
 
 - Adds smooth animation effects when elements appear while scrolling
 
-
-## Implemented Features
-
-- Recipe search functionality added to the Home page.
-- Search bar is available only on `Home.html` to provide a cleaner user interface.
-- Removed unnecessary search bars from other pages.
-- Users can search recipes by typing keywords or partial names (e.g., typing "ch" suggests chocolate-related recipes).
-- Recipe suggestions dynamically display matching recipes and redirect users to the relevant recipe details page.
-- Recipe details, favourite recipes, and recipe sharing features are implemented using JavaScript.
-
 ## Bootstrap 5 Components Used
 
 The project uses Bootstrap 5 components to create a responsive and user-friendly interface.
@@ -175,7 +165,6 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 - **Carousel** - Implemented on the home page to display food images in an interactive slider.
 - **Cards** - Used to display recipe categories, recipe lists, and favourite recipes in an organized layout.
 - **Modal** - Used in the Favourite section to display popup content and provide an interactive user experience.
-
 
 
 ## Current Status
@@ -195,6 +184,24 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 - Added scroll fade-in animations
 - Updated README documentation
 - Pushed all Phase 2 work to GitHub with meaningful commit messages
+
+
+## Phase 3 – PHP & MySQL Integration (Final Submission)
+
+
+## Development Progress
+
+### Authentication System (Completed)
+
+#### User Registration Module
+- Converted the registration page from HTML to PHP.
+- Connected the registration system with MySQL database using PHP PDO.
+- Implemented user data insertion into the database.
+- Added password encryption using PHP password hashing.
+- Added password confirmation validation.
+- Added Terms and Conditions checkbox validation.
+- Added professional success and error message notifications.
+- Fixed JavaScript conflicts between frontend registration logic and PHP backend processing.
 
 
 
