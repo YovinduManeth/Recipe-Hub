@@ -82,7 +82,7 @@ The next phases of the project will include:
 
 ## Phase 2 – Frontend Layout & Design
 
-Features
+## Features
 
 🏠 Home Page
 - Introduction to Recipe Hub
@@ -156,6 +156,47 @@ A recipe sharing feature was implemented to allow users to share their favourite
 ✨ Scroll Fade-in Animation
 
 - Adds smooth animation effects when elements appear while scrolling
+
+
+## Implemented Features
+
+- Recipe search functionality added to the Home page.
+- Search bar is available only on `Home.html` to provide a cleaner user interface.
+- Removed unnecessary search bars from other pages.
+- Users can search recipes by typing keywords or partial names (e.g., typing "ch" suggests chocolate-related recipes).
+- Recipe suggestions dynamically display matching recipes and redirect users to the relevant recipe details page.
+- Recipe details, favourite recipes, and recipe sharing features are implemented using JavaScript.
+
+## Bootstrap 5 Components Used
+
+The project uses Bootstrap 5 components to create a responsive and user-friendly interface.
+
+- **Navbar** - Used to create a consistent navigation bar across web pages.
+- **Carousel** - Implemented on the home page to display food images in an interactive slider.
+- **Cards** - Used to display recipe categories, recipe lists, and favourite recipes in an organized layout.
+- **Modal** - Used in the Favourite section to display popup content and provide an interactive user experience.
+
+
+
+## Current Status
+
+✅ Phase 2 Completed
+
+- Developed responsive web pages using HTML5, CSS3, and Bootstrap 5
+- Implemented Bootstrap components (Navbar, Carousel, Cards, Modal)
+- Created recipe categories and recipe details pages
+- Added dynamic recipe loading using JavaScript
+- Implemented recipe search with autocomplete suggestions
+- Added Add to Favourites functionality using Local Storage
+- Implemented recipe sharing feature
+- Added dark mode functionality
+- Added contact form validation
+- Implemented user registration using Local Storage
+- Added scroll fade-in animations
+- Updated README documentation
+- Pushed all Phase 2 work to GitHub with meaningful commit messages
+
+
 
 ## Developers
 
