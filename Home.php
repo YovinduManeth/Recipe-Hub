@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,8 +156,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         <li>
 
-            <h6 class="dropdown-header" id="dropdownUsername">
-                User
+            <h6 class="dropdown-header">
+                <?php echo $username; ?>
             </h6>
 
         </li>
@@ -147,8 +165,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         <li>
 
-            <span class="dropdown-item-text" id="dropdownEmail">
-                user@gmail.com
+            <span class="dropdown-item-text">
+                <?php echo $email; ?>
             </span>
 
         </li>
