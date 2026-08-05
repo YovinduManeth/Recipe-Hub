@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2026 at 05:12 PM
+-- Generation Time: Aug 05, 2026 at 07:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -64,14 +64,16 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `users`
 --
 
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`) VALUES
+(15, 'TestUser', 'test@gmail.com', '$2y$10$bGtjQhaWnj8qHwd15QO0De0xZfHk53cqmqvbFbp0YExJ/2eErI3vy', '2026-08-03 17:20:55'),
+(27, 'Yovi', 'Yovi12@gmail.com', '$2y$10$/YDZEPZwQO5ic5Sw7iQk4.gCp7/ixMNwDNOcSfokRCuvUs0LPH17q', '2026-08-05 16:28:02');
+
 --
--- Indexes for table `messages`
+-- Indexes for dumped tables
 --
-ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `recipes`
@@ -90,12 +92,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `messages`
---
-ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
@@ -105,7 +101,7 @@ ALTER TABLE `recipes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
