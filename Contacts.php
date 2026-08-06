@@ -1,3 +1,63 @@
+<?php
+
+session_start();
+
+include "includes/db.php";
+
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+
+$message = "";
+
+
+if(isset($_POST["sendMessage"])){
+
+
+    $name = trim($_POST["name"]);
+
+    $email = trim($_POST["email"]);
+
+    $msg = trim($_POST["message"]);
+
+
+
+    $sql = "INSERT INTO messages(name,email,message)
+            VALUES(?,?,?)";
+
+
+    $stmt = $conn->prepare($sql);
+
+
+    $stmt->execute([
+
+        $name,
+        $email,
+        $msg
+
+    ]);
+
+
+
+    $message = "Message sent successfully!";
+
+
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +91,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         <!-- Logo -->
 
-        <a class="navbar-brand d-flex align-items-center" href="home.html">
+        <a class="navbar-brand d-flex align-items-center" href="home.php">
 
             <img src="Images/Logo/Recipe_Hub_logo.png"
             width="40"
@@ -64,7 +124,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="home.html">
+                    <a class="nav-link" href="home.php">
                         Home
                     </a>
 
@@ -74,7 +134,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="recipes.html">
+                    <a class="nav-link" href="recipes.php">
                         Recipes
                     </a>
 
@@ -83,7 +143,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="favourites.html">
+                    <a class="nav-link" href="favourites.php">
                         Favourites
                     </a>
 
@@ -91,7 +151,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link active" href="contact.html">
+                    <a class="nav-link active" href="Contacts.php">
                         Contact Us
                     </a>
 
@@ -121,17 +181,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
             <h6 class="dropdown-header" id="dropdownUsername">
-                User
+                <?php echo $username; ?>
             </h6>
 
         </li>
-
+            <span class="dropdown-item-text" id="dropdownEmail">
+                <?php echo $email; ?>
+            </span>
 
         <li>
 
-            <span class="dropdown-item-text" id="dropdownEmail">
-                user@gmail.com
-            </span>
+            
 
         </li>
 
@@ -158,7 +218,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
             <a class="dropdown-item"
-            href="favourites.html">
+            href="favourites.php">
 
                 <i class="fa-solid fa-heart me-2"></i>
                 My Favourites
@@ -172,8 +232,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
         <a class="dropdown-item"
-        href="#"
-        onclick="logout()">
+        href="auth/logout.php">
 
         <i class="fa-solid fa-right-from-bracket me-2"></i>
         Logout
@@ -306,7 +365,7 @@ Send Message
 </h2>
 
 
-<form id="contactForm">
+<form method="POST" action="Contacts.php">
 
 
 <div class="mb-3">
@@ -316,11 +375,12 @@ Send Message
 Full Name
 </label>
 
-
-<input type="text"
-id="contactName"
-class="form-control"
-placeholder="Enter your name">
+    <input type="text"
+    name="name"
+    id="contactName"
+    class="form-control"
+    placeholder="Enter your name"
+    required>
 
 </div>
 
@@ -332,28 +392,16 @@ placeholder="Enter your name">
 Email Address
 </label>
 
-
 <input type="email"
+name="email"
 id="contactEmail"
 class="form-control"
-placeholder="Enter your email">
+placeholder="Enter your email"
+required>
+
 
 </div>
 
-<div class="mb-3">
-
-
-<label>
-Subject
-</label>
-
-
-<input type="text"
-id="contactSubject"
-class="form-control"
-placeholder="Enter subject">
-
-</div>
 
 <div class="mb-3">
 
@@ -362,23 +410,41 @@ placeholder="Enter subject">
 Message
 </label>
 
-
 <textarea 
+name="message"
 id="contactMessage"
 class="form-control"
 rows="5"
-placeholder="Write your message"></textarea>
+placeholder="Write your message"
+required></textarea>
+
 
 </div>
 
 <button type="submit"
-class="btn btn-warning">
+    name="sendMessage"
+    class="btn btn-warning">
 
 <i class="fa-solid fa-paper-plane"></i>
 
 Send Message
 
 </button>
+
+<?php
+
+if($message!=""){
+
+echo "
+<div class='success-message mt-4'>
+$message
+</div>";
+
+}
+
+?>
+
+
 
 </form>
 

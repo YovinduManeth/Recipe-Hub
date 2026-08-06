@@ -1,3 +1,22 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +49,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         <!-- Logo -->
 
-        <a class="navbar-brand d-flex align-items-center" href="home.html">
+        <a class="navbar-brand d-flex align-items-center" href="home.php">
 
             <img src="Images/Logo/Recipe_Hub_logo.png"
             width="40"
@@ -65,7 +84,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="home.html">
+                    <a class="nav-link" href="home.php">
                         Home
                     </a>
 
@@ -73,7 +92,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="recipes.html">
+                    <a class="nav-link" href="recipes.php">
                         Recipes
                     </a>
 
@@ -81,7 +100,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link active" href="favourites.html">
+                    <a class="nav-link active" href="favourites.php">
                         Favourites
                     </a>
 
@@ -89,7 +108,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="Contacts.html">
+                    <a class="nav-link" href="Contacts.php">
                         Contact Us
                     </a>
 
@@ -120,17 +139,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         <li>
 
-            <h6 class="dropdown-header" id="dropdownUsername">
-                User
-            </h6>
+        <h6 class="dropdown-header">
+        <?php echo $username; ?>
+        </h6>
 
         </li>
 
 
         <li>
 
-            <span class="dropdown-item-text" id="dropdownEmail">
-                user@gmail.com
+            <span class="dropdown-item-text">
+                <?php echo $email; ?>
             </span>
 
         </li>

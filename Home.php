@@ -2,8 +2,6 @@
 
 session_start();
 
-$username = $_SESSION["username"];
-$email = $_SESSION["email"];
 
 if(!isset($_SESSION["username"])){
 
@@ -11,6 +9,10 @@ if(!isset($_SESSION["username"])){
     exit();
 
 }
+
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
 
 ?>
 
@@ -45,7 +47,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
     <div class="container-fluid">
 
-        <a class="navbar-brand d-flex align-items-center" href="home.html">
+        <a class="navbar-brand d-flex align-items-center" href="home.php">
 
             <img src="Images/Logo/Recipe_Hub_logo.png"
             width="40"
@@ -81,7 +83,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link active" href="home.html">
+                    <a class="nav-link active" href="home.php">
                         Home
                     </a>
 
@@ -91,7 +93,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="recipes.html">
+                    <a class="nav-link" href="recipes.php">
                         Recipes
                     </a>
 
@@ -101,7 +103,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="favourites.html">
+                    <a class="nav-link" href="favourites.php">
                         Favourites
                     </a>
 
@@ -111,7 +113,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="Contacts.html">
+                    <a class="nav-link" href="Contacts.php">
                          Contact Us
                          </a>
 
@@ -281,7 +283,7 @@ Find, cook and share delicious Sri Lankan recipes with people around the world.
 
 <input 
 type="text"
-placeholder="Search recipes or ingredients">
+placeholder="Search recipes or ingredients" id="heroSearchInput">
 
 
 

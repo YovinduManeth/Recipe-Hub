@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +50,7 @@
 
         <!-- Logo -->
 
-        <a class="navbar-brand d-flex align-items-center" href="home.html">
+        <a class="navbar-brand d-flex align-items-center" href="home.php">
 
             <img src="Images/Logo/Recipe_Hub_logo.png"
             width="40"
@@ -67,7 +85,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="home.html">
+                    <a class="nav-link" href="home.php">
                         Home
                     </a>
 
@@ -77,9 +95,9 @@
 
                 <li class="nav-item">
 
-                <a class="nav-link active" href="recipes.html">
-                Recipes
-                </a>
+                    <a class="nav-link active" href="recipes.php">
+                        Recipes
+                    </a>
 
                 </li>
 
@@ -87,7 +105,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="favourites.html">
+                    <a class="nav-link" href="favourites.php">
                         Favourites
                     </a>
 
@@ -97,7 +115,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="contact.html">
+                    <a class="nav-link" href="Contacts.php">
                         Contact Us
                     </a>
 
@@ -123,17 +141,16 @@
 
         <li>
 
-            <h6 class="dropdown-header" id="dropdownUsername">
-                User
+            <h6 class="dropdown-header">
+
+                <?php echo $username; ?>
+
             </h6>
 
-        </li>
 
+            <span class="dropdown-item-text">
+                <?php echo $email; ?>
 
-        <li>
-
-            <span class="dropdown-item-text" id="dropdownEmail">
-                user@gmail.com
             </span>
 
         </li>
@@ -161,7 +178,7 @@
         <li>
 
             <a class="dropdown-item"
-            href="favourites.html">
+            href="favourites.php">
 
                 <i class="fa-solid fa-heart me-2"></i>
                 My Favourites
@@ -173,8 +190,7 @@
         <li>
 
         <a class="dropdown-item"
-        href="#"
-        onclick="logout()">
+        href="auth/logout.php">
 
         <i class="fa-solid fa-right-from-bracket me-2"></i>
         Logout

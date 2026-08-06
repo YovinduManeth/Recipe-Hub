@@ -99,14 +99,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["forgotSubmit"])) {
     if ($user) {
 
 
-        if (password_verify($password, $user["password"])) {
+      if (password_verify($password, $user["password"])) {
+
+
+            // Regenerate session ID for security
+            session_regenerate_id(true);
 
 
 
-            $_SESSION["username"] = $user["username"];
+    $_SESSION["username"] = $user["username"];
 
-            $_SESSION["email"] = $user["email"];
-
+    $_SESSION["email"] = $user["email"];
 
 
 

@@ -467,6 +467,12 @@ function removeFavourite(recipeId){
 
 }
 
+function logout(){
+
+    window.location.href="auth/logout.php";
+
+}
+
 // CONTACT FORM VALIDATION 
 
 document.addEventListener("DOMContentLoaded", function(){
