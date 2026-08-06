@@ -203,11 +203,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 
 
-        <li>
+       <li>
 
-    <a class="dropdown-item"
-    href="#"
-    onclick="logout()">
+        <a class="dropdown-item"
+        href="auth/logout.php">
 
         <i class="fa-solid fa-right-from-bracket me-2"></i>
         Logout

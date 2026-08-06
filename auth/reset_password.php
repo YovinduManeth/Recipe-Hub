@@ -231,8 +231,11 @@ value="<?php echo $email; ?>">
     placeholder="Confirm Password"
     required>
 
-</div>
+    <i class="fa-solid fa-eye"
+    id="toggleConfirmPassword">
+    </i>
 
+</div>
 
 
 
@@ -290,65 +293,82 @@ Back to Login
 
 </footer>
 
-
-
-
-
 <script>
-
 
 const toggleNewPassword =
 document.getElementById("toggleNewPassword");
-
 
 const newPassword =
 document.getElementById("newPassword");
 
 
-
 if(toggleNewPassword && newPassword){
 
+    toggleNewPassword.addEventListener("click",function(){
 
-toggleNewPassword.addEventListener("click",function(){
+        if(newPassword.type==="password"){
 
+            newPassword.type="text";
 
-if(newPassword.type==="password"){
+            toggleNewPassword.classList.remove("fa-eye");
+            toggleNewPassword.classList.add("fa-eye-slash");
 
+        }
 
-newPassword.type="text";
+        else{
 
+            newPassword.type="password";
 
-toggleNewPassword.classList.remove("fa-eye");
+            toggleNewPassword.classList.remove("fa-eye-slash");
+            toggleNewPassword.classList.add("fa-eye");
 
-toggleNewPassword.classList.add("fa-eye-slash");
+        }
 
-
-}
-
-
-else{
-
-
-newPassword.type="password";
-
-
-toggleNewPassword.classList.remove("fa-eye-slash");
-
-toggleNewPassword.classList.add("fa-eye");
-
+    });
 
 }
 
 
-});
+// Confirm password eye
 
+const toggleConfirmPassword =
+document.getElementById("toggleConfirmPassword");
+
+const confirmPassword =
+document.getElementById("confirmPassword");
+
+
+console.log(toggleConfirmPassword);
+console.log(confirmPassword);
+
+
+if(toggleConfirmPassword && confirmPassword){
+
+    toggleConfirmPassword.addEventListener("click",function(){
+
+        if(confirmPassword.type === "password"){
+
+            confirmPassword.type = "text";
+
+            toggleConfirmPassword.classList.remove("fa-eye");
+            toggleConfirmPassword.classList.add("fa-eye-slash");
+
+        }
+
+        else{
+
+            confirmPassword.type = "password";
+
+            toggleConfirmPassword.classList.remove("fa-eye-slash");
+            toggleConfirmPassword.classList.add("fa-eye");
+
+        }
+
+    });
 
 }
-
-
 
 </script>
-
 
 
 </body>

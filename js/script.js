@@ -602,15 +602,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-function logout(){
 
-    localStorage.removeItem("recipeHubUser");
-
-    alert("Logged out successfully!");
-
-    window.location.href="login.html";
-
-}
 
 
 // SCROLL FADE-IN ANIMATION
