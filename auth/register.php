@@ -1,21 +1,27 @@
 <?php
+
 include "../includes/db.php";
 
 $message = "";
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+
     // Get form data
-    $email = $_POST["email"];
-    $username = $_POST["username"];
+    $email = trim($_POST["email"]);
+    $username = trim($_POST["username"]);
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
+
 
 
     // Check Terms and Conditions
     if (!isset($_POST["terms"])) {
 
+
         $message = "Please accept the Terms and Conditions";
+
 
     }
 
@@ -23,7 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check password confirmation
     else if ($password !== $confirmPassword) {
 
+
         $message = "Passwords do not match";
+
 
     }
 
@@ -31,22 +39,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insert user only if no errors
     else {
 
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO users (username, email, password)
+        $hashedPassword = password_hash(
+            $password,
+            PASSWORD_DEFAULT
+        );
+
+
+        $sql = "INSERT INTO users 
+                (username, email, password)
                 VALUES (?, ?, ?)";
+
 
         $stmt = $conn->prepare($sql);
 
+
         $stmt->execute([
+
             $username,
             $email,
             $hashedPassword
+
         ]);
 
-        $message = "Registration successful!";
+
+
+        header("Location: Login.php?register=success");
+
+        exit();
+
+
     }
+
 }
+
 ?>
 
 
@@ -118,27 +144,46 @@ if ($message != "") {
 
 
     <div class="input-box">
-        <i class="fa-solid fa-lock"></i>
-        <input type="password"
-        name="password"
-        id="registerPassword"
-        placeholder="Password"
-        required>
+
+    <i class="fa-solid fa-lock"></i>
+
+    <input
+    type="password"
+    name="password"
+    id="password"
+    placeholder="Password"
+    required>
+
+
+    <i class="fa-solid fa-eye"
+     id="togglePassword">
+    </i>
+
+
+</div>
+
+
+   <div class="input-box">
+
+    <i class="fa-solid fa-lock"></i>
+
+    <input
+    type="password"
+    name="confirmPassword"
+    id="confirmPassword"
+    placeholder="Confirm Password"
+    required>
+
+
+    <i class="fa-solid fa-eye"
+        id="toggleConfirmPassword">
+    </i>
+
+
     </div>
-
-
-    <div class="input-box">
-        <i class="fa-solid fa-lock"></i>
-        <input type="password"
-        name="confirmPassword"
-        id="confirmPassword"
-        placeholder="Confirm Password"
-        required>
-    </div>
-
 
     <label>
-        <input type="checkbox" name="terms" id="termsCheck">
+        <input type="checkbox" name="terms"id="terms"required>
         I agree to the Terms and Conditions
     </label>
 
@@ -154,7 +199,7 @@ if ($message != "") {
 
 Already have an account?
 
-<a href="login.html">
+<a href="login.php">
 Login
 </a>
 
@@ -178,6 +223,57 @@ Login
 <script src="../js/recipeData.js"></script>
 <script src="../js/script.js"></script>
 
+<script>
+
+
+const toggleConfirmPassword =
+document.getElementById("toggleConfirmPassword");
+
+
+const confirmPassword =
+document.getElementById("confirmPassword");
+
+
+
+if(toggleConfirmPassword && confirmPassword){
+
+
+    toggleConfirmPassword.addEventListener("click", function(){
+
+
+        if(confirmPassword.type === "password"){
+
+
+            confirmPassword.type = "text";
+
+
+            toggleConfirmPassword.classList.remove("fa-eye");
+
+            toggleConfirmPassword.classList.add("fa-eye-slash");
+
+
+        }
+
+        else{
+
+
+            confirmPassword.type = "password";
+
+
+            toggleConfirmPassword.classList.remove("fa-eye-slash");
+
+            toggleConfirmPassword.classList.add("fa-eye");
+
+
+        }
+
+
+    });
+
+
+}
+
+</script>
 
 </body>
 

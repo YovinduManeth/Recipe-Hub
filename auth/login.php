@@ -6,7 +6,55 @@ include "../includes/db.php";
 
 $message = "";
 
+if(isset($_GET["register"]) && $_GET["register"] == "success"){
+
+    $message = "Registration successful! Please login.";
+
+}
+
+if(isset($_POST["forgotSubmit"])){
+
+
+    $email = trim($_POST["resetEmail"]);
+
+
+    $sql = "SELECT * FROM users WHERE email=?";
+
+
+    $stmt = $conn->prepare($sql);
+
+
+    $stmt->execute([$email]);
+
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+
+    if($user){
+
+
+        header("Location: reset_password.php?email=".$email);
+
+        exit();
+
+
+    }
+
+    else{
+
+
+        $message = "Email not found.";
+
+    }
+
+
+}
+
 $rememberedUser = "";
+
+
+// Remember username cookie
 
 if (isset($_COOKIE["username"])) {
 
@@ -15,11 +63,18 @@ if (isset($_COOKIE["username"])) {
 }
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+// ==========================
+// NORMAL LOGIN
+// ==========================
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["forgotSubmit"])) {
 
 
     $username = trim($_POST["username"]);
+
     $password = $_POST["password"];
+
 
 
     $sql = "SELECT * FROM users
@@ -29,10 +84,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = $conn->prepare($sql);
 
+
     $stmt->execute([
         $username,
         $username
     ]);
+
 
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -45,11 +102,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user["password"])) {
 
 
+
             $_SESSION["username"] = $user["username"];
+
             $_SESSION["email"] = $user["email"];
 
 
+
+
             if(isset($_POST["remember"])){
+
 
                 setcookie(
                     "username",
@@ -58,32 +120,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     "/"
                 );
 
+
             }
 
 
+
+
             header("Location: ../home.php");
+
             exit();
 
 
+
         }
+
+
         else{
+
 
             $message = "Incorrect password.";
 
+
         }
 
 
+
     }
+
+
     else{
 
 
         $message = "User not found.";
 
+
     }
 
 
-}
 
+}
 
 
 
@@ -155,21 +230,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </p>
 
             <?php
-if ($message != "") {
+    
 
-    if ($message == "Login successful!") {
+    if ($message != "") {
 
-        echo "<div class='success-message'>$message</div>";
 
-    } else {
+    if (
+        $message == "Login successful!" ||
+        $message == "Registration successful! Please login."
+    ) {
 
-        echo "<div class='warning-message'>$message</div>";
+
+        echo "
+        <div class='success-message'>
+            <i class='fa-solid fa-circle-check'></i>
+            $message
+        </div>
+        ";
+
+
+    } 
+    else {
+
+
+        echo "
+        <div class='warning-message'>
+            <i class='fa-solid fa-triangle-exclamation'></i>
+            $message
+        </div>
+        ";
+
 
     }
 
-}
-?>
 
+}
+
+?>
+ 
             <form method="POST" action="Login.php">
 
                 <div class="input-box">
@@ -212,9 +310,9 @@ if ($message != "") {
 
 
 
-                    <a href="#">
-                        Forgot Password?
-                    </a>
+                 <a href="#" id="forgotPasswordLink">
+                     Forgot Password?
+                </a>  
 
                 </div>
 
@@ -234,12 +332,56 @@ if ($message != "") {
                 </div>
 
 
-                <a href="register.html" class="create-account">
+                <a href="register.php" class="create-account">
                 Create New Account
             </a>
 
             </form>
+                <div id="forgotPasswordBox" style="display:none; margin-top:20px;">
 
+
+
+
+<div class="forgot-box">
+
+
+
+<p>
+    Enter your email address to reset your password.
+</p><br> 
+
+
+
+<form method="POST">
+
+
+<div class="input-box">
+
+<i class="fa-solid fa-envelope"></i>
+
+<input
+type="email"
+name="resetEmail"
+placeholder="Enter your email"
+required>
+
+</div>
+
+
+<button type="submit" name="forgotSubmit">
+
+Continue
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+</div>
         </div>
 
 
@@ -260,6 +402,38 @@ if ($message != "") {
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
 <script src="../js/script.js"></script>
+
+
+<script>
+
+const forgotLink =
+document.getElementById("forgotPasswordLink");
+
+
+const forgotBox =
+document.getElementById("forgotPasswordBox");
+
+
+if(forgotLink && forgotBox){
+
+
+    forgotLink.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        forgotBox.style.display = "block";
+
+    });
+
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+
 
