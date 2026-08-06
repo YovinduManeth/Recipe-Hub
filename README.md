@@ -216,6 +216,36 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 ✅ Error handling messages  
 ✅ Responsive registration interface
 
+
+## User Authentication System
+- Implemented user registration and login functionality.
+- Added password encryption using PHP `password_hash()`.
+- Added password verification using `password_verify()`.
+- Implemented secure session management.
+- Added `session_regenerate_id(true)` after successful login to improve session security.
+- Added logout functionality with session destruction.
+
+## Password Reset Feature
+- Added forgot password functionality.
+- Users can reset their password using their registered email address.
+- Added password confirmation validation.
+- Added show/hide password eye toggle feature for password fields.
+
+## Contact System
+- Converted the Contact Us page into a PHP-based page.
+- Added contact message submission functionality.
+- Connected the contact form with MySQL database.
+- Created `messages` table to store:
+  - User name
+  - Email
+  - Message
+  - Created date
+- Added successful message notification after sending a message.
+
+## Navigation Updates
+- Updated navigation links to match PHP pages.
+- Fixed page redirection issues after converting HTML pages.
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
