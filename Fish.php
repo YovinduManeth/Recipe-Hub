@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +38,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="container-fluid">
 
-<a class="navbar-brand d-flex align-items-center" href="home.html">
+<a class="navbar-brand d-flex align-items-center" href="home.php">
 
 <img src="Images/Logo/Recipe_Hub_logo.png"
 width="40"
@@ -51,7 +67,7 @@ id="navbarMenu">
 
 <li class="nav-item">
 
-<a class="nav-link" href="home.html">
+<a class="nav-link" href="home.php">
 Home
 </a>
 
@@ -60,7 +76,7 @@ Home
 
 <li class="nav-item">
 
-<a class="nav-link" href="recipes.html">
+<a class="nav-link" href="recipes.php">
 Recipes
 </a>
 
@@ -69,7 +85,7 @@ Recipes
 
 <li class="nav-item">
 
-<a class="nav-link" href="favourites.html">
+<a class="nav-link" href="favourites.php">
 Favourites
 </a>
 
@@ -77,7 +93,7 @@ Favourites
 
 <li class="nav-item">
 
-<a class="nav-link" href="contact.html">
+<a class="nav-link" href="contact.php">
 Contact Us
 </a>
 
@@ -102,7 +118,7 @@ Contact Us
     <li>
 
             <h6 class="dropdown-header" id="dropdownUsername">
-                User
+               <?php echo htmlspecialchars($username); ?>
             </h6>
 
         </li>
@@ -110,7 +126,7 @@ Contact Us
         <li>
 
             <span class="dropdown-item-text" id="dropdownEmail">
-                user@gmail.com
+               <?php echo htmlspecialchars($email); ?>
             </span>
 
         </li>
@@ -123,7 +139,7 @@ Contact Us
         <li>
 
             <a class="dropdown-item"
-            href="profile.html">
+            href="profile.php">
 
                 <i class="fa-solid fa-user-pen me-2"></i>
                 My Profile
@@ -135,7 +151,7 @@ Contact Us
         <li>
 
             <a class="dropdown-item"
-            href="favourites.html">
+            href="favourites.php">
 
                 <i class="fa-solid fa-heart me-2"></i>
                 My Favourites
@@ -147,8 +163,7 @@ Contact Us
         <li>
 
     <a class="dropdown-item"
-    href="#"
-    onclick="logout()">
+    href="auth/logout.php">
 
         <i class="fa-solid fa-right-from-bracket me-2"></i>
         Logout
@@ -215,7 +230,7 @@ A spicy Sri Lankan tuna curry cooked with aromatic spices and coconut milk, crea
 
 </p>
 
-<a href="recipe-details.html?recipe=tunafishcurry"
+<a href="recipe-details.php?recipe=tunafishcurry"
 class="btn btn-warning">
 View Recipe
 </a>
@@ -252,7 +267,7 @@ A traditional Sri Lankan fish curry prepared with tender sailfish pieces, coconu
 
 </p>
 
-<a href="recipe-details.html?recipe=sailfishcurry"
+<a href="recipe-details.php?recipe=sailfishcurry"
 class="btn btn-warning">
 
 View Recipe
@@ -289,7 +304,7 @@ A classic Sri Lankan chicken curry cooked with spicy roasted curry powder, cocon
 </p>
 
 
-<a href="recipe-details.html?recipe=chickencurry"
+<a href="recipe-details.php?recipe=chickencurry"
 class="btn btn-warning">
 
 View Recipe
@@ -326,7 +341,7 @@ A rich and spicy Sri Lankan beef curry prepared with tender beef pieces, roasted
 </p>
 
 
-<a href="recipe-details.html?recipe=beefcurry"
+<a href="recipe-details.php?recipe=beefcurry"
 class="btn btn-warning">
 
 View Recipe
@@ -365,7 +380,7 @@ A famous Sri Lankan sour fish curry made with tuna pieces, goraka, and tradition
 </p>
 
 
-<a href="recipe-details.html?recipe=fish"
+<a href="recipe-details.php?recipe=fish"
 class="btn btn-warning">
 
 View Recipe
@@ -391,7 +406,6 @@ View Recipe
 
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 
 <!-- Favourite Modal -->

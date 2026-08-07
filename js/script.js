@@ -1,51 +1,3 @@
-const togglePassword = document.getElementById("togglePassword");
-
-const password = document.getElementById("password");
-
-
-if(togglePassword && password){
-
-
-    togglePassword.addEventListener("click", function(){
-
-
-        if(password.type === "password"){
-
-
-            password.type = "text";
-
-
-            togglePassword.classList.remove("fa-eye");
-
-            togglePassword.classList.add("fa-eye-slash");
-
-
-        }
-
-        else{
-
-
-            password.type = "password";
-
-
-            togglePassword.classList.remove("fa-eye-slash");
-
-            togglePassword.classList.add("fa-eye");
-
-
-        }
-
-
-    });
-
-
-}
-
-
-
-
-
-// POPULAR SEARCHES 
 
 
 const popularSearches = document.querySelectorAll(".popular-search");
@@ -790,3 +742,33 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 });
+function togglePassword(id, icon){
+
+    const passwordField = document.getElementById(id);
+
+    console.log(passwordField);
+
+    if(!passwordField){
+        console.log("Password field not found");
+        return;
+    }
+
+
+    if(passwordField.type === "password"){
+
+        passwordField.type = "text";
+
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+
+    }
+    else{
+
+        passwordField.type = "password";
+
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+
+    }
+
+}

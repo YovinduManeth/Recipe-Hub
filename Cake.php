@@ -1,9 +1,26 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<title>Juice Recipes - Recipe Hub</title>
+<title>Cake Recipes - Recipe Hub</title>
 
 <meta charset="UTF-8">
 
@@ -11,16 +28,15 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <link rel="stylesheet" href="css/style.css">
 
 
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -28,7 +44,9 @@
 
 <div class="container-fluid">
 
-<a class="navbar-brand d-flex align-items-center" href="home.html">
+<!-- Logo -->
+
+<a class="navbar-brand d-flex align-items-center" href="home.php">
 
 <img src="Images/Logo/Recipe_Hub_logo.png"
 width="40"
@@ -40,6 +58,8 @@ Recipe Hub
 </span>
 
 </a>
+
+<!-- Mobile Button -->
 
 <button class="navbar-toggler"
 type="button"
@@ -53,46 +73,44 @@ data-bs-target="#navbarMenu">
 <div class="collapse navbar-collapse"
 id="navbarMenu">
 
-
 <ul class="navbar-nav mx-auto">
-
 
 <li class="nav-item">
 
-<a class="nav-link" href="home.html">
+<a class="nav-link" href="home.php">
 Home
 </a>
 
 </li>
 
-
 <li class="nav-item">
 
-<a class="nav-link" href="recipes.html">
+<a class="nav-link" href="recipes.php">
 Recipes
 </a>
 
 </li>
 
-
 <li class="nav-item">
 
-<a class="nav-link" href="favourites.html">
+<a class="nav-link" href="favourites.php">
 Favourites
 </a>
 
 </li>
 
+
 <li class="nav-item">
 
-<a class="nav-link" href="contact.html">
+<a class="nav-link" href="Contacts.php">
 Contact Us
 </a>
 
 </li>
 
-
 </ul>
+
+<!-- User dropdown -->
 
 <div class="dropdown ms-3">
 
@@ -107,48 +125,57 @@ data-bs-toggle="dropdown">
 
 <ul class="dropdown-menu dropdown-menu-end">
 
-
 <li>
 
 <h6 class="dropdown-header">
-User
-</h6>
 
+<?php echo htmlspecialchars($username); ?>
+
+</h6>
+<li>
+
+<span class="dropdown-item-text">
+
+<?php echo htmlspecialchars($email); ?>
+
+</span>
+
+</li>
 </li>
 
 
 <li>
-
 <a class="dropdown-item"
-href="profile.html">
+href="profile.php">
 
 <i class="fa-solid fa-user-pen me-2"></i>
+
 My Profile
 
 </a>
 
 </li>
 
-
 <li>
 
 <a class="dropdown-item"
-href="favourites.html">
+href="favourites.php">
 
 <i class="fa-solid fa-heart me-2"></i>
+
 My Favourites
 
 </a>
 
 </li>
 
-
 <li>
 
 <a class="dropdown-item"
-href="login.html">
+href="auth/logout.php">
 
 <i class="fa-solid fa-right-from-bracket me-2"></i>
+
 Logout
 
 </a>
@@ -158,16 +185,12 @@ Logout
 
 </ul>
 
-
 </div>
 
-<!-- Dark Mode -->
 
 <i class="fa-solid fa-moon mode-icon ms-3"></i>
 
-
 </div>
-
 
 </div>
 
@@ -175,46 +198,45 @@ Logout
 
 </header>
 
-
 <section class="container my-5">
 
 
 <h1 class="text-center mb-5">
 
-Sri Lankan Juice Recipes
+Sri Lankan Cake Recipes
 
 </h1>
 
 
 <div class="row g-4">
 
-
-<!-- Wood Apple Juice -->
+<!-- Butter Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
+
 <div class="card recipe-card h-100">
 
-<img src="Images/Recipes/Wood_Apple_Juice.jpg"
+<img src="Images/Recipes/Butter_Cake.jpg"
 class="card-img-top"
-alt="Wood Apple Juice">
+alt="Sri Lankan Butter Cake">
 
 <div class="card-body">
 
 <h5 class="card-title">
 
-Sri Lankan Wood Apple Juice
+Sri Lankan Butter Cake
 
 </h5>
 
-
 <p class="card-text">
 
-A traditional Sri Lankan refreshing drink made with ripe wood apple, jaggery, and coconut milk, offering a sweet and tangy flavour.
+A soft and delicious traditional Sri Lankan butter cake made with butter, eggs, vanilla and milk.
 
 </p>
 
-<a href="recipe-details.html?recipe=woodapplejuice"
+
+<a href="recipe-details.php?recipe=buttercake"
 class="btn btn-warning">
 
 View Recipe
@@ -223,40 +245,38 @@ View Recipe
 
 </div>
 
+</div>
 
 </div>
 
-
-</div>
-
-<!-- Mango Juice -->
+<!-- Chocolate Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
+
 
 <div class="card recipe-card h-100">
 
 
-<img src="Images/Recipes/Mango_Juice.jpg"
+<img src="Images/Recipes/Chocolate_Cake.jpg"
 class="card-img-top"
-alt="Sri Lankan Mango Juice">
-
+alt="Sri Lankan Chocolate Cake">
 
 <div class="card-body">
 
 
 <h5 class="card-title">
 
-Sri Lankan Mango Juice
+Sri Lankan Chocolate Cake
 
 </h5>
 
 <p class="card-text">
 
-A refreshing tropical drink made with ripe mangoes and chilled water, offering a naturally sweet and creamy flavour.
+A rich and moist Sri Lankan chocolate cake covered with creamy chocolate buttercream frosting.
 
 </p>
 
-<a href="recipe-details.html?recipe=mangojuice"
+<a href="recipe-details.php?recipe=chocolatecake"
 class="btn btn-warning">
 
 View Recipe
@@ -265,64 +285,56 @@ View Recipe
 
 </div>
 
-
 </div>
 
 </div>
 
-<!-- Orange Juice -->
+<!-- Ribbon Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
 <div class="card recipe-card h-100">
 
-
-<img src="Images/Recipes/Orange_Juice.jpg"
+<img src="Images/Recipes/Ribbon_Cake.jpg"
 class="card-img-top"
-alt="Fresh Orange Juice">
-
+alt="Sri Lankan Ribbon Cake">
 
 <div class="card-body">
 
-
 <h5 class="card-title">
 
-Sri Lankan Orange Juice
+Sri Lankan Ribbon Cake
 
 </h5>
 
 <p class="card-text">
 
-A refreshing citrus drink made with fresh oranges, offering a naturally sweet and tangy flavour perfect for any time of the day.
+A colourful Sri Lankan butter cake with beautiful pink and green layers, perfect for celebrations.
 
 </p>
 
-
-<a href="recipe-details.html?recipe=orangejuice"
+<a href="recipe-details.php?recipe=ribboncake"
 class="btn btn-warning">
 
 View Recipe
 
 </a>
 
-
-</div>
-
-
 </div>
 
 </div>
 
-<!-- Watermelon Juice -->
+</div>
+
+<!-- Coconut Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
 <div class="card recipe-card h-100">
 
-
-<img src="Images/Recipes/Watermelon_Juice.jpg"
+<img src="Images/Recipes/Coconut_Cake.jpg"
 class="card-img-top"
-alt="Sri Lankan Watermelon Juice">
+alt="Sri Lankan Coconut Cake">
 
 
 <div class="card-body">
@@ -330,19 +342,17 @@ alt="Sri Lankan Watermelon Juice">
 
 <h5 class="card-title">
 
-Sri Lankan Watermelon Juice
+Sri Lankan Coconut Cake (Bibikkan)
 
 </h5>
 
-
 <p class="card-text">
 
-A refreshing chilled drink made with fresh watermelon, lemon juice, and a hint of sweetness, perfect for hot Sri Lankan days.
+A traditional Sri Lankan sweet cake made with coconut treacle, grated coconut, cashew nuts, dates, and aromatic spices. 
 
 </p>
 
-
-<a href="recipe-details.html?recipe=watermelonjuice"
+<a href="recipe-details.php?recipe=coconutcake"
 class="btn btn-warning">
 
 View Recipe
@@ -356,16 +366,17 @@ View Recipe
 
 </div>
 
-<!-- Avocado Juice -->
+
+<!-- Coffee Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
 <div class="card recipe-card h-100">
 
 
-<img src="Images/Recipes/Avocado_Juice.jpg"
+<img src="Images/Recipes/Coffee_Cake.jpg"
 class="card-img-top"
-alt="Avocado Juice">
+alt="Sri Lankan Coffee Cake">
 
 
 <div class="card-body">
@@ -373,26 +384,23 @@ alt="Avocado Juice">
 
 <h5 class="card-title">
 
-Avocado Juice
+Sri Lankan Coffee Cake
 
 </h5>
 
-
 <p class="card-text">
 
-A creamy and healthy drink made with ripe avocados, milk, sugar, and vanilla, offering a rich and smooth flavour.
+A soft Sri Lankan butter cake infused with coffee flavour and topped with creamy coffee icing, perfect for tea time.
 
 </p>
 
-
-<a href="recipe-details.html?recipe=avocadojuice"
+<a href="recipe-details.php?recipe=coffeecake"
 class="btn btn-warning">
 
 View Recipe
 
 </a>
 
-
 </div>
 
 
@@ -402,11 +410,9 @@ View Recipe
 
 
 </div>
+
 
 </section>
-
-
-<!-- ================= FOOTER ================= -->
 
 
 <footer>
@@ -415,12 +421,10 @@ View Recipe
 
 </footer>
 
-
-<!-- Bootstrap JS -->
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="js/recipeData.js"></script>
+
 <script src="js/script.js"></script>
 
 

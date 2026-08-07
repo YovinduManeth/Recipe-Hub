@@ -1,20 +1,35 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: auth/Login.php");
+    exit();
+}
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<title>Cake Recipes - Recipe Hub</title>
+<title>Aurudu Recipes - Recipe Hub</title>
 
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
 <link rel="stylesheet" href="css/style.css">
 
 
-<link rel="stylesheet" 
+<link rel="stylesheet" z
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -27,9 +42,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="container-fluid">
 
+
 <!-- Logo -->
 
-<a class="navbar-brand d-flex align-items-center" href="home.html">
+<a class="navbar-brand d-flex align-items-center" href="home.php">
 
 <img src="Images/Logo/Recipe_Hub_logo.png"
 width="40"
@@ -42,12 +58,11 @@ Recipe Hub
 
 </a>
 
-<!-- Mobile Button -->
-
 <button class="navbar-toggler"
 type="button"
 data-bs-toggle="collapse"
 data-bs-target="#navbarMenu">
+
 
 <span class="navbar-toggler-icon"></span>
 
@@ -56,11 +71,13 @@ data-bs-target="#navbarMenu">
 <div class="collapse navbar-collapse"
 id="navbarMenu">
 
+
 <ul class="navbar-nav mx-auto">
+
 
 <li class="nav-item">
 
-<a class="nav-link" href="home.html">
+<a class="nav-link" href="home.php">
 Home
 </a>
 
@@ -68,7 +85,7 @@ Home
 
 <li class="nav-item">
 
-<a class="nav-link" href="recipes.html">
+<a class="nav-link" href="recipes.php">
 Recipes
 </a>
 
@@ -76,7 +93,7 @@ Recipes
 
 <li class="nav-item">
 
-<a class="nav-link" href="favourites.html">
+<a class="nav-link" href="favourites.php">
 Favourites
 </a>
 
@@ -85,7 +102,7 @@ Favourites
 
 <li class="nav-item">
 
-<a class="nav-link" href="contact.html">
+<a class="nav-link" href="Contacts.php">
 Contact Us
 </a>
 
@@ -93,10 +110,8 @@ Contact Us
 
 </ul>
 
-<!-- User dropdown -->
 
 <div class="dropdown ms-3">
-
 
 <a href="#"
 class="user-icon dropdown-toggle"
@@ -108,20 +123,32 @@ data-bs-toggle="dropdown">
 
 <ul class="dropdown-menu dropdown-menu-end">
 
+
 <li>
 
 <h6 class="dropdown-header">
 
-User
+<?php echo htmlspecialchars($username); ?>
 
 </h6>
+
+<li>
+
+<span class="dropdown-item-text">
+
+<?php echo htmlspecialchars($email); ?>
+
+</span>
+
+</li>
 
 </li>
 
 
 <li>
+
 <a class="dropdown-item"
-href="profile.html">
+href="profile.php">
 
 <i class="fa-solid fa-user-pen me-2"></i>
 
@@ -134,7 +161,7 @@ My Profile
 <li>
 
 <a class="dropdown-item"
-href="favourites.html">
+href="favourites.php">
 
 <i class="fa-solid fa-heart me-2"></i>
 
@@ -147,7 +174,7 @@ My Favourites
 <li>
 
 <a class="dropdown-item"
-href="login.html">
+href="auth/logout.php">
 
 <i class="fa-solid fa-right-from-bracket me-2"></i>
 
@@ -157,11 +184,9 @@ Logout
 
 </li>
 
-
 </ul>
 
 </div>
-
 
 <i class="fa-solid fa-moon mode-icon ms-3"></i>
 
@@ -175,43 +200,93 @@ Logout
 
 <section class="container my-5">
 
-
 <h1 class="text-center mb-5">
 
-Sri Lankan Cake Recipes
+Sri Lankan Aurudu Recipes
 
 </h1>
 
-
 <div class="row g-4">
 
-<!-- Butter Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
 
 <div class="card recipe-card h-100">
 
-<img src="Images/Recipes/Butter_Cake.jpg"
+
+<img src="Images/Recipes/Milk_Rice.jpg"
 class="card-img-top"
-alt="Sri Lankan Butter Cake">
+alt="Sri Lankan Milk Rice">
+
+
 
 <div class="card-body">
 
+
 <h5 class="card-title">
 
-Sri Lankan Butter Cake
+Sri Lankan Milk Rice (Kiribath)
 
 </h5>
 
+
 <p class="card-text">
 
-A soft and delicious traditional Sri Lankan butter cake made with butter, eggs, vanilla and milk.
+A traditional Sri Lankan festive dish made with rice and creamy coconut milk.
+</p>
+
+
+<a href="recipe-details.php?recipe=milkrice"
+class="btn btn-warning">
+
+View Recipe
+
+</a>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- Athirasa -->
+
+
+<div class="col-lg-4 col-md-6 col-sm-12 fade-in">
+
+
+<div class="card recipe-card h-100">
+
+
+<img src="Images/Recipes/Athirasa.jpg"
+class="card-img-top"
+alt="Sri Lankan Athirasa">
+
+
+
+<div class="card-body">
+
+
+<h5 class="card-title">
+
+Sri Lankan Athirasa
+
+</h5>
+
+
+
+<p class="card-text">
+
+A traditional Sri Lankan Avurudu sweet prepared with rice flour, sugar syrup, fennel seeds, and coconut honey. 
 
 </p>
 
 
-<a href="recipe-details.html?recipe=buttercake"
+<a href="recipe-details.php?recipe=athirasa"
 class="btn btn-warning">
 
 View Recipe
@@ -224,34 +299,34 @@ View Recipe
 
 </div>
 
-<!-- Chocolate Cake -->
+<!-- Kokis -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
-
 <div class="card recipe-card h-100">
 
-
-<img src="Images/Recipes/Chocolate_Cake.jpg"
+<img src="Images/Recipes/Kokis.jpg"
 class="card-img-top"
-alt="Sri Lankan Chocolate Cake">
+alt="Sri Lankan Kokis">
+
+
 
 <div class="card-body">
 
 
 <h5 class="card-title">
 
-Sri Lankan Chocolate Cake
+Sri Lankan Kokis
 
 </h5>
 
 <p class="card-text">
 
-A rich and moist Sri Lankan chocolate cake covered with creamy chocolate buttercream frosting.
+A crispy traditional Sri Lankan Avurudu snack made with rice flour, coconut milk, egg, and spices. Fried into a beautiful flower shape using a special mould.
 
 </p>
 
-<a href="recipe-details.html?recipe=chocolatecake"
+<a href="recipe-details.php?recipe=kokis"
 class="btn btn-warning">
 
 View Recipe
@@ -264,31 +339,81 @@ View Recipe
 
 </div>
 
-<!-- Ribbon Cake -->
+
+<!-- Aluwa -->
+
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
+
 <div class="card recipe-card h-100">
 
-<img src="Images/Recipes/Ribbon_Cake.jpg"
+<img src="Images/Recipes/Aluwa.jpg"
 class="card-img-top"
-alt="Sri Lankan Ribbon Cake">
+alt="Sri Lankan Aluwa">
+
 
 <div class="card-body">
 
 <h5 class="card-title">
 
-Sri Lankan Ribbon Cake
+Sri Lankan Aluwa
 
 </h5>
 
+
 <p class="card-text">
 
-A colourful Sri Lankan butter cake with beautiful pink and green layers, perfect for celebrations.
+A traditional Sri Lankan sweet made with roasted rice flour, sugar syrup, cashew nuts, and cardamom. 
 
 </p>
 
-<a href="recipe-details.html?recipe=ribboncake"
+
+<a href="recipe-details.php?recipe=aluwa"
+class="btn btn-warning">
+
+View Recipe
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- Mung Kawum -->
+
+
+<div class="col-lg-4 col-md-6 col-sm-12 fade-in">
+
+<div class="card recipe-card h-100">
+
+<img src="Images/Recipes/Mung_Kawum.jpg"
+class="card-img-top"
+alt="Sri Lankan Mung Kawum">
+
+<div class="card-body">
+
+<h5 class="card-title">
+
+Sri Lankan Mung Kawum
+
+</h5>
+
+
+<p class="card-text">
+
+A traditional Sri Lankan New Year sweet made with roasted green gram flour, rice flour, coconut honey, and sugar syrup. 
+
+</p>
+
+
+<a href="recipe-details.php?recipe=mungkawum"
 class="btn btn-warning">
 
 View Recipe
@@ -300,89 +425,6 @@ View Recipe
 </div>
 
 </div>
-
-<!-- Coconut Cake -->
-
-<div class="col-lg-4 col-md-6 col-sm-12 fade-in">
-
-<div class="card recipe-card h-100">
-
-<img src="Images/Recipes/Coconut_Cake.jpg"
-class="card-img-top"
-alt="Sri Lankan Coconut Cake">
-
-
-<div class="card-body">
-
-
-<h5 class="card-title">
-
-Sri Lankan Coconut Cake (Bibikkan)
-
-</h5>
-
-<p class="card-text">
-
-A traditional Sri Lankan sweet cake made with coconut treacle, grated coconut, cashew nuts, dates, and aromatic spices. 
-
-</p>
-
-<a href="recipe-details.html?recipe=coconutcake"
-class="btn btn-warning">
-
-View Recipe
-
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- Coffee Cake -->
-
-<div class="col-lg-4 col-md-6 col-sm-12 fade-in">
-
-<div class="card recipe-card h-100">
-
-
-<img src="Images/Recipes/Coffee_Cake.jpg"
-class="card-img-top"
-alt="Sri Lankan Coffee Cake">
-
-
-<div class="card-body">
-
-
-<h5 class="card-title">
-
-Sri Lankan Coffee Cake
-
-</h5>
-
-<p class="card-text">
-
-A soft Sri Lankan butter cake infused with coffee flavour and topped with creamy coffee icing, perfect for tea time.
-
-</p>
-
-<a href="recipe-details.html?recipe=coffeecake"
-class="btn btn-warning">
-
-View Recipe
-
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
 
 </div>
 
@@ -401,7 +443,6 @@ View Recipe
 <script src="js/recipeData.js"></script>
 
 <script src="js/script.js"></script>
-
 
 </body>
 

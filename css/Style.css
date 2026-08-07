@@ -2571,3 +2571,19 @@ body.dark-mode .login-link{
 
 
 }
+
+.password-eye{
+
+    cursor:pointer;
+    color:#777;
+    margin-left:-35px;
+    z-index:2;
+
+}
+
+
+.password-eye:hover{
+
+    color:#E28D1E;
+
+}

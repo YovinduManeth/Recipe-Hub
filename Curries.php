@@ -1,3 +1,22 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +46,7 @@
 
         <!-- Logo -->
 
-        <a class="navbar-brand d-flex align-items-center" href="home.html">
+        <a class="navbar-brand d-flex align-items-center" href="home.php">
 
             <img src="Images/Logo/Recipe_Hub_logo.png"
             width="40"
@@ -60,7 +79,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="home.html">
+                    <a class="nav-link" href="home.php">
                         Home
                     </a>
 
@@ -68,7 +87,7 @@
 
                 <li class="nav-item">
 
-                 <a class="nav-link" href="recipes.html">
+                 <a class="nav-link" href="recipes.php">
                  Recipes
                 </a>
 
@@ -76,7 +95,7 @@
 
                 <li class="nav-item">
 
-                <a class="nav-link" href="favourites.html">
+                <a class="nav-link" href="favourites.php">
                 Favourites
                 </a>
 
@@ -85,7 +104,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="Contacts.php">
                         Contact Us
                     </a>
 
@@ -111,7 +130,7 @@
         <li>
 
             <h6 class="dropdown-header" id="dropdownUsername">
-                User
+                <?php echo htmlspecialchars($username); ?>
             </h6>
 
         </li>
@@ -119,7 +138,7 @@
         <li>
 
             <span class="dropdown-item-text" id="dropdownEmail">
-                user@gmail.com
+                <?php echo htmlspecialchars($email); ?>
             </span>
 
         </li>
@@ -130,7 +149,7 @@
 
         <li>
             <a class="dropdown-item"
-            href="profile.html">
+            href="profile.php">
 
                 <i class="fa-solid fa-user-pen me-2"></i>
                 My Profile
@@ -142,7 +161,7 @@
         <li>
 
             <a class="dropdown-item"
-            href="favourites.html">
+            href="favourites.php">
 
                 <i class="fa-solid fa-heart me-2"></i>
                 My Favourites
@@ -154,8 +173,7 @@
         <li>
 
     <a class="dropdown-item"
-    href="#"
-    onclick="logout()">
+    href="auth/logout.php">
 
         <i class="fa-solid fa-right-from-bracket me-2"></i>
         Logout
@@ -216,7 +234,7 @@ A creamy Sri Lankan lentil curry cooked with coconut milk and traditional spices
 </p>
 
 
-<a href="recipe-details.html?recipe=dhal"
+<a href="recipe-details.php?recipe=dhal"
 class="btn btn-warning">
 
 View Recipe
@@ -252,7 +270,7 @@ A simple and delicious Sri Lankan curry made with tender potatoes, coconut milk,
 
 </p>
 
-<a href="recipe-details.html?recipe=potatocurry"
+<a href="recipe-details.php?recipe=potatocurry"
 class="btn btn-warning">
 
 View Recipe
@@ -287,7 +305,7 @@ A delicious Sri Lankan eggplant curry prepared with crispy brinjal pieces, spicy
 
 </p>
 
-<a href="recipe-details.html?recipe=brinjalcurry"
+<a href="recipe-details.php?recipe=brinjalcurry"
 class="btn btn-warning">
 
 View Recipe
@@ -323,7 +341,7 @@ A mild and creamy Sri Lankan pumpkin curry prepared with coconut milk and aromat
 
 </p>
 
-<a href="recipe-details.html?recipe=pumpkincurry"
+<a href="recipe-details.php?recipe=pumpkincurry"
 class="btn btn-warning">
 
 View Recipe
@@ -363,7 +381,7 @@ A traditional Sri Lankan young jackfruit curry cooked with roasted spices and co
 </p>
 
 
-<a href="recipe-details.html?recipe=jackfruitcurry"
+<a href="recipe-details.php?recipe=jackfruitcurry"
 class="btn btn-warning">
 
 View Recipe

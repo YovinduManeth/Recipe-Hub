@@ -1,3 +1,20 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +54,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <!-- Logo -->
 
-<a class="navbar-brand d-flex align-items-center" href="home.html">
+<a class="navbar-brand d-flex align-items-center" href="home.php">
 
 <img src="Images/Logo/Recipe_Hub_logo.png"
 width="40"
@@ -69,7 +86,7 @@ id="navbarMenu">
 
 <li class="nav-item">
 
-<a class="nav-link" href="home.html">
+<a class="nav-link" href="home.php">
 Home
 </a>
 
@@ -77,7 +94,7 @@ Home
 
 <li class="nav-item">
 
-<a class="nav-link" href="recipes.html">
+<a class="nav-link" href="recipes.php">
 Recipes
 </a>
 
@@ -86,7 +103,7 @@ Recipes
 
 <li class="nav-item">
 
-<a class="nav-link" href="favourites.html">
+<a class="nav-link" href="favourites.php">
 Favourites
 </a>
 
@@ -95,7 +112,7 @@ Favourites
 
 <li class="nav-item">
 
-<a class="nav-link" href="contact.html">
+<a class="nav-link" href="contact.php">
 Contact Us
 </a>
 
@@ -124,7 +141,7 @@ data-bs-toggle="dropdown">
 
 <h6 class="dropdown-header">
 
-User
+<?php echo $username; ?>
 
 </h6>
 
@@ -132,8 +149,19 @@ User
 
 <li>
 
+<span class="dropdown-item-text">
+
+<?php echo $email; ?>
+
+</span>
+
+</li>
+
+
+<li>
+
 <a class="dropdown-item"
-href="profile.html">
+href="profile.php">
 
 <i class="fa-solid fa-user-pen me-2"></i>
 
@@ -146,7 +174,7 @@ My Profile
 <li>
 
 <a class="dropdown-item"
-href="favourites.html">
+href="favourites.php">
 
 <i class="fa-solid fa-heart me-2"></i>
 
@@ -159,7 +187,7 @@ My Favourites
 <li>
 
 <a class="dropdown-item"
-href="login.html">
+href="login.php">
 
 <i class="fa-solid fa-right-from-bracket me-2"></i>
 
@@ -218,7 +246,7 @@ A rich and festive Sri Lankan Christmas cake made with butter, eggs, coconut mil
 
 </p>
 
-<a href="recipe-details.html?recipe=christmascake"
+<a href="recipe-details.php?recipe=christmascake"
 class="btn btn-warning">
 
 View Recipe
@@ -257,7 +285,7 @@ A delicious Christmas treat made with dark chocolate, butter, and creamy milk mi
 </p>
 
 
-<a href="recipe-details.html?recipe=christmasfudge"
+<a href="recipe-details.php?recipe=christmasfudge"
 class="btn btn-warning">
 
 View Recipe
@@ -294,7 +322,7 @@ Festive gingerbread cookies made with butter, ginger, cocoa, and warm spices. Th
 
 </p>
 
-<a href="recipe-details.html?recipe=gingerbreadcookies"
+<a href="recipe-details.php?recipe=gingerbreadcookies"
 class="btn btn-warning">
 
 View Recipe
@@ -334,7 +362,7 @@ Colourful and buttery Christmas sprinkle cookies made with vanilla, butter, and 
 
 </p>
 
-<a href="recipe-details.html?recipe=sprinklecookies"
+<a href="recipe-details.php?recipe=sprinklecookies"
 class="btn btn-warning">
 
 View Recipe
@@ -374,7 +402,7 @@ A colourful and refreshing Christmas dessert made with red and green jelly cubes
 
 </p>
 
-<a href="recipe-details.html?recipe=christmasjellies"
+<a href="recipe-details.php?recipe=christmasjellies"
 class="btn btn-warning">
 
 View Recipe

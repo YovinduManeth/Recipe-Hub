@@ -1,27 +1,43 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<title>Aurudu Recipes - Recipe Hub</title>
+<title>Juice Recipes - Recipe Hub</title>
 
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <link rel="stylesheet" href="css/style.css">
 
 
-<link rel="stylesheet" z
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -29,10 +45,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="container-fluid">
 
-
-<!-- Logo -->
-
-<a class="navbar-brand d-flex align-items-center" href="home.html">
+<a class="navbar-brand d-flex align-items-center" href="home.php">
 
 <img src="Images/Logo/Recipe_Hub_logo.png"
 width="40"
@@ -50,7 +63,6 @@ type="button"
 data-bs-toggle="collapse"
 data-bs-target="#navbarMenu">
 
-
 <span class="navbar-toggler-icon"></span>
 
 </button>
@@ -64,41 +76,43 @@ id="navbarMenu">
 
 <li class="nav-item">
 
-<a class="nav-link" href="home.html">
+<a class="nav-link" href="home.php">
 Home
 </a>
 
 </li>
 
+
 <li class="nav-item">
 
-<a class="nav-link" href="recipes.html">
+<a class="nav-link" href="recipes.php">
 Recipes
 </a>
 
 </li>
 
+
 <li class="nav-item">
 
-<a class="nav-link" href="favourites.html">
+<a class="nav-link" href="favourites.php">
 Favourites
 </a>
 
 </li>
 
-
 <li class="nav-item">
 
-<a class="nav-link" href="contact.html">
+<a class="nav-link" href="contact.php">
 Contact Us
 </a>
 
 </li>
 
+
 </ul>
 
-
 <div class="dropdown ms-3">
+
 
 <a href="#"
 class="user-icon dropdown-toggle"
@@ -114,60 +128,71 @@ data-bs-toggle="dropdown">
 <li>
 
 <h6 class="dropdown-header">
-
-User
-
+<?php echo htmlspecialchars($username); ?>
 </h6>
 
 </li>
+<li>
 
+<span class="dropdown-item-text">
+
+<?php echo htmlspecialchars($email); ?>
+
+</span>
+
+</li>
 
 <li>
 
 <a class="dropdown-item"
-href="profile.html">
+href="profile.php">
 
 <i class="fa-solid fa-user-pen me-2"></i>
-
 My Profile
 
 </a>
 
 </li>
 
+
 <li>
 
 <a class="dropdown-item"
-href="favourites.html">
+href="favourites.php">
 
 <i class="fa-solid fa-heart me-2"></i>
-
 My Favourites
 
 </a>
 
 </li>
 
+
 <li>
 
 <a class="dropdown-item"
-href="login.html">
+href="auth/logout.php">
 
 <i class="fa-solid fa-right-from-bracket me-2"></i>
-
 Logout
 
 </a>
 
 </li>
 
+
 </ul>
 
+
 </div>
+
+<!-- Dark Mode -->
 
 <i class="fa-solid fa-moon mode-icon ms-3"></i>
 
+
 </div>
+
 
 </div>
 
@@ -175,46 +200,46 @@ Logout
 
 </header>
 
+
 <section class="container my-5">
+
 
 <h1 class="text-center mb-5">
 
-Sri Lankan Aurudu Recipes
+Sri Lankan Juice Recipes
 
 </h1>
+
 
 <div class="row g-4">
 
 
-<div class="col-lg-4 col-md-6 col-sm-12 fade-in">
+<!-- Wood Apple Juice -->
 
+<div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
 <div class="card recipe-card h-100">
 
-
-<img src="Images/Recipes/Milk_Rice.jpg"
+<img src="Images/Recipes/Wood_Apple_Juice.jpg"
 class="card-img-top"
-alt="Sri Lankan Milk Rice">
-
-
+alt="Wood Apple Juice">
 
 <div class="card-body">
 
-
 <h5 class="card-title">
 
-Sri Lankan Milk Rice (Kiribath)
+Sri Lankan Wood Apple Juice
 
 </h5>
 
 
 <p class="card-text">
 
-A traditional Sri Lankan festive dish made with rice and creamy coconut milk.
+A traditional Sri Lankan refreshing drink made with ripe wood apple, jaggery, and coconut milk, offering a sweet and tangy flavour.
+
 </p>
 
-
-<a href="recipe-details.html?recipe=milkrice"
+<a href="recipe-details.php?recipe=woodapplejuice"
 class="btn btn-warning">
 
 View Recipe
@@ -229,20 +254,16 @@ View Recipe
 
 </div>
 
-
-<!-- Athirasa -->
-
+<!-- Mango Juice -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
-
 
 <div class="card recipe-card h-100">
 
 
-<img src="Images/Recipes/Athirasa.jpg"
+<img src="Images/Recipes/Mango_Juice.jpg"
 class="card-img-top"
-alt="Sri Lankan Athirasa">
-
+alt="Sri Lankan Mango Juice">
 
 
 <div class="card-body">
@@ -250,20 +271,17 @@ alt="Sri Lankan Athirasa">
 
 <h5 class="card-title">
 
-Sri Lankan Athirasa
+Sri Lankan Mango Juice
 
 </h5>
 
-
-
 <p class="card-text">
 
-A traditional Sri Lankan Avurudu sweet prepared with rice flour, sugar syrup, fennel seeds, and coconut honey. 
+A refreshing tropical drink made with ripe mangoes and chilled water, offering a naturally sweet and creamy flavour.
 
 </p>
 
-
-<a href="recipe-details.html?recipe=athirasa"
+<a href="recipe-details.php?recipe=mangojuice"
 class="btn btn-warning">
 
 View Recipe
@@ -272,20 +290,21 @@ View Recipe
 
 </div>
 
-</div>
 
 </div>
 
-<!-- Kokis -->
+</div>
+
+<!-- Orange Juice -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
 <div class="card recipe-card h-100">
 
-<img src="Images/Recipes/Kokis.jpg"
-class="card-img-top"
-alt="Sri Lankan Kokis">
 
+<img src="Images/Recipes/Orange_Juice.jpg"
+class="card-img-top"
+alt="Fresh Orange Juice">
 
 
 <div class="card-body">
@@ -293,60 +312,18 @@ alt="Sri Lankan Kokis">
 
 <h5 class="card-title">
 
-Sri Lankan Kokis
+Sri Lankan Orange Juice
 
 </h5>
 
 <p class="card-text">
 
-A crispy traditional Sri Lankan Avurudu snack made with rice flour, coconut milk, egg, and spices. Fried into a beautiful flower shape using a special mould.
-
-</p>
-
-<a href="recipe-details.html?recipe=kokis"
-class="btn btn-warning">
-
-View Recipe
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- Aluwa -->
-
-
-<div class="col-lg-4 col-md-6 col-sm-12 fade-in">
-
-
-<div class="card recipe-card h-100">
-
-<img src="Images/Recipes/Aluwa.jpg"
-class="card-img-top"
-alt="Sri Lankan Aluwa">
-
-
-<div class="card-body">
-
-<h5 class="card-title">
-
-Sri Lankan Aluwa
-
-</h5>
-
-
-<p class="card-text">
-
-A traditional Sri Lankan sweet made with roasted rice flour, sugar syrup, cashew nuts, and cardamom. 
+A refreshing citrus drink made with fresh oranges, offering a naturally sweet and tangy flavour perfect for any time of the day.
 
 </p>
 
 
-<a href="recipe-details.html?recipe=aluwa"
+<a href="recipe-details.php?recipe=orangejuice"
 class="btn btn-warning">
 
 View Recipe
@@ -359,38 +336,38 @@ View Recipe
 
 </div>
 
-
 </div>
 
-
-<!-- Mung Kawum -->
-
+<!-- Watermelon Juice -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
 <div class="card recipe-card h-100">
 
-<img src="Images/Recipes/Mung_Kawum.jpg"
+
+<img src="Images/Recipes/Watermelon_Juice.jpg"
 class="card-img-top"
-alt="Sri Lankan Mung Kawum">
+alt="Sri Lankan Watermelon Juice">
+
 
 <div class="card-body">
 
+
 <h5 class="card-title">
 
-Sri Lankan Mung Kawum
+Sri Lankan Watermelon Juice
 
 </h5>
 
 
 <p class="card-text">
 
-A traditional Sri Lankan New Year sweet made with roasted green gram flour, rice flour, coconut honey, and sugar syrup. 
+A refreshing chilled drink made with fresh watermelon, lemon juice, and a hint of sweetness, perfect for hot Sri Lankan days.
 
 </p>
 
 
-<a href="recipe-details.html?recipe=mungkawum"
+<a href="recipe-details.php?recipe=watermelonjuice"
 class="btn btn-warning">
 
 View Recipe
@@ -399,14 +376,62 @@ View Recipe
 
 </div>
 
-</div>
 
 </div>
 
 </div>
 
+<!-- Avocado Juice -->
+
+<div class="col-lg-4 col-md-6 col-sm-12 fade-in">
+
+<div class="card recipe-card h-100">
+
+
+<img src="Images/Recipes/Avocado_Juice.jpg"
+class="card-img-top"
+alt="Avocado Juice">
+
+
+<div class="card-body">
+
+
+<h5 class="card-title">
+
+Avocado Juice
+
+</h5>
+
+
+<p class="card-text">
+
+A creamy and healthy drink made with ripe avocados, milk, sugar, and vanilla, offering a rich and smooth flavour.
+
+</p>
+
+
+<a href="recipe-details.php?recipe=avocadojuice"
+class="btn btn-warning">
+
+View Recipe
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
 
 </section>
+
+
+<!-- ================= FOOTER ================= -->
 
 
 <footer>
@@ -415,10 +440,14 @@ View Recipe
 
 </footer>
 
+
+<!-- Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="js/script.js"></script>
 <script src="js/recipeData.js"></script>
+<script src="js/script.js"></script>
+
 
 </body>
 

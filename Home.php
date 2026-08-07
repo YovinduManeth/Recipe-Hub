@@ -182,7 +182,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
             <a class="dropdown-item"
-            href="profile.html">
+            href="profile.php">
 
                 <i class="fa-solid fa-user-pen me-2"></i>
                 My Profile
@@ -194,7 +194,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
             <a class="dropdown-item"
-            href="favourites.html">
+            href="favourites.php">
 
                 <i class="fa-solid fa-heart me-2"></i>
                 My Favourites
@@ -471,7 +471,7 @@ View All
 
     <div class="card h-100">
 
-        <a href = "Rice.html">
+        <a href = "Rice.php">
         <img src="Images/Recipes/Rice.jpg"
              class="card-img-top"
              alt="Rice">
@@ -496,7 +496,7 @@ View All
     <div class="card h-100">
 
 
-        <a href = "Curries.html">
+        <a href = "Curries.php">
             <img src="Images/Recipes/Curries.jpg"
             class="card-img-top"
             alt="Curries">
@@ -520,7 +520,7 @@ View All
 
     <div class="card h-100">
 
-        <a href="fish.html">
+        <a href="fish.php">
         <img src="Images/Recipes/Fish.jpg"
              class="card-img-top"
              alt="Fish Meat">
@@ -543,7 +543,7 @@ View All
 
     <div class="card h-100">
 
-        <a href="Cake.html">
+        <a href="Cake.php">
         <img src="Images/Recipes/Cake.jpg"
              class="card-img-top"
              alt="Cake">
@@ -566,7 +566,7 @@ View All
 
     <div class="card h-100">
 
-        <a href="Juices.html">
+        <a href="Juices.php">
         <img src="Images/Recipes/Juice.jpg"
              class="card-img-top"
              alt="Juice">
@@ -614,7 +614,7 @@ Seasonal Recipes
 
     <div class="card h-100">
 
-        <a href="aurudu.html">
+        <a href="aurudu.php">
         <img src="Images/Recipes/Aurudu.webp"
              class="card-img-top"
              alt="Aurudu Recipes">
@@ -637,7 +637,7 @@ Seasonal Recipes
 
     <div class="card h-100">
 
-        <a href="Thai_pongal.html">
+        <a href="Thai_pongal.php">
         <img src="Images/Recipes/ThaiPongal.png"
              class="card-img-top"
              alt="Thai Pongal Recipes">
@@ -661,7 +661,7 @@ Seasonal Recipes
 
     <div class="card h-100">
 
-        <a href="Ramadan.html">
+        <a href="Ramadan.php">
         <img src="Images/Recipes/Ramadan.png"
              class="card-img-top"
              alt="Ramadan Recipes">
@@ -685,7 +685,7 @@ Seasonal Recipes
 
     <div class="card h-100">
 
-        <a href="Christmas.html">
+        <a href="Christmas.php">
         <img src="Images/Recipes/Christmas.png"
              class="card-img-top"
              alt="Christmas Recipes">
