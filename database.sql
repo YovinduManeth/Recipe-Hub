@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2026 at 12:10 PM
+-- Generation Time: Aug 07, 2026 at 05:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,6 +34,16 @@ CREATE TABLE `messages` (
   `message` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `name`, `email`, `message`, `created_at`) VALUES
+(1, 'dinundu', 'dinu@gmail.com', 'test 1', '2026-08-06 17:25:31'),
+(2, 'yovindu', 'yovi@gmail.com', 'test2', '2026-08-06 17:26:13'),
+(3, 'vihanga', 'vi@gmail.com', 'test3', '2026-08-06 17:29:35'),
+(4, 'vihanga', 'vi@gmail.com', 'test3', '2026-08-06 17:36:54');
 
 -- --------------------------------------------------------
 
@@ -68,7 +78,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`) VALUES
-(15, 'TestUser', 'test@gmail.com', '$2y$10$r1hMU/tzTSAQySidSYNyoeoc4pPng0gpBMWKSQsGNFIw2/lXkeSFK', '2026-08-06 08:44:48'),
+(15, 'TestUser', 'test@gmail.com', '$2y$10$v9aEErzoiHjQ1mrzD/pD6Os2YSOQH5ZHeNkFWNkk.epH7AyntSriK', '2026-08-06 15:59:47'),
 (27, 'Yovi', 'Yovi12@gmail.com', '$2y$10$/YDZEPZwQO5ic5Sw7iQk4.gCp7/ixMNwDNOcSfokRCuvUs0LPH17q', '2026-08-05 16:28:02'),
 (28, 'dinu', 'dinu@gmail.com', '$2y$10$O1.fQrz717I/gLRPRmu9xudL8otCAnYNxUPtuajVp/I3SBYTW.dVC', '2026-08-06 08:51:30'),
 (29, 'dinu', 'dinu@gmail.com', '$2y$10$nIfooBaHT56dqTxmB6.yVua1J98JHGqosI88u5OzART8CbybVZjMS', '2026-08-06 08:53:53'),
@@ -82,6 +92,12 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `recipes`
@@ -98,6 +114,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `recipes`
