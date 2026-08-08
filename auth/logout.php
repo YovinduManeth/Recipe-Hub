@@ -1,10 +1,13 @@
 <?php
+
 session_start();
 
-$_SESSION = [];
+session_unset();
 
 session_destroy();
 
-header("Location: ../auth/Login.php");
+header("Location: Login.php");
+
 exit();
+
 ?>

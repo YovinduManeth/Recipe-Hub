@@ -4,70 +4,104 @@ include "../includes/db.php";
 
 $message = "";
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
-    // Get form data
-    $email = trim($_POST["email"]);
-    $username = trim($_POST["username"]);
-    $password = $_POST["password"];
-    $confirmPassword = $_POST["confirmPassword"];
-
+    // Get form data safely
+    $email = trim($_POST["email"] ?? "");
+    $username = trim($_POST["username"] ?? "");
+    $password = $_POST["password"] ?? "";
+    $confirmPassword = $_POST["confirmPassword"] ?? "";
 
 
-    // Check Terms and Conditions
-    if (!isset($_POST["terms"])) {
+    // 1. Check empty fields
+    if (
+        $email === "" ||
+        $username === "" ||
+        $password === "" ||
+        $confirmPassword === ""
+    ) {
 
-
-        $message = "Please accept the Terms and Conditions";
-
-
-    }
-
-
-    // Check password confirmation
-    else if ($password !== $confirmPassword) {
-
-
-        $message = "Passwords do not match";
-
+        $message = "Please fill in all fields.";
 
     }
 
 
-    // Insert user only if no errors
+    // 2. Validate email
+    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+        $message = "Please enter a valid email address.";
+
+    }
+
+
+    // 3. Check Terms and Conditions
+    elseif (!isset($_POST["terms"])) {
+
+        $message = "Please accept the Terms and Conditions.";
+
+    }
+
+
+    // 4. Check password confirmation
+    elseif ($password !== $confirmPassword) {
+
+        $message = "Passwords do not match.";
+
+    }
+
+
     else {
 
-
-        $hashedPassword = password_hash(
-            $password,
-            PASSWORD_DEFAULT
-        );
-
-
-        $sql = "INSERT INTO users 
-                (username, email, password)
-                VALUES (?, ?, ?)";
-
+        // 5. Check duplicate username or email
+        $sql = "SELECT id
+                FROM users
+                WHERE username = ?
+                OR email = ?";
 
         $stmt = $conn->prepare($sql);
 
-
         $stmt->execute([
-
             $username,
-            $email,
-            $hashedPassword
-
+            $email
         ]);
 
 
+        if ($stmt->fetch()) {
 
-        header("Location: Login.php?register=success");
+            $message = "Username or email already exists.";
 
-        exit();
+        }
 
+
+        else {
+
+            // 6. Hash password using bcrypt
+            $hashedPassword = password_hash(
+                $password,
+                PASSWORD_BCRYPT
+            );
+
+
+            // 7. Insert user
+            $sql = "INSERT INTO users
+                    (username, email, password)
+                    VALUES (?, ?, ?)";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->execute([
+                $username,
+                $email,
+                $hashedPassword
+            ]);
+
+
+            // Registration successful
+            header("Location: Login.php?register=success");
+
+            exit();
+
+        }
 
     }
 

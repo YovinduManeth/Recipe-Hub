@@ -2,121 +2,252 @@
 
 session_start();
 
-if(!isset($_SESSION["username"])){
+include "includes/db.php";
+
+
+if (!isset($_SESSION["username"])) {
 
     header("Location: auth/Login.php");
     exit();
 
 }
 
+
 $username = $_SESSION["username"];
 $email = $_SESSION["email"];
 
+
+// ==========================
+// GET RECIPES FROM DATABASE
+// ==========================
+
+$sql = "SELECT id, recipe_key, title, description, image, ingredients, instructions
+        FROM recipes
+        WHERE recipe_key IN (
+            'chickenkottu',
+            'stringhoppers',
+            'hoppers',
+            'ambulthiyal',
+            'ambulthiyal2',
+            'dhal',
+            'watalappan'
+)
+        ORDER BY id ASC";
+
+$stmt = $conn->prepare($sql);
+
+$stmt->execute();
+
+$recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
-
-
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>Recipes | Recipe Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Recipes | Recipe Hub</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
 
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+      href="css/style.css">
 
 
 </head>
 
-
 <body>
 
+<!-- ================= NAVBAR ================= -->
 
 <header>
 
 <nav class="navbar navbar-expand-lg bg-white border rounded">
 
-    <div class="container-fluid">
+
+<div class="container-fluid">
 
 
-        <!-- Logo -->
+    <!-- Logo -->
 
-        <a class="navbar-brand d-flex align-items-center" href="home.php">
+    <a class="navbar-brand d-flex align-items-center"
+       href="home.php">
 
-            <img src="Images/Logo/Recipe_Hub_logo.png"
-            width="40"
-            height="40"
-            class="me-2">
+        <img src="Images/Logo/Recipe_Hub_logo.png"
+             width="40"
+             height="40"
+             class="me-2">
 
-            <span>
-                Recipe Hub
-            </span>
+        <span>
+            Recipe Hub
+        </span>
 
-        </a>
-
-        <!-- Mobile Button -->
-
-        <button class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarMenu">
-
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-        <!-- Menu -->
-
-        <div class="collapse navbar-collapse"
-        id="navbarMenu">
+    </a>
 
 
-            <ul class="navbar-nav mx-auto">
+    <!-- Mobile Button -->
+
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+
+        <span class="navbar-toggler-icon"></span>
+
+    </button>
 
 
-                <li class="nav-item">
+    <!-- Menu -->
 
-                    <a class="nav-link" href="home.php">
-                        Home
+    <div class="collapse navbar-collapse"
+         id="navbarMenu">
+
+
+        <ul class="navbar-nav mx-auto">
+
+
+            <li class="nav-item">
+
+                <a class="nav-link"
+                   href="home.php">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li class="nav-item">
+
+                <a class="nav-link active"
+                   href="recipes.php">
+
+                    Recipes
+
+                </a>
+
+            </li>
+
+
+            <li class="nav-item">
+
+                <a class="nav-link"
+                   href="favourites.php">
+
+                    Favourites
+
+                </a>
+
+            </li>
+
+
+            <li class="nav-item">
+
+                <a class="nav-link"
+                   href="Contacts.php">
+
+                    Contact Us
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+
+        <!-- USER DROPDOWN -->
+
+        <div class="dropdown">
+
+
+            <a href="#"
+               class="user-icon dropdown-toggle"
+               data-bs-toggle="dropdown"
+               aria-expanded="false">
+
+                <i class="fa-solid fa-user"></i>
+
+            </a>
+
+
+            <ul class="dropdown-menu dropdown-menu-end">
+
+
+                <li>
+
+                    <h6 class="dropdown-header">
+
+                        <?php echo htmlspecialchars($username); ?>
+
+                    </h6>
+
+
+                    <span class="dropdown-item-text">
+
+                        <?php echo htmlspecialchars($email); ?>
+
+                    </span>
+
+                </li>
+
+
+                <li>
+
+                    <hr class="dropdown-divider">
+
+                </li>
+
+
+                <li>
+
+                    <a class="dropdown-item"
+                       href="profile.php">
+
+                        <i class="fa-solid fa-user-pen me-2"></i>
+
+                        My Profile
+
                     </a>
 
                 </li>
 
 
+                <li>
 
-                <li class="nav-item">
+                    <a class="dropdown-item"
+                       href="favourites.php">
 
-                    <a class="nav-link active" href="recipes.php">
-                        Recipes
+                        <i class="fa-solid fa-heart me-2"></i>
+
+                        My Favourites
+
                     </a>
 
                 </li>
 
 
+                <li>
 
-                <li class="nav-item">
+                    <a class="dropdown-item"
+                       href="auth/logout.php">
 
-                    <a class="nav-link" href="favourites.php">
-                        Favourites
-                    </a>
+                        <i class="fa-solid fa-right-from-bracket me-2"></i>
 
-                </li>
+                        Logout
 
-
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="Contacts.php">
-                        Contact Us
                     </a>
 
                 </li>
@@ -124,430 +255,141 @@ $email = $_SESSION["email"];
 
             </ul>
 
-<div class="dropdown">
-
-    <a href="#"
-       class="user-icon dropdown-toggle"
-       data-bs-toggle="dropdown"
-       aria-expanded="false">
-
-        <i class="fa-solid fa-user"></i>
-
-    </a>
-
-
-    <ul class="dropdown-menu dropdown-menu-end">
-
-
-        <li>
-
-            <h6 class="dropdown-header">
-
-                <?php echo $username; ?>
-
-            </h6>
-
-
-            <span class="dropdown-item-text">
-                <?php echo $email; ?>
-
-            </span>
-
-        </li>
-
-
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-
-
-        <li>
-
-            <a class="dropdown-item"
-            href="profile.html">
-
-                <i class="fa-solid fa-user-pen me-2"></i>
-                My Profile
-
-            </a>
-
-        </li>
-
-
-
-        <li>
-
-            <a class="dropdown-item"
-            href="favourites.php">
-
-                <i class="fa-solid fa-heart me-2"></i>
-                My Favourites
-
-            </a>
-
-        </li>
-
-        <li>
-
-        <a class="dropdown-item"
-        href="auth/logout.php">
-
-        <i class="fa-solid fa-right-from-bracket me-2"></i>
-        Logout
-
-        </a>
-
-        </li>
-
-
-    </ul>
-
-
-</div>
-
-            <!-- Dark Mode Icon -->
-
-            <i class="fa-solid fa-moon mode-icon"></i>
-
-
 
         </div>
 
 
+        <!-- Dark Mode Icon -->
+
+        <i class="fa-solid fa-moon mode-icon"></i>
+
+
     </div>
+
+</div>
 
 
 </nav>
 
 </header>
 
+<!-- ================= BANNER ================= -->
+
 <section class="recipes-banner">
 
 
-    <div class="banner-content">
+<div class="banner-content">
 
 
-        <h1>
-            Explore Delicious Recipes 🍜
-        </h1>
+    <h1>
+
+        Explore Delicious Recipes 🍜
+
+    </h1>
 
 
-        <p>
-            Discover traditional Sri Lankan dishes and favourite meals.
-            <br>
-            From authentic classics to modern favourites.
-        </p>
+    <p>
+
+        Discover traditional Sri Lankan dishes and favourite meals.
+
+        <br>
+
+        From authentic classics to modern favourites.
+
+    </p>
 
 
-    </div>
+</div>
 
 
 </section>
 
+<!-- ================= SEARCH ================= -->
 
 <section class="recipe-search">
 
-    <div class="search-container">
 
-        <input
+<div class="search-container">
+
+
+    <input
         type="text"
         id="recipeSearch"
         placeholder="Search your favourite recipe...">
 
 
-        <button>
+    <button>
 
-            <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-magnifying-glass"></i>
 
-        </button>
+    </button>
 
-    </div>
+
+</div>
+
 
 </section>
+
+<!-- ================= RECIPES ================= -->
 
 <section class="all-recipes">
 
 
 <h2>
-    Popular Recipes
-</h2>
 
+    Popular Recipes
+
+</h2>
 
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
 
+    <?php foreach ($recipes as $recipe): ?>
 
-<!-- CARD 1 -->
+<?php
+$image = $recipe["image"];
+$description = $recipe["description"];
 
 
-<div class="col recipe-card">
-
-
-<div class="card h-100">
-
-
-<img src="Images/Recipes/Koththu.webp"
-class="card-img-top">
-
-
-<div class="card-body">
-
-
-<h5 class="card-title recipe-name">
-
-Sri Lankan Chicken Kottu
-
-</h5>
-
-
-<p class="card-text">
-
-A popular Sri Lankan street food made with chopped roti, chicken, and flavorful spices.
-
-</p>
-
-
-
-            <a href="recipe-details.html?recipe=kottu" 
-            class="btn btn-warning">
-
-                 View Recipe
-
-            </a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- CARD 2 -->
-
-
-<div class="col recipe-card">
-
-
-<div class="card h-100">
-
-
-<img src="Images/Recipes/String_hoppers.jpg"
-class="card-img-top">
-
-
-<div class="card-body">
-
-
-<h5 class="card-title recipe-name">
-
-Sri Lankan String Hoppers
-
-</h5>
-
-
-<p class="card-text">
-
-Steamed rice flour noodles served with coconut sambol and flavorful curries.
-
-</p>
-
-
-            <a href="recipe-details.html?recipe=stringhoppers"
-            class="btn btn-warning">
-
-            View Recipe
-
-            </a>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- CARD 3 -->
-
-
-<div class="col recipe-card">
-
-
-<div class="card h-100">
-
-
-<img src="Images/Recipes/Hoppers.jpg"
-class="card-img-top">
-
-
-<div class="card-body">
-
-
-<h5 class="card-title recipe-name">
-
-Sri Lankan Hoppers
-
-</h5>
-
-
-<p class="card-text">
-
-Crispy bowl-shaped pancakes served with spicy sambol and delicious curries
-
-</p>
-
-
-            <a href="recipe-details.html?recipe=hoppers"
-            class="btn btn-warning">
-
-            View Recipe
-
-            </a>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-<!-- CARD 4 - Lamprais -->
+?>
 
 <div class="col recipe-card">
 
     <div class="card h-100">
 
-        <img src="Images/Recipes/Malu.jpg"
-             class="card-img-top"
-             alt="Lamprais">
+    <img
+        src="<?php echo htmlspecialchars($recipe["image"]); ?>"
+        class="card-img-top"
+        alt="<?php echo htmlspecialchars($recipe["title"]); ?>">
+
+    <div class="card-body">
+
+        <h5 class="card-title recipe-name">
+            <?php echo htmlspecialchars($recipe["title"]); ?>
+        </h5>
 
 
-        <div class="card-body">
-
-
-            <h5 class="card-title recipe-name">
-                Fish Ambul Thiyal
-            </h5>
-
-
-            <p class="card-text">
-                A traditional Sri Lankan sour fish curry prepared with spices and rich flavours.
-            </p>
-
-
-            <a href="recipe-details.html?recipe=fish"
+        <a href="recipe-details.php?recipe=<?php echo urlencode($recipe["recipe_key"]); ?>"
             class="btn btn-warning">
-
             View Recipe
-
-            </a>
-
-
-        </div>
-
+        </a>
 
     </div>
 
 </div>
 
+</div>
 
-<!-- CARD 5 - Dhal Curry -->
+<?php endforeach; ?>
+    
 
-<div class="col recipe-card">
-
-    <div class="card h-100">
-
-        <img src="Images/Recipes/Dhal.jpg"
-             class="card-img-top"
-             alt="Dhal">
-
-
-        <div class="card-body">
-
-
-            <h5 class="card-title recipe-name">
-                Sri Lankan Dhal Curry
-            </h5>
-
-
-            <p class="card-text">
-                A creamy lentil curry cooked with coconut milk and aromatic Sri Lankan spices.
-            </p>
-
-
-            <a href="recipe-details.html?recipe=dhal"
-            class="btn btn-warning">
-
-            View Recipe
-
-            </a>
-
-
-        </div>
-
-
-    </div>
 
 </div>
 
-
-<!-- CARD 6 - Watalappam -->
-
-<div class="col recipe-card">
-
-    <div class="card h-100">
-
-        <img src="Images/Recipes/Watalappam.jpg"
-             class="card-img-top"
-             alt="Watalappam">
-
-
-        <div class="card-body">
-
-
-            <h5 class="card-title recipe-name">
-                Watalappam
-            </h5>
-
-
-            <p class="card-text">
-                A rich coconut custard dessert made with jaggery, coconut milk, and spices.
-            </p>
-
-
-            <a href="recipe-details.html?recipe=watalappam"
-            class="btn btn-warning">
-
-            View Recipe
-
-            </a>
-
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-</div>
 
 </section>
 
-
 <!-- ================= FOOTER ================= -->
-
 
 <footer>
 
@@ -557,85 +399,89 @@ Crispy bowl-shaped pancakes served with spicy sambol and delicious curries
 
 </footer>
 
-<!-- Search Modal -->
+<!-- ================= SEARCH MODAL ================= -->
 
-<div class="modal fade" id="searchModal">
+<div class="modal fade"
+     id="searchModal">
 
-
-    <div class="modal-dialog modal-dialog-centered">
-
-
-        <div class="modal-content">
+```
+<div class="modal-dialog modal-dialog-centered">
 
 
-
-            <div class="modal-header">
-
-
-                <h5 class="modal-title">
-
-                    Search Recipes
-
-                </h5>
+    <div class="modal-content">
 
 
-                <button type="button"
-                class="btn-close"
-                data-bs-dismiss="modal">
-                </button>
+        <div class="modal-header">
 
 
-            </div>
+            <h5 class="modal-title">
 
-            <div class="modal-body">
+                Search Recipes
+
+            </h5>
 
 
-               <input
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+
+            </button>
+
+
+        </div>
+
+
+        <div class="modal-body">
+
+
+            <input
                 type="text"
                 id="modalSearchInput"
                 placeholder="Search your favourite recipe...">
 
 
-                <br>
+            <br>
 
 
-                <p>
-                    Popular Searches:
-                </p>
+            <p>
+
+                Popular Searches:
+
+            </p>
 
 
-                <span class="badge bg-warning popular-search">
+            <span class="badge bg-warning popular-search">
+
                 Kottu
-                </span>
+
+            </span>
 
 
-                <span class="badge bg-warning popular-search">
+            <span class="badge bg-warning popular-search">
+
                 Hoppers
-                </span>
+
+            </span>
 
 
-                <span class="badge bg-warning popular-search">
+            <span class="badge bg-warning popular-search">
+
                 Watalappam
-                </span>
+
+            </span>
 
 
-            </div>
+        </div>
 
 
+        <div class="modal-footer">
 
 
-            <div class="modal-footer">
+            <button class="btn btn-warning">
 
+                Search
 
-                <button class="btn btn-warning">
-
-                    Search
-
-                </button>
-
-
-            </div>
-
+            </button>
 
 
         </div>
@@ -645,14 +491,19 @@ Crispy bowl-shaped pancakes served with spicy sambol and delicious curries
 
 
 </div>
+```
 
-<!-- Bootstrap JS -->
+</div>
 
+<!-- ================= JAVASCRIPT ================= -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
 
 <script src="js/recipeData.js"></script>
+
 <script src="js/script.js"></script>
 
 </body>
+
 </html>

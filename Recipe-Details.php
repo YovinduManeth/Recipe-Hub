@@ -2,18 +2,39 @@
 
 session_start();
 
-if(!isset($_SESSION["username"])){
+include "includes/db.php";
 
+if (!isset($_SESSION["username"])) {
     header("Location: auth/Login.php");
     exit();
-
 }
 
 $username = $_SESSION["username"];
 $email = $_SESSION["email"];
 
-?>
+// Get recipe key from URL
+$recipeKey = isset($_GET["recipe"]) ? trim($_GET["recipe"]) : "";
 
+if ($recipeKey === "") {
+    die("Invalid recipe key.");
+}
+
+// Get recipe from database
+$sql = "SELECT id, recipe_key, title, description, image,
+               ingredients, instructions,
+               prep_time, cook_time, total_time, servings
+        FROM recipes
+        WHERE recipe_key = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->execute([$recipeKey]);
+
+$recipe = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$recipe) {
+    die("Recipe not found. Recipe key received: " . htmlspecialchars($recipeKey));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -235,24 +256,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <section class="breadcrumb">
 
-
-<a href="home.php">
-Home
-</a>
-
-
-<span>
->
-</span>
-
-<span id="recipeCategory">
-
-</span>
-
-<span>
->
-</span>
-
 <span class="current-page" id="recipeBreadcrumb">
 
 </span>
@@ -270,8 +273,9 @@ Home
 <div class="recipe-image">
 
 
-<img id="recipeImage" 
-alt="Recipe Image">
+<img id="recipeImage"
+     src="<?php echo htmlspecialchars($recipe["image"]); ?>"
+     alt="<?php echo htmlspecialchars($recipe["title"]); ?>">
 
 </div>
 
@@ -280,31 +284,28 @@ alt="Recipe Image">
 <div class="recipe-content">
 
 
-<h3 id="recipeTitle"></h3>
+<h3 id="recipeTitle">
+    <?php echo htmlspecialchars($recipe["title"]); ?>
+</h3>
 
 <div class="recipe-meta">
 
-<span>
+    <span>
+        <i class="fa-regular fa-clock"></i>
+        <?php echo htmlspecialchars($recipe["total_time"]); ?>
+    </span>
 
-<i class="fa-regular fa-clock"></i>
-
-<span id="recipeTime"></span>
-
-</span>
-
-<span>
-
-<i class="fa-solid fa-utensils"></i>
-
-<span id="recipeServings"></span>
-
-</span>
-
+    <span>
+        <i class="fa-solid fa-utensils"></i>
+        <?php echo htmlspecialchars($recipe["servings"]); ?>
+    </span>
 
 </div>
 
 
-<p id="recipeDescription"></p>
+<p id="recipeDescription">
+    <?php echo htmlspecialchars($recipe["description"]); ?>
+</p>
 
 <button id="addFavouriteBtn" class="fav-btn">
 
@@ -336,26 +337,44 @@ Ingredients
 
 <ul id="recipeIngredients">
 
-</ul>
+    <?php
+    $ingredients = explode(",", $recipe["ingredients"]);
 
-<div class="recipe-time">
+    foreach ($ingredients as $ingredient):
+    ?>
+
+        <li>
+            <?php echo htmlspecialchars(trim($ingredient)); ?>
+        </li>
+
+    <?php endforeach; ?>
+
+
+
+<div class="recipe-info">
 
     <p>
         <i class="fa-regular fa-clock"></i>
         <strong>Prep Time:</strong>
-        <span id="prepTime"></span>
+        <?php echo htmlspecialchars($recipe["prep_time"]); ?>
     </p>
 
     <p>
         <i class="fa-solid fa-fire"></i>
         <strong>Cook Time:</strong>
-        <span id="cookTime"></span>
+        <?php echo htmlspecialchars($recipe["cook_time"]); ?>
     </p>
 
     <p>
         <i class="fa-solid fa-hourglass-half"></i>
         <strong>Total Time:</strong>
-        <span id="totalTime"></span>
+        <?php echo htmlspecialchars($recipe["total_time"]); ?>
+    </p>
+
+    <p>
+        <i class="fa-solid fa-utensils"></i>
+        <strong>Servings:</strong>
+        <?php echo htmlspecialchars($recipe["servings"]); ?>
     </p>
 
 </div>
@@ -376,7 +395,26 @@ Instructions
 
 <ol id="recipeInstructions">
 
-</ol>
+    <?php
+    $instructions = explode(".", $recipe["instructions"]);
+
+    foreach ($instructions as $instruction):
+
+        $instruction = trim($instruction);
+
+        if ($instruction !== ""):
+    ?>
+
+        <li>
+            <?php echo htmlspecialchars($instruction); ?>
+        </li>
+
+    <?php
+        endif;
+    endforeach;
+    ?>
+
+
 
 </section>
 
@@ -451,11 +489,11 @@ Instructions
 
 </div>
 
+<!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="js/recipeData.js"></script>
+<!-- Recipe Hub JavaScript -->
 <script src="js/script.js"></script>
 
 </body>
-
 </html>

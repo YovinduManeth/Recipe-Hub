@@ -22,34 +22,51 @@ $message = "";
 
 if(isset($_POST["sendMessage"])){
 
-
-    $name = trim($_POST["name"]);
-
-    $email = trim($_POST["email"]);
-
-    $msg = trim($_POST["message"]);
+    $name = trim($_POST["name"] ?? "");
+    $email = trim($_POST["email"] ?? "");
+    $msg = trim($_POST["message"] ?? "");
 
 
+    // Server-side validation
 
-    $sql = "INSERT INTO messages(name,email,message)
-            VALUES(?,?,?)";
+    if($name === "" || $email === "" || $msg === ""){
 
+        $message = "Please fill in all fields.";
 
-    $stmt = $conn->prepare($sql);
-
-
-    $stmt->execute([
-
-        $name,
-        $email,
-        $msg
-
-    ]);
+    }
 
 
+    elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 
-    $message = "Message sent successfully!";
+        $message = "Please enter a valid email address.";
 
+    }
+
+
+    else{
+
+        // Insert message into database
+
+        $sql = "INSERT INTO messages
+                (name, email, message)
+                VALUES (?, ?, ?)";
+
+
+        $stmt = $conn->prepare($sql);
+
+
+        $stmt->execute([
+
+            $name,
+            $email,
+            $msg
+
+        ]);
+
+
+        $message = "Message sent successfully!";
+
+    }
 
 }
 
@@ -433,17 +450,31 @@ Send Message
 
 <?php
 
-if($message!=""){
+if($message != ""){
 
-echo "
-<div class='success-message mt-4'>
-$message
-</div>";
+    if($message == "Message sent successfully!"){
+
+        echo "
+        <div class='success-message mt-4'>
+            <i class='fa-solid fa-circle-check'></i>
+            $message
+        </div>";
+
+    }
+
+    else{
+
+        echo "
+        <div class='warning-message mt-4'>
+            <i class='fa-solid fa-triangle-exclamation'></i>
+            $message
+        </div>";
+
+    }
 
 }
 
 ?>
-
 
 
 </form>
