@@ -32,7 +32,7 @@
 
         <!-- Logo -->
 
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a class="navbar-brand d-flex align-items-center" href="home.php">
 
             <img src="Images/Logo/Recipe_Hub_logo.png"
             width="40"
@@ -72,7 +72,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="home.html">
+                    <a class="nav-link" href="home.php">
                         Home
                     </a>
 
@@ -82,7 +82,7 @@
 
                 <li class="nav-item">
 
-                 <a class="nav-link" href="recipes.html">
+                 <a class="nav-link" href="recipes.php">
                  Recipes
                 </a>
 
@@ -92,7 +92,7 @@
 
                 <li class="nav-item">
 
-                <a class="nav-link" href="favourites.html">
+                <a class="nav-link" href="favourites.php">
                 Favourites
                 </a>
 
@@ -101,7 +101,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="Contacts.php">
                         Contact Us
                     </a>
 
@@ -153,7 +153,7 @@
         <li>
 
             <a class="dropdown-item"
-            href="profile.html">
+            href="profile.php">
 
                 <i class="fa-solid fa-user-pen me-2"></i>
                 My Profile
@@ -167,7 +167,7 @@
         <li>
 
             <a class="dropdown-item"
-            href="favourites.html">
+            href="favourites.php">
 
                 <i class="fa-solid fa-heart me-2"></i>
                 My Favourites
@@ -249,7 +249,7 @@ A fragrant Sri Lankan-style rice dish cooked with vegetables, aromatic spices, a
 </p>
 
 
-<a href="recipe-details.html?recipe=vegetablebiriyani"
+<a href="recipe-details.php?recipe=vegetablebiriyani"
 class="btn btn-warning">
 
 View Recipe
@@ -293,7 +293,7 @@ Chicken Fried Rice
 </p>
 
 
-<a href="recipe-details.html?recipe=chickenfriedrice"
+<a href="recipe-details.php?recipe=chickenfriedrice"
 class="btn btn-warning">
 
 View Recipe
@@ -337,7 +337,7 @@ A flavourful rice dish combining soft paneer pieces with aromatic spices and per
 </p>
 
 
-<a href="recipe-details.html?recipe=paneerrice"
+<a href="recipe-details.php?recipe=paneerrice"
 class="btn btn-warning">
 
 View Recipe
@@ -381,7 +381,7 @@ A delicious seafood rice dish made with juicy prawns, spicy masala flavours, and
 </p>
 
 
-<a href="recipe-details.html?recipe=prawnsmasalarice"
+<a href="recipe-details.php?recipe=prawnsmasalarice"
 class="btn btn-warning">
 
 View Recipe
@@ -427,7 +427,7 @@ A traditional Sri Lankan festive yellow rice prepared with aromatic spices, ghee
 
 
 
-<a href="recipe-details.html?recipe=dunthelbath"
+<a href="recipe-details.php?recipe=dunthelbath"
 class="btn btn-warning">
 
 View Recipe

@@ -1,4 +1,4 @@
-
+console.log("SCRIPT JS LOADED");
 
 const popularSearches = document.querySelectorAll(".popular-search");
 
@@ -31,7 +31,6 @@ if(modalSearchInput){
 
 const searchInput = document.getElementById("recipeSearch");
 
-console.log(searchInput);
 
 if(searchInput){
 
@@ -99,7 +98,7 @@ if(recipeTitle){
     const selectedRecipe = urlParams.get("recipe") ;
 
     if (!recipeData[selectedRecipe]) {
-    window.location.href = "recipes.html";
+    window.location.href = "recipes.php";
 } else {
 
     const recipe = recipeData[selectedRecipe];
@@ -353,7 +352,7 @@ if(favouriteList){
                             </p>
 
 
-                            <a href="recipe-details.html?recipe=${recipeId}"
+                            <a href="recipe-details.php?recipe=${recipeId}"
                                 class="btn btn-warning">
 
                                     View Recipe
@@ -721,7 +720,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     suggestion.onclick = function(){
 
                         window.location.href =
-                        "recipe-details.html?recipe=" + recipeId;
+                        "recipe-details.php?recipe=" + recipeId;
 
                     };
 
@@ -742,14 +741,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 });
+// PASSWORD SHOW / HIDE FUNCTION
+
 function togglePassword(id, icon){
 
     const passwordField = document.getElementById(id);
 
-    console.log(passwordField);
-
     if(!passwordField){
-        console.log("Password field not found");
         return;
     }
 
@@ -772,3 +770,54 @@ function togglePassword(id, icon){
     }
 
 }
+
+
+
+// LOGIN PASSWORD TOGGLE
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const loginEye = document.getElementById("toggleLoginPassword");
+
+    const password = document.getElementById("password");
+
+    const eyeIcon = document.getElementById("loginEye");
+
+
+    if(loginEye && password && eyeIcon){
+
+
+        loginEye.addEventListener("click", function(){
+
+
+            if(password.type === "password"){
+
+
+                password.type = "text";
+
+                eyeIcon.classList.remove("fa-eye");
+
+                eyeIcon.classList.add("fa-eye-slash");
+
+
+            }
+            else{
+
+
+                password.type = "password";
+
+                eyeIcon.classList.remove("fa-eye-slash");
+
+                eyeIcon.classList.add("fa-eye");
+
+
+            }
+
+
+        });
+
+
+    }
+
+
+});

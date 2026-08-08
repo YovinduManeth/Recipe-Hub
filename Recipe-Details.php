@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+
+if(!isset($_SESSION["username"])){
+
+    header("Location: auth/Login.php");
+    exit();
+
+}
+
+$username = $_SESSION["username"];
+$email = $_SESSION["email"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +55,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         <!-- Logo -->
 
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a class="navbar-brand d-flex align-items-center" href="home.php">
 
             <img src="Images/Logo/Recipe_Hub_logo.png"
             width="40"
@@ -79,7 +95,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="home.html">
+                    <a class="nav-link" href="home.php">
                         Home
                     </a>
 
@@ -89,7 +105,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                 <a class="nav-link" href="recipes.html">
+                 <a class="nav-link" href="recipes.php">
                  Recipes
                 </a>
 
@@ -99,7 +115,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                <a class="nav-link" href="favourites.html">
+                <a class="nav-link" href="favourites.php">
                 Favourites
                 </a>
 
@@ -108,7 +124,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="Contacts.php">
                         Contact Us
                     </a>
 
@@ -135,7 +151,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
             <h6 class="dropdown-header" id="dropdownUsername">
-                User
+                <?php echo htmlspecialchars($username); ?>
             </h6>
 
         </li>
@@ -144,7 +160,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
             <span class="dropdown-item-text" id="dropdownEmail">
-                user@gmail.com
+                <?php echo htmlspecialchars($email); ?>
             </span>
 
         </li>
@@ -158,7 +174,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
             <a class="dropdown-item"
-            href="profile.html">
+            href="profile.php">
 
                 <i class="fa-solid fa-user-pen me-2"></i>
                 My Profile
@@ -172,7 +188,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
             <a class="dropdown-item"
-            href="favourites.html">
+            href="favourites.php">
 
                 <i class="fa-solid fa-heart me-2"></i>
                 My Favourites
@@ -220,7 +236,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <section class="breadcrumb">
 
 
-<a href="home.html">
+<a href="home.php">
 Home
 </a>
 
@@ -290,10 +306,11 @@ alt="Recipe Image">
 
 <p id="recipeDescription"></p>
 
-<button class="fav-btn" id="addFavouriteBtn">
+<button id="addFavouriteBtn" class="fav-btn">
 
-    <i class="fa-solid fa-heart"></i>
-    Add to Favourite
+<i class="fa-solid fa-heart"></i>
+
+Add to Favourite
 
 </button>
 
