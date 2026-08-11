@@ -31,7 +31,7 @@ $sql = "SELECT id, recipe_key, title, description, image, ingredients, instructi
             'ambulthiyal2',
             'dhal',
             'watalappan'
-)
+        )
         ORDER BY id ASC";
 
 $stmt = $conn->prepare($sql);
@@ -460,6 +460,12 @@ $description = $recipe["description"];
             <span class="badge bg-warning popular-search">
 
                 Hoppers
+
+            </span>
+
+            <span class="badge bg-warning popular-search">
+           
+                Fish Ambul Thiyal
 
             </span>
 
