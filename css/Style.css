@@ -2571,19 +2571,39 @@ body.dark-mode .login-link{
 
 
 }
-
-.password-eye{
-
-    cursor:pointer;
-    color:#777;
-    margin-left:-35px;
-    z-index:2;
-
+.password-box {
+    position: relative;
 }
 
+.password-box .password-eye {
+    position: absolute !important;
 
-.password-eye:hover{
+    right: 15px !important;
+    top: 50% !important;
 
-    color:#E28D1E;
+    transform: translateY(-50%) !important;
 
+    margin: 0 !important;
+    padding: 0 !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    color: #777 !important;
+
+    font-size: 16px !important;
+
+    cursor: pointer;
+}
+
+.password-box .password-eye:hover {
+    color: #777 !important;
+}
+
+.password-box input {
+    padding-right: 45px !important;
 }

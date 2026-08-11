@@ -626,83 +626,47 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 });
-// PASSWORD SHOW / HIDE FUNCTION
-
-function togglePassword(id, icon){
-
-    const passwordField = document.getElementById(id);
-
-    if(!passwordField){
-        return;
-    }
 
 
-    if(passwordField.type === "password"){
+// ===========================
+// LOGIN PASSWORD SHOW / HIDE
+// ===========================
 
-        passwordField.type = "text";
+const loginPassword = document.getElementById("password");
+const toggleLoginPassword = document.getElementById("toggleLoginPassword");
+const loginEye = document.getElementById("loginEye");
 
-        icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash");
+if (loginPassword && toggleLoginPassword && loginEye) {
 
-    }
-    else{
+    toggleLoginPassword.addEventListener("click", function () {
 
-        passwordField.type = "password";
+        if (loginPassword.type === "password") {
 
-        icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye");
+            loginPassword.type = "text";
 
-    }
+            loginEye.classList.remove("fa-eye");
+            loginEye.classList.add("fa-eye-slash");
+
+            toggleLoginPassword.setAttribute(
+                "aria-label",
+                "Hide password"
+            );
+
+        } else {
+
+            loginPassword.type = "password";
+
+            loginEye.classList.remove("fa-eye-slash");
+            loginEye.classList.add("fa-eye");
+
+            toggleLoginPassword.setAttribute(
+                "aria-label",
+                "Show password"
+            );
+
+        }
+
+    });
 
 }
-
-
-
-// LOGIN PASSWORD TOGGLE
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const loginEye = document.getElementById("toggleLoginPassword");
-
-    const password = document.getElementById("password");
-
-    const eyeIcon = document.getElementById("loginEye");
-
-
-    if(loginEye && password && eyeIcon){
-
-
-        loginEye.addEventListener("click", function(){
-
-
-            if(password.type === "password"){
-
-
-                password.type = "text";
-
-                eyeIcon.classList.remove("fa-eye");
-
-                eyeIcon.classList.add("fa-eye-slash");
-
-
-            }
-            else{
-
-
-                password.type = "password";
-
-                eyeIcon.classList.remove("fa-eye-slash");
-
-                eyeIcon.classList.add("fa-eye");
-
-
-            }
-
-
-        });
-
-
-    }
-
-
-});
+```

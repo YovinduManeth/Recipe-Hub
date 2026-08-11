@@ -73,24 +73,31 @@
 
                 </div>
 
-
-             <div class="input-box">
+    
+     <div class="input-box">
 
     <i class="fa-solid fa-lock"></i>
 
-    <input 
-    type="password"
-    id="password"
-    placeholder="Password"
-    required>
+    <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        required>
 
-    <button type="button" class="password-eye" id="toggleLoginPassword">
+    <button
+        type="button"
+        class="password-eye"
+        id="toggleLoginPassword"
+        aria-label="Show password">
 
-    <i class="fa-solid fa-eye" id="loginEye"></i>
+        
 
-</button>
+    </button>
 
 </div>
+
+
                 <div class="form-options">
 
 
@@ -153,5 +160,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
-<script src = "js/script.js"></script>
+<script src = "../js/script.js"></script>
+
+</body>
+
+</html>
+
+
+
 

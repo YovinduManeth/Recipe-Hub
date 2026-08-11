@@ -282,22 +282,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["forgotSubmit"])) {
                 </div>
 
 
-                <div class="input-box">
+              <div class="input-box">
 
-                    <i class="fa-solid fa-lock"></i>
+    <i class="fa-solid fa-lock"></i>
 
-                    <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Password"
-                    required>
+    <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        required>
 
+    <button
+        type="button"
+        class="password-eye"
+        id="toggleLoginPassword"
+        aria-label="Show password">
 
-                    <i class="fa-solid fa-eye" id="togglePassword"></i>
+        <i class="fa-solid fa-eye" id="loginEye"></i>
 
+    </button>
 
-                </div>
+</div>
 
 
                 <div class="form-options">

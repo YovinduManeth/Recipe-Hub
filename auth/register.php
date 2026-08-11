@@ -183,19 +183,18 @@ if ($message != "") {
 
     <input
     type="password"
-    name="password"
-    id="password"
+    name="confirmPassword"
+    id="confirmPassword"
     placeholder="Password"
     required>
 
 
     <i class="fa-solid fa-eye"
-     id="togglePassword">
+        id="toggleConfirmPassword">
     </i>
 
 
-</div>
-
+    </div>
 
    <div class="input-box">
 
