@@ -246,6 +246,18 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 - Updated navigation links to match PHP pages.
 - Fixed page redirection issues after converting HTML pages.
 
+- Added many recipes to the MySQL recipes table.
+- Added recipe details such as ingredients, instructions, preparation time, cooking time, total time, and servings.
+- Added/updated traditional recipe categories.
+- Added recipes such as Brinjal Curry, Pumpkin Curry, Jackfruit Curry, Vegetable Biriyani, Chicken Fried Rice, Paneer Rice, Prawn Masala, Dunthel Bath, Fish Ambul Thiyal, Tuna Curry, Sailfish Curry, Chicken Curry, Beef Curry, and others.
+- Added festive categories such as Avurudu Recipes, Thai Pongal, Ramadan, and Christmas.
+- Connected recipe cards to recipe-details.php using recipe_key.
+- Updated recipes.php to display the selected main recipes.
+- Added duplicate Fish Ambul Thiyal database entry with a separate recipe_key for testing.
+- Worked on the recipe-details page and database integration.
+- Fixed the recipe-key issue where ambulthiyal2 was mistakenly written as ambulthiyal12.
+- Continued testing the Recipe Hub pages and GitHub project.
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
