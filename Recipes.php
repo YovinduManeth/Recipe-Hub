@@ -24,12 +24,11 @@ $email = $_SESSION["email"];
 $sql = "SELECT id, recipe_key, title, description, image, ingredients, instructions
         FROM recipes
         WHERE recipe_key IN (
-            'chickenkottu',
+            'kottu',
             'stringhoppers',
             'hoppers',
-            'ambulthiyal',
-            'ambulthiyal2',
             'dhal',
+            'fish',
             'watalappan'
         )
         ORDER BY id ASC";

@@ -86,14 +86,12 @@
         required>
 
     <button
-        type="button"
-        class="password-eye"
-        id="toggleLoginPassword"
-        aria-label="Show password">
-
-        
-
-    </button>
+    type="button"
+    class="password-eye"
+    id="toggleLoginPassword"
+    aria-label="Show password">
+    <i class="fa-solid fa-eye" id="loginEye"></i>
+</button>
 
 </div>
 

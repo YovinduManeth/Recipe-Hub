@@ -2571,39 +2571,34 @@ body.dark-mode .login-link{
 
 
 }
-.password-box {
-    position: relative;
-}
 
-.password-box .password-eye {
-    position: absolute !important;
+/* ==========================
+LOGIN PASSWORD EYE
+========================== */
 
-    right: 15px !important;
-    top: 50% !important;
-
-    transform: translateY(-50%) !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
+.input-box .password-eye {
     width: auto !important;
-    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
 
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
 
     color: #777 !important;
-
-    font-size: 16px !important;
+    font-size: 16px;
 
     cursor: pointer;
 }
 
-.password-box .password-eye:hover {
-    color: #777 !important;
+.input-box .password-eye:hover {
+    background: transparent !important;
+    color: #E28D1E !important;
 }
 
-.password-box input {
-    padding-right: 45px !important;
+.input-box .password-eye:focus {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
