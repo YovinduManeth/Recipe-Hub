@@ -266,44 +266,44 @@ Authentication and User Management
 
 We developed and tested the complete user authentication system.
 
-Created the user registration system using PHP and MySQL.
-Connected the registration and login pages to the MySQL database using PDO.
-Added secure password hashing using password_hash().
-Added password verification using password_verify().
-Implemented username and email login.
-Added password confirmation validation during registration.
-Added Terms and Conditions validation.
-Added Remember Me functionality.
-Implemented secure PHP sessions.
-Added session_regenerate_id(true) after successful login.
-Added logout functionality.
-Added forgot-password and password-reset functionality.
-Added show/hide password functionality using eye icons.
+- Created the user registration system using PHP and MySQL.
+- Connected the registration and login pages to the MySQL database using PDO.
+- Added secure password hashing using password_hash().
+- Added password verification using password_verify().
+- Implemented username and email login.
+- Added password confirmation validation during registration.
+- Added Terms and Conditions validation.
+- Added Remember Me functionality.
+- Implemented secure PHP sessions.
+- Added session_regenerate_id(true) after successful login.
+- Added logout functionality.
+- Added forgot-password and password-reset functionality.
+- Added show/hide password functionality using eye icons.
 
 User Dashboard
 
 A new user dashboard was developed after the authentication system.
 
-Created dashboard.php.
-Restricted dashboard access to logged-in users.
-Displayed the logged-in user's username.
-Added links to the user's profile, home page, and favourites.
-Added a logout option.
-Designed the dashboard separately without the normal website navigation bar.
-Updated the dashboard navigation according to the final system structure.
-Tested redirection from successful login to the dashboard.
-User Profile and Password Management
+- Created dashboard.php.
+- Restricted dashboard access to logged-in users.
+- Displayed the logged-in user's username.
+- Added links to the user's profile, home page, and favourites.
+- Added a logout option.
+- Designed the dashboard separately without the normal website navigation bar.
+- Updated the dashboard navigation according to the final system structure.
+- Tested redirection from successful login to the dashboard.
+- User Profile and Password Management
 
 The user profile system was implemented and tested.
 
-Added a profile page for logged-in users.
-Displayed user account information.
-Added password update functionality.
-Added new-password and confirm-password validation.
-Updated passwords securely in the database using password hashing.
-Tested logging in with the newly updated password.
-Added password visibility controls to password fields.
-Recipe Management and Database Integration
+- Added a profile page for logged-in users.
+- Displayed user account information.
+- Added password update functionality.
+- Added new-password and confirm-password validation.
+- Updated passwords securely in the database using password hashing.
+- Tested logging in with the newly updated password.
+- Added password visibility controls to password fields.
+- Recipe Management and Database Integration
 
 ## Developers
 
