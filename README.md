@@ -305,6 +305,17 @@ The user profile system was implemented and tested.
 - Added password visibility controls to password fields.
 - Recipe Management and Database Integration
 
+The recipe system was connected with the MySQL database.
+
+- Added recipes to the MySQL database.
+- Added recipe information including ingredients, instructions, preparation time, cooking time, total time, and servings.
+- Connected recipe cards with recipe-details.php.
+- Used recipe_key values to identify recipes.
+- Added and tested multiple Sri Lankan recipes and recipe categories.
+- Fixed recipe-key issues found during testing.
+- Tested individual recipe details and recipe navigation.
+- Favourites System
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
