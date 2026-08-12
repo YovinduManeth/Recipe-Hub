@@ -316,6 +316,16 @@ The recipe system was connected with the MySQL database.
 - Tested individual recipe details and recipe navigation.
 - Favourites System
 
+The favourites functionality was implemented and tested.
+
+- Added the ability to add recipes to favourites.
+- Added the ability to remove recipes from favourites.
+- Created a favourites page to display saved recipes.
+- Added recipe viewing from the favourites page.
+- Tested favourite data persistence after refreshing the page.
+- Tested adding and removing favourite recipes.
+- Contact System
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
