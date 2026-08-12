@@ -336,6 +336,19 @@ The Contact Us functionality was integrated with the database.
 - Tested the contact form functionality.
 - Website Features and Interface Improvements
 
+Several existing website features were fixed and tested during Phase 3.
+
+- Fixed navigation and page redirection issues.
+- Updated PHP page links.
+- Tested the search and recipe suggestion functionality.
+- Tested dark mode functionality.
+- Improved password visibility controls.
+- Fixed frontend JavaScript conflicts.
+- Improved error and success messages.
+- Tested responsive layouts on different screen sizes.
+- Fixed various UI issues discovered during development.
+- Testing and Debugging
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
