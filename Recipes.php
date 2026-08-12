@@ -304,32 +304,6 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 </section>
 
-<!-- ================= SEARCH ================= -->
-
-<section class="recipe-search">
-
-
-<div class="search-container">
-
-
-    <input
-        type="text"
-        id="recipeSearch"
-        placeholder="Search your favourite recipe...">
-
-
-    <button>
-
-        <i class="fa-solid fa-magnifying-glass"></i>
-
-    </button>
-
-
-</div>
-
-
-</section>
-
 <!-- ================= RECIPES ================= -->
 
 <section class="all-recipes">
