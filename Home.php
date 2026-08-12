@@ -240,16 +240,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </header>
 
 
-
-
-
-
 <!-- ================= MAIN CONTENT ================= -->
 
 
 <main>
-
-
 
 
 
@@ -258,55 +252,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <section class="hero">
 
-
-
 <div class="hero-text">
-
-
 
 <h1>
 Discover Delicious Recipes
 </h1>
 
-
-
-
 <p>
 Find, cook and share delicious Sri Lankan recipes with people around the world.
 </p>
 
-
-
-
-<div class="hero-search">
-
-
-<input 
-type="text"
-placeholder="Search recipes or ingredients" id="heroSearchInput">
-
-
-
-<button>
-
-
-<i class="fa-solid fa-magnifying-glass"></i>
-
-Search
-
-
-</button>
-
-
-
 </div>
-
-
-
-</div>
-
-
-
 
 
 <div class="hero-image">
