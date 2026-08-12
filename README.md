@@ -258,11 +258,11 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 - Fixed the recipe-key issue where ambulthiyal2 was mistakenly written as ambulthiyal12.
 - Continued testing the Recipe Hub pages and GitHub project.
 
-##Development Progress
+## Development Progress
 
 During Phase 3, the Recipe Hub web application was converted from a mainly static website into a dynamic PHP and MySQL-based web application. The main focus was implementing authentication, database connectivity, recipe management, user profiles, favourites, password management, and improving the overall functionality of the system.
 
-##Authentication and User Management
+## Authentication and User Management
 
 We developed and tested the complete user authentication system.
 
@@ -280,7 +280,7 @@ We developed and tested the complete user authentication system.
 - Added forgot-password and password-reset functionality.
 - Added show/hide password functionality using eye icons.
 
-##User Dashboard
+## User Dashboard
 
 A new user dashboard was developed after the authentication system.
 
@@ -294,7 +294,7 @@ A new user dashboard was developed after the authentication system.
 - Tested redirection from successful login to the dashboard.
 - User Profile and Password Management
 
-##The user profile system was implemented and tested.
+## The user profile system was implemented and tested.
 
 - Added a profile page for logged-in users.
 - Displayed user account information.
@@ -305,7 +305,7 @@ A new user dashboard was developed after the authentication system.
 - Added password visibility controls to password fields.
 - Recipe Management and Database Integration
 
-##The recipe system was connected with the MySQL database.
+## The recipe system was connected with the MySQL database.
 
 - Added recipes to the MySQL database.
 - Added recipe information including ingredients, instructions, preparation time, cooking time, total time, and servings.
@@ -316,7 +316,7 @@ A new user dashboard was developed after the authentication system.
 - Tested individual recipe details and recipe navigation.
 - Favourites System
 
-##The favourites functionality was implemented and tested.
+## The favourites functionality was implemented and tested.
 
 - Added the ability to add recipes to favourites.
 - Added the ability to remove recipes from favourites.
@@ -326,7 +326,7 @@ A new user dashboard was developed after the authentication system.
 - Tested adding and removing favourite recipes.
 - Contact System
 
-##The Contact Us functionality was integrated with the database.
+## The Contact Us functionality was integrated with the database.
 
 - Converted the Contact Us page to PHP.
 - Connected the contact form to MySQL.
@@ -336,7 +336,7 @@ A new user dashboard was developed after the authentication system.
 - Tested the contact form functionality.
 - Website Features and Interface Improvements
 
-##Several existing website features were fixed and tested during Phase 3.
+## Several existing website features were fixed and tested during Phase 3.
 
 - Fixed navigation and page redirection issues.
 - Updated PHP page links.
@@ -349,7 +349,7 @@ A new user dashboard was developed after the authentication system.
 - Fixed various UI issues discovered during development.
 - Testing and Debugging
 
-##The completed features were tested throughout the development process.
+## The completed features were tested throughout the development process.
 
 - Tested user registration and validation.
 - Tested login with username and email.
@@ -364,7 +364,7 @@ A new user dashboard was developed after the authentication system.
 - Synchronized the project and database between team members using GitHub and MySQL.
 - GitHub and Project Synchronization
 
-##GitHub was used to maintain and synchronize the project between team members.
+## GitHub was used to maintain and synchronize the project between team members.
 
 - Pushed updated PHP, CSS, JavaScript, and database files to GitHub.
 - Pulled changes from other team members.
