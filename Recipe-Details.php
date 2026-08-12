@@ -12,14 +12,12 @@ if (!isset($_SESSION["username"])) {
 $username = $_SESSION["username"];
 $email = $_SESSION["email"];
 
-// Get recipe key from URL
 $recipeKey = isset($_GET["recipe"]) ? trim($_GET["recipe"]) : "";
 
 if ($recipeKey === "") {
     die("Invalid recipe key.");
 }
 
-// Get recipe from database
 $sql = "SELECT id, recipe_key, title, description, image,
                ingredients, instructions,
                prep_time, cook_time, total_time, servings
@@ -32,33 +30,41 @@ $stmt->execute([$recipeKey]);
 $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$recipe) {
-    die("Recipe not found. Recipe key received: " . htmlspecialchars($recipeKey));
+    die("Recipe not found.");
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>Recipe Hub - Recipe Details</title>
+    <title>
+        <?php echo htmlspecialchars($recipe["title"]); ?> - Recipe Hub
+    </title>
 
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
 
-<!-- Font Awesome -->
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="css/style.css">
-
+    <!-- Recipe Hub CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
-
 
 
 <body>
@@ -66,337 +72,435 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <header>
 
+    <!-- ================= NAVBAR ================= -->
 
-<!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg bg-white border rounded">
 
-<nav class="navbar navbar-expand-lg bg-white border rounded">
+        <div class="container-fluid">
 
-    <div class="container-fluid">
+            <!-- Logo -->
 
+            <a class="navbar-brand d-flex align-items-center"
+               href="home.php">
 
-        <!-- Logo -->
+                <img
+                    src="Images/Logo/Recipe_Hub_logo.png"
+                    width="40"
+                    height="40"
+                    class="me-2"
+                    alt="Recipe Hub Logo"
+                >
 
-        <a class="navbar-brand d-flex align-items-center" href="home.php">
-
-            <img src="Images/Logo/Recipe_Hub_logo.png"
-            width="40"
-            height="40"
-            class="me-2">
-
-            <span>
-                Recipe Hub
-            </span>
-
-        </a>
-
-
-
-        <!-- Mobile Button -->
-
-        <button class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarMenu">
-
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-
-
-
-        <!-- Menu -->
-
-        <div class="collapse navbar-collapse"
-        id="navbarMenu">
-
-
-            <ul class="navbar-nav mx-auto">
-
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="home.php">
-                        Home
-                    </a>
-
-                </li>
-
-
-
-                <li class="nav-item">
-
-                 <a class="nav-link" href="recipes.php">
-                 Recipes
-                </a>
-
-                </li>
-
-
-
-                <li class="nav-item">
-
-                <a class="nav-link" href="favourites.php">
-                Favourites
-                </a>
-
-                </li>
-
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="Contacts.php">
-                        Contact Us
-                    </a>
-
-                </li>
-
-
-            </ul>
-
-<div class="dropdown">
-
-    <a href="#"
-       class="user-icon dropdown-toggle"
-       data-bs-toggle="dropdown"
-       aria-expanded="false">
-
-        <i class="fa-solid fa-user"></i>
-
-    </a>
-
-
-    <ul class="dropdown-menu dropdown-menu-end">
-
-
-        <li>
-
-            <h6 class="dropdown-header" id="dropdownUsername">
-                <?php echo htmlspecialchars($username); ?>
-            </h6>
-
-        </li>
-
-
-        <li>
-
-            <span class="dropdown-item-text" id="dropdownEmail">
-                <?php echo htmlspecialchars($email); ?>
-            </span>
-
-        </li>
-
-
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-
-
-        <li>
-
-            <a class="dropdown-item"
-            href="profile.php">
-
-                <i class="fa-solid fa-user-pen me-2"></i>
-                My Profile
+                <span>
+                    Recipe Hub
+                </span>
 
             </a>
 
-        </li>
+
+            <!-- Mobile Button -->
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- Menu -->
+
+            <div
+                class="collapse navbar-collapse"
+                id="navbarMenu"
+            >
+
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="home.php"
+                        >
+                            Home
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="recipes.php"
+                        >
+                            Recipes
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="favourites.php"
+                        >
+                            Favourites
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link"
+                            href="Contacts.php"
+                        >
+                            Contact Us
+                        </a>
+
+                    </li>
+
+                </ul>
+
+
+                <!-- User Dropdown -->
+
+                <div class="dropdown">
+
+                    <a
+                        href="#"
+                        class="user-icon dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </a>
+
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+
+                        <li>
+
+                            <h6
+                                class="dropdown-header"
+                                id="dropdownUsername"
+                            >
+                                <?php echo htmlspecialchars($username); ?>
+                            </h6>
+
+                        </li>
+
+
+                        <li>
+
+                            <span
+                                class="dropdown-item-text"
+                                id="dropdownEmail"
+                            >
+                                <?php echo htmlspecialchars($email); ?>
+                            </span>
+
+                        </li>
+
+
+                        <li>
+
+                            <hr class="dropdown-divider">
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item"
+                                href="profile.php"
+                            >
+
+                                <i class="fa-solid fa-user-pen me-2"></i>
+
+                                My Profile
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item"
+                                href="favourites.php"
+                            >
+
+                                <i class="fa-solid fa-heart me-2"></i>
+
+                                My Favourites
+
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a
+                                class="dropdown-item"
+                                href="#"
+                                onclick="logout(); return false;"
+                            >
+
+                                <i class="fa-solid fa-right-from-bracket me-2"></i>
+
+                                Logout
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Dark Mode Icon -->
+
+                <i class="fa-solid fa-moon mode-icon"></i>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
 
 
 
-        <li>
+<!-- ================= BREADCRUMB ================= -->
 
-            <a class="dropdown-item"
-            href="favourites.php">
+<section class="breadcrumb">
 
-                <i class="fa-solid fa-heart me-2"></i>
-                My Favourites
+    <span
+        class="current-page"
+        id="recipeBreadcrumb"
+    >
+        <?php echo htmlspecialchars($recipe["title"]); ?>
+    </span>
 
-            </a>
-
-        </li>
-
-
-
-        <li>
-
-    <a class="dropdown-item"
-    href="#"
-    onclick="logout()">
-
-        <i class="fa-solid fa-right-from-bracket me-2"></i>
-        Logout
-
-    </a>
-
-</li>
+</section>
 
 
-    </ul>
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main>
+
+    <section class="recipe-details">
 
 
-</div>
+        <!-- Recipe Image -->
 
-    <!-- Dark Mode Icon -->
+        <div class="recipe-image">
 
-    <i class="fa-solid fa-moon mode-icon"></i>
-
+            <img
+                id="recipeImage"
+                src="<?php echo htmlspecialchars($recipe["image"]); ?>"
+                alt="<?php echo htmlspecialchars($recipe["title"]); ?>"
+            >
 
         </div>
 
 
-    </div>
+        <!-- Recipe Information -->
+
+        <div class="recipe-content">
+
+            <h3 id="recipeTitle">
+
+                <?php echo htmlspecialchars($recipe["title"]); ?>
+
+            </h3>
 
 
-</nav>
-    
-</header>
+            <div class="recipe-meta">
 
-<section class="breadcrumb">
+                <span>
 
-<span class="current-page" id="recipeBreadcrumb">
+                    <i class="fa-regular fa-clock"></i>
 
-</span>
+                    <?php echo htmlspecialchars($recipe["total_time"]); ?>
 
-</section>
-
-<main>
-
-<section class="recipe-details">
+                </span>
 
 
-<!-- Recipe Image -->
+                <span>
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    <?php echo htmlspecialchars($recipe["servings"]); ?>
+
+                </span>
+
+            </div>
 
 
-<div class="recipe-image">
+            <p id="recipeDescription">
+
+                <?php echo htmlspecialchars($recipe["description"]); ?>
+
+            </p>
 
 
-<img id="recipeImage"
-     src="<?php echo htmlspecialchars($recipe["image"]); ?>"
-     alt="<?php echo htmlspecialchars($recipe["title"]); ?>">
+            <!-- Favourite Button -->
 
-</div>
+            <button
+                id="addFavouriteBtn"
+                class="fav-btn"
+                type="button"
+            >
 
-<!-- Recipe Information -->
+                <i class="fa-solid fa-heart"></i>
 
-<div class="recipe-content">
+                Add to Favourite
 
-
-<h3 id="recipeTitle">
-    <?php echo htmlspecialchars($recipe["title"]); ?>
-</h3>
-
-<div class="recipe-meta">
-
-    <span>
-        <i class="fa-regular fa-clock"></i>
-        <?php echo htmlspecialchars($recipe["total_time"]); ?>
-    </span>
-
-    <span>
-        <i class="fa-solid fa-utensils"></i>
-        <?php echo htmlspecialchars($recipe["servings"]); ?>
-    </span>
-
-</div>
+            </button>
 
 
-<p id="recipeDescription">
-    <?php echo htmlspecialchars($recipe["description"]); ?>
-</p>
+            <!-- Share Button -->
 
-<button id="addFavouriteBtn" class="fav-btn">
+            <button
+                id="shareRecipeBtn"
+                class="btn btn-warning"
+                type="button"
+            >
 
-<i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-share"></i>
 
-Add to Favourite
+                Share
 
-</button>
+            </button>
 
-<button id="shareRecipeBtn" class="btn btn-warning">
-    <i class="fa-solid fa-share"></i> Share
-</button>
-
-</div>
-
-</div>
+        </div>
 
 
-<!-- Ingredients -->
+        <!-- ================= INGREDIENTS ================= -->
+
+        <aside class="ingredients-box">
+
+            <h2>
+                Ingredients
+            </h2>
 
 
-<aside class="ingredients-box">
+            <ul id="recipeIngredients">
 
+            <?php
+                $ingredients = preg_split('/\r\n|\r|\n|,/', $recipe["ingredients"]);
 
-<h2>
-Ingredients
-</h2>
+            foreach ($ingredients as $ingredient):
 
+             $ingredient = trim($ingredient);
 
-<ul id="recipeIngredients">
-
-    <?php
-    $ingredients = explode(",", $recipe["ingredients"]);
-
-    foreach ($ingredients as $ingredient):
-    ?>
+             if ($ingredient !== ""):
+                ?>
 
         <li>
-            <?php echo htmlspecialchars(trim($ingredient)); ?>
+            <?php echo htmlspecialchars($ingredient); ?>
         </li>
 
-    <?php endforeach; ?>
+    <?php
+        endif;
+    endforeach;
+    ?>
+
+</ul>
+
+
+            <!-- Recipe Information -->
+
+            <div class="recipe-info">
+
+                <p>
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    <strong>Prep Time:</strong>
+
+                    <?php echo htmlspecialchars($recipe["prep_time"]); ?>
+
+                </p>
+
+
+                <p>
+
+                    <i class="fa-solid fa-fire"></i>
+
+                    <strong>Cook Time:</strong>
+
+                    <?php echo htmlspecialchars($recipe["cook_time"]); ?>
+
+                </p>
+
+
+                <p>
+
+                    <i class="fa-solid fa-hourglass-half"></i>
+
+                    <strong>Total Time:</strong>
+
+                    <?php echo htmlspecialchars($recipe["total_time"]); ?>
+
+                </p>
+
+
+                <p>
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    <strong>Servings:</strong>
+
+                    <?php echo htmlspecialchars($recipe["servings"]); ?>
+
+                </p>
+
+            </div>
+
+        </aside>
+
+    </section>
 
 
 
-<div class="recipe-info">
+    <!-- ================= INSTRUCTIONS ================= -->
 
-    <p>
-        <i class="fa-regular fa-clock"></i>
-        <strong>Prep Time:</strong>
-        <?php echo htmlspecialchars($recipe["prep_time"]); ?>
-    </p>
+    <section class="instructions">
 
-    <p>
-        <i class="fa-solid fa-fire"></i>
-        <strong>Cook Time:</strong>
-        <?php echo htmlspecialchars($recipe["cook_time"]); ?>
-    </p>
-
-    <p>
-        <i class="fa-solid fa-hourglass-half"></i>
-        <strong>Total Time:</strong>
-        <?php echo htmlspecialchars($recipe["total_time"]); ?>
-    </p>
-
-    <p>
-        <i class="fa-solid fa-utensils"></i>
-        <strong>Servings:</strong>
-        <?php echo htmlspecialchars($recipe["servings"]); ?>
-    </p>
-
-</div>
+        <h2>
+            Instructions
+        </h2>
 
 
-</aside>
-
-
-</section>
-
-
-<section class="instructions">
-
-<h2>
-Instructions
-</h2>
-
-
-<ol id="recipeInstructions">
+        <ol id="recipeInstructions">
 
     <?php
-    $instructions = explode(".", $recipe["instructions"]);
+    $instructions = preg_split(
+        '/\r\n|\r|\n/',
+        $recipe["instructions"]
+    );
 
     foreach ($instructions as $instruction):
 
@@ -414,86 +518,100 @@ Instructions
     endforeach;
     ?>
 
+</ol>
 
-
-</section>
+    </section>
 
 </main>
 
 
-<!-- ================= FOOTER ================= -->
 
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-
-© 2026 Recipe Hub. All Rights Reserved.
-
+    © 2026 Recipe Hub. All Rights Reserved.
 
 </footer>
 
 
-<!-- Favourite Modal -->
 
-<div class="modal fade" id="favouriteModal" tabindex="-1">
+<!-- ================= FAVOURITE MODAL ================= -->
 
+<div
+    class="modal fade"
+    id="favouriteModal"
+    tabindex="-1"
+    aria-labelledby="favouriteModalLabel"
+    aria-hidden="true"
+>
 
     <div class="modal-dialog">
-
 
         <div class="modal-content">
 
 
             <div class="modal-header">
 
-                <h5 class="modal-title">
+                <h5
+                    class="modal-title"
+                    id="favouriteModalLabel"
+                >
                     Recipe Hub
                 </h5>
 
-                <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal">
-                </button>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
 
             </div>
-
 
 
             <div class="modal-body">
 
                 <span id="favouriteRecipeName"></span>
+
                 has been added to your favourites ❤️
 
             </div>
 
 
-
             <div class="modal-footer">
 
-                <button type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
                     Close
-
                 </button>
 
             </div>
 
-
         </div>
-
 
     </div>
 
-
 </div>
 
+
+
 <!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
 
 <!-- Recipe Hub JavaScript -->
+
 <script src="js/script.js"></script>
 
+
 </body>
+
 </html>

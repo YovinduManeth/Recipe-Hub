@@ -183,8 +183,8 @@ if ($message != "") {
 
     <input
     type="password"
-    name="confirmPassword"
-    id="confirmPassword"
+    name="password"
+    id="password"
     placeholder="Password"
     required>
 

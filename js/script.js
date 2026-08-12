@@ -1,163 +1,113 @@
 console.log("SCRIPT JS LOADED");
 
-const popularSearches = document.querySelectorAll(".popular-search");
+// ===========================
+// POPULAR SEARCHES
+// ===========================
 
+const popularSearches = document.querySelectorAll(".popular-search");
 const modalSearchInput = document.getElementById("modalSearchInput");
 
-
-if(modalSearchInput){
-
-
-    popularSearches.forEach(function(item){
-
-
-        item.addEventListener("click", function(){
-
-
+if (modalSearchInput) {
+    popularSearches.forEach(function (item) {
+        item.addEventListener("click", function () {
             modalSearchInput.value = item.textContent.trim();
-
-
         });
-
-
     });
-
-
 }
 
 
-// RECIPE SEARCH 
+// ===========================
+// RECIPE SEARCH
+// ===========================
 
+const recipeSearchInput = document.getElementById("recipeSearch");
 
-const searchInput = document.getElementById("recipeSearch");
+if (recipeSearchInput) {
+    recipeSearchInput.addEventListener("input", function () {
 
-
-if(searchInput){
-
-
-    searchInput.addEventListener("input", function(){
-
-
-        let searchValue = this.value.toLowerCase();
-
+        const searchValue = this.value.toLowerCase().trim();
 
         const recipeCards = document.querySelectorAll(".recipe-card");
 
+        recipeCards.forEach(function (card) {
 
-        recipeCards.forEach(function(card){
+            const recipeNameElement =
+                card.querySelector(".card-title");
 
+            if (!recipeNameElement) {
+                return;
+            }
 
-            const recipeName = card
-            .querySelector(".recipe-name")
-            .textContent
-            .toLowerCase();
+            const recipeName =
+                recipeNameElement.textContent.toLowerCase();
 
-
-
-            if(recipeName.includes(searchValue)){
-
-
+            if (recipeName.includes(searchValue)) {
                 card.style.display = "";
-
-
-            }
-
-            else{
-
-
+            } else {
                 card.style.display = "none";
-
-
             }
-
 
         });
-
-
     });
-
-
 }
 
 
+// ===========================
 // ADD / REMOVE FAVOURITES
+// ===========================
+
+const favouriteButton =
+    document.getElementById("addFavouriteBtn");
+
+if (favouriteButton) {
+
+    const selectedRecipe =
+        new URLSearchParams(window.location.search).get("recipe");
+
+    let favourites =
+        JSON.parse(localStorage.getItem("favourites")) || [];
 
 
-const favouriteButton = document.getElementById("addFavouriteBtn");
+    function updateFavouriteButton() {
 
+        if (favourites.includes(selectedRecipe)) {
 
-if(favouriteButton){
+            favouriteButton.innerHTML =
+                '<i class="fa-solid fa-heart-crack"></i> Remove Favourite';
 
+        } else {
 
-    const selectedRecipe = new URLSearchParams(window.location.search)
-    .get("recipe");
-
-
-    let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
-
-
-
-    function updateFavouriteButton(){
-
-
-        if(favourites.includes(selectedRecipe)){
-
-
-            favouriteButton.textContent = "💔 Remove Favourite";
-
-
-        }
-
-        else{
-
-
-            favouriteButton.textContent = "❤️ Add Favourite";
-
+            favouriteButton.innerHTML =
+                '<i class="fa-solid fa-heart"></i> Add Favourite';
 
         }
-
-
     }
-
 
 
     updateFavouriteButton();
 
 
+    favouriteButton.addEventListener("click", function () {
 
-    favouriteButton.addEventListener("click", function(){
-
-
-
-        if(favourites.includes(selectedRecipe)){
-
-
-            favourites = favourites.filter(function(item){
+        if (!selectedRecipe) {
+            return;
+        }
 
 
+        if (favourites.includes(selectedRecipe)) {
+
+            favourites = favourites.filter(function (item) {
                 return item !== selectedRecipe;
-
-
             });
-
 
             alert("Recipe removed from favourites 💔");
 
-
-        }
-
-
-        else{
-
+        } else {
 
             favourites.push(selectedRecipe);
 
-
             alert("Recipe added to favourites ❤️");
-
-
         }
-
 
 
         localStorage.setItem(
@@ -166,126 +116,111 @@ if(favouriteButton){
         );
 
 
-
         updateFavouriteButton();
 
-
-
     });
-
-
 }
 
-// DISPLAY FAVOURITES 
+
+// ===========================
+// DISPLAY FAVOURITES
+// ===========================
+
+const favouriteList =
+    document.getElementById("favouriteList");
+
+if (favouriteList) {
+
+    const favourites =
+        JSON.parse(localStorage.getItem("favourites")) || [];
 
 
-const favouriteList = document.getElementById("favouriteList");
-
-
-if(favouriteList){
-
-
-    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
-
-
-    if(favourites.length === 0){
-
+    if (favourites.length === 0) {
 
         favouriteList.innerHTML =
-        `
-        <p>No favourite recipes added yet ❤️</p>
-        `;
+            "<p>No favourite recipes added yet ❤️</p>";
 
+    } else {
 
-    }
+        /*
+         * This section requires recipeData.js.
+         * It will only run if recipeData exists.
+         */
 
-    else{
+        if (typeof recipeData !== "undefined") {
 
+            favourites.forEach(function (recipeId) {
 
-        favourites.forEach(function(recipeId){
+                const recipe = recipeData[recipeId];
 
+                if (recipe) {
 
-            const recipe = recipeData[recipeId];
+                    favouriteList.innerHTML += `
+                        <div class="col">
 
+                            <div class="card h-100">
 
-            if(recipe){
+                                <img
+                                    src="${recipe.image}"
+                                    class="card-img-top"
+                                    alt="${recipe.title}"
+                                >
 
+                                <div class="card-body">
 
-                favouriteList.innerHTML +=
-                `
+                                    <h5 class="card-title">
+                                        ${recipe.title}
+                                    </h5>
 
-                <div class="col">
+                                    <p class="card-text">
+                                        ${recipe.description}
+                                    </p>
 
+                                    <a
+                                        href="recipe-details.php?recipe=${recipeId}"
+                                        class="btn btn-warning"
+                                    >
+                                        View Recipe
+                                    </a>
 
-                    <div class="card h-100">
+                                    <button
+                                        onclick="removeFavourite('${recipeId}')"
+                                        class="btn btn-danger"
+                                    >
+                                        Remove
+                                    </button>
 
+                                </div>
 
-                        <img src="${recipe.image}"
-                        class="card-img-top">
-
-
-                        <div class="card-body">
-
-
-                            <h5 class="card-title">
-                            ${recipe.title}
-                            </h5>
-
-
-                            <p class="card-text">
-                            ${recipe.description}
-                            </p>
-
-
-                            <a href="recipe-details.php?recipe=${recipeId}"
-                                class="btn btn-warning">
-
-                                    View Recipe
-
-                            </a>
-
-
-                                <button onclick="removeFavourite('${recipeId}')"
-                                    class="btn btn-danger">
-
-                                    Remove
-
-                                </button>
-
+                            </div>
 
                         </div>
+                    `;
+                }
 
+            });
 
-                    </div>
+        } else {
 
-
-                </div>
-
-
-                `;
-
-
-            }
-
-
-        });
-
-
+            favouriteList.innerHTML =
+                "<p>Recipe data could not be loaded.</p>";
+        }
     }
-
-
 }
 
-function removeFavourite(recipeId){
+
+// ===========================
+// REMOVE FAVOURITE
+// ===========================
+
+function removeFavourite(recipeId) {
+
+    let favourites =
+        JSON.parse(localStorage.getItem("favourites")) || [];
 
 
-    let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
-
-
-    favourites = favourites.filter(function(item){
-
+    favourites = favourites.filter(function (item) {
         return item !== recipeId;
-
     });
 
 
@@ -297,116 +232,111 @@ function removeFavourite(recipeId){
 
     alert("Removed from favourites 💔");
 
-
     location.reload();
-
-
 }
 
-function logout(){
 
-    window.location.href="auth/logout.php";
+// ===========================
+// LOGOUT
+// ===========================
 
+function logout() {
+
+    window.location.href = "auth/logout.php";
 }
 
-// CONTACT FORM VALIDATION 
 
-document.addEventListener("DOMContentLoaded", function(){
+// ===========================
+// CONTACT FORM VALIDATION
+// ===========================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const contactForm =
+        document.getElementById("contactForm");
 
 
-    const contactForm = document.getElementById("contactForm");
+    if (contactForm) {
 
-
-    if(contactForm){
-
-
-        contactForm.addEventListener("submit", function(event){
-
+        contactForm.addEventListener("submit", function (event) {
 
             event.preventDefault();
 
 
-            const name = document.getElementById("contactName").value.trim();
+            const name =
+                document.getElementById("contactName").value.trim();
 
-            const email = document.getElementById("contactEmail").value.trim();
+            const email =
+                document.getElementById("contactEmail").value.trim();
 
-            const subject = document.getElementById("contactSubject").value.trim();
+            const subject =
+                document.getElementById("contactSubject").value.trim();
 
-            const message = document.getElementById("contactMessage").value.trim();
+            const message =
+                document.getElementById("contactMessage").value.trim();
 
 
-
-            if(name === "" || email === "" || subject === "" || message === ""){
-
+            if (
+                name === "" ||
+                email === "" ||
+                subject === "" ||
+                message === ""
+            ) {
 
                 alert("Please fill all fields");
 
-
-            }
-
-            else{
-
+            } else {
 
                 alert("Message sent successfully ❤️");
 
-
                 contactForm.reset();
-
-
             }
 
-
         });
-
-
     }
-
 
 });
 
 
+// ===========================
+// DARK MODE
+// ===========================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const modeButton =
+        document.querySelector(".mode-icon");
 
 
-// DARK MODE 
-
-
-document.addEventListener("DOMContentLoaded", function(){
-
-
-    const modeButton = document.querySelector(".mode-icon");
-
-
-    if(!modeButton) return;
-
+    if (!modeButton) {
+        return;
+    }
 
 
     // Load saved mode
 
-    if(localStorage.getItem("darkMode") === "enabled"){
-
+    if (
+        localStorage.getItem("darkMode") === "enabled"
+    ) {
 
         document.body.classList.add("dark-mode");
-
 
         modeButton.classList.remove("fa-moon");
 
         modeButton.classList.add("fa-sun");
-
-
     }
 
 
+    // Toggle mode
 
-    modeButton.addEventListener("click", function(){
-
-
+    modeButton.addEventListener("click", function () {
 
         document.body.classList.toggle("dark-mode");
 
 
-
-        if(document.body.classList.contains("dark-mode")){
-
+        if (
+            document.body.classList.contains("dark-mode")
+        ) {
 
             localStorage.setItem(
                 "darkMode",
@@ -414,216 +344,270 @@ document.addEventListener("DOMContentLoaded", function(){
             );
 
 
-            modeButton.classList.remove("fa-moon");
+            modeButton.classList.remove(
+                "fa-moon"
+            );
 
-            modeButton.classList.add("fa-sun");
+            modeButton.classList.add(
+                "fa-sun"
+            );
 
-
-        }
-
-        else{
-
+        } else {
 
             localStorage.removeItem("darkMode");
 
 
-            modeButton.classList.remove("fa-sun");
+            modeButton.classList.remove(
+                "fa-sun"
+            );
 
-            modeButton.classList.add("fa-moon");
-
-
+            modeButton.classList.add(
+                "fa-moon"
+            );
         }
 
-
-
     });
-
-
 
 });
 
 
-
-
-
-
+// ===========================
 // SCROLL FADE-IN ANIMATION
+// ===========================
+
+const fadeElements =
+    document.querySelectorAll(".fade-in");
 
 
-const fadeElements = document.querySelectorAll(".fade-in");
+if ("IntersectionObserver" in window) {
 
+    const observer =
+        new IntersectionObserver(
+            function (entries) {
 
-const observer = new IntersectionObserver((entries)=>{
+                entries.forEach(function (entry) {
 
+                    if (entry.isIntersecting) {
 
-    entries.forEach(entry=>{
+                        entry.target.classList.add("show");
 
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-
-    });
-
-
-},
-{
-    threshold:0.2
-});
-
-
-
-fadeElements.forEach(element=>{
-
-    observer.observe(element);
-
-});
-
-// SHARE RECIPE FUNCTION
-
-const shareButton = document.getElementById("shareRecipeBtn");
-
-
-if(shareButton){
-
-    shareButton.addEventListener("click", function(){
-
-        const urlParams = new URLSearchParams(window.location.search);
-
-        const recipeId = urlParams.get("recipe");
-
-        const recipe = recipeData[recipeId];
-
-
-        if(recipe){
-
-
-            const shareData = {
-
-                title: recipe.title,
-
-                text: recipe.description,
-
-                url: window.location.href
-
-            };
-
-
-            // Mobile and supported browsers
-
-            if(navigator.share){
-
-
-                navigator.share(shareData)
-
-                .then(()=>{
-
-                    console.log("Recipe shared successfully");
-
-                })
-
-                .catch((error)=>{
-
-                    console.log("Sharing cancelled");
+                    }
 
                 });
 
-
+            },
+            {
+                threshold: 0.2
             }
+        );
 
 
-            // For browsers without share support
+    fadeElements.forEach(function (element) {
 
-            else{
-
-
-                navigator.clipboard.writeText(window.location.href);
-
-
-                alert("Recipe link copied! Share it with others ❤️");
-
-
-            }
-
-
-        }
-
+        observer.observe(element);
 
     });
 
-
 }
+
+
+// ===========================
+// SHARE RECIPE
+// ===========================
+
+const shareButton =
+    document.getElementById("shareRecipeBtn");
+
+
+if (shareButton) {
+
+    shareButton.addEventListener("click", function () {
+
+        const urlParams =
+            new URLSearchParams(window.location.search);
+
+
+        const recipeId =
+            urlParams.get("recipe");
+
+
+        /*
+         * Do not depend on recipeData.js here.
+         * The recipe details are now loaded from PHP/database.
+         */
+
+        const recipeTitleElement =
+            document.getElementById("recipeTitle");
+
+        const recipeDescriptionElement =
+            document.getElementById("recipeDescription");
+
+
+        const recipeTitle =
+            recipeTitleElement
+                ? recipeTitleElement.textContent.trim()
+                : "Recipe Hub Recipe";
+
+
+        const recipeDescription =
+            recipeDescriptionElement
+                ? recipeDescriptionElement.textContent.trim()
+                : "Check out this recipe from Recipe Hub.";
+
+
+        const shareData = {
+
+            title: recipeTitle,
+
+            text: recipeDescription,
+
+            url: window.location.href
+
+        };
+
+
+        if (navigator.share) {
+
+            navigator.share(shareData)
+
+                .then(function () {
+
+                    console.log(
+                        "Recipe shared successfully"
+                    );
+
+                })
+
+                .catch(function () {
+
+                    console.log(
+                        "Sharing cancelled"
+                    );
+
+                });
+
+        } else if (navigator.clipboard) {
+
+            navigator.clipboard
+                .writeText(window.location.href)
+
+                .then(function () {
+
+                    alert(
+                        "Recipe link copied! Share it with others ❤️"
+                    );
+
+                })
+
+                .catch(function () {
+
+                    alert(
+                        "Unable to copy recipe link."
+                    );
+
+                });
+
+        } else {
+
+            alert(
+                "Sharing is not supported on this browser."
+            );
+        }
+
+    });
+}
+
 
 // ===========================
 // RECIPE SEARCH SUGGESTIONS
 // ===========================
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
 
-    const searchInput = document.getElementById("searchInput");
-    const searchSuggestions = document.getElementById("searchSuggestions");
-
-
-    if(searchInput && searchSuggestions){
+    const searchInput =
+        document.getElementById("searchInput");
 
 
-        searchInput.addEventListener("input", function(){
+    const searchSuggestions =
+        document.getElementById("searchSuggestions");
 
 
-            const value = searchInput.value.toLowerCase().trim();
+    if (
+        searchInput &&
+        searchSuggestions &&
+        typeof recipeData !== "undefined"
+    ) {
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const value =
+                    searchInput.value
+                        .toLowerCase()
+                        .trim();
 
 
-            searchSuggestions.innerHTML = "";
+                searchSuggestions.innerHTML = "";
 
 
-            if(value === ""){
-                return;
-            }
-
-
-            Object.keys(recipeData).forEach(function(recipeId){
-
-
-                const recipe = recipeData[recipeId];
-
-
-                if(recipe.title.toLowerCase().includes(value)){
-
-
-                    const suggestion = document.createElement("div");
-
-
-                    suggestion.classList.add("suggestion-item");
-
-
-                    suggestion.textContent = recipe.title;
-
-
-                    suggestion.onclick = function(){
-
-                        window.location.href =
-                        "recipe-details.php?recipe=" + recipeId;
-
-                    };
-
-
-                    searchSuggestions.appendChild(suggestion);
-
-
+                if (value === "") {
+                    return;
                 }
 
 
-            });
+                Object.keys(recipeData).forEach(
+                    function (recipeId) {
+
+                        const recipe =
+                            recipeData[recipeId];
 
 
-        });
+                        if (
+                            recipe &&
+                            recipe.title &&
+                            recipe.title
+                                .toLowerCase()
+                                .includes(value)
+                        ) {
+
+                            const suggestion =
+                                document.createElement("div");
 
 
+                            suggestion.classList.add(
+                                "suggestion-item"
+                            );
+
+
+                            suggestion.textContent =
+                                recipe.title;
+
+
+                            suggestion.addEventListener(
+                                "click",
+                                function () {
+
+                                    window.location.href =
+                                        "recipe-details.php?recipe=" +
+                                        recipeId;
+
+                                }
+                            );
+
+
+                            searchSuggestions.appendChild(
+                                suggestion
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
     }
-
 
 });
 
@@ -632,41 +616,77 @@ document.addEventListener("DOMContentLoaded", function(){
 // LOGIN PASSWORD SHOW / HIDE
 // ===========================
 
-const loginPassword = document.getElementById("password");
-const toggleLoginPassword = document.getElementById("toggleLoginPassword");
-const loginEye = document.getElementById("loginEye");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (loginPassword && toggleLoginPassword && loginEye) {
+    const loginPassword =
+        document.getElementById("password");
 
-    toggleLoginPassword.addEventListener("click", function () {
 
-        if (loginPassword.type === "password") {
+    const toggleLoginPassword =
+        document.getElementById(
+            "toggleLoginPassword"
+        );
 
-            loginPassword.type = "text";
 
-            loginEye.classList.remove("fa-eye");
-            loginEye.classList.add("fa-eye-slash");
+    const loginEye =
+        document.getElementById("loginEye");
 
-            toggleLoginPassword.setAttribute(
-                "aria-label",
-                "Hide password"
-            );
 
-        } else {
+    if (
+        loginPassword &&
+        toggleLoginPassword &&
+        loginEye
+    ) {
 
-            loginPassword.type = "password";
+        toggleLoginPassword.addEventListener(
+            "click",
+            function () {
 
-            loginEye.classList.remove("fa-eye-slash");
-            loginEye.classList.add("fa-eye");
+                if (
+                    loginPassword.type === "password"
+                ) {
 
-            toggleLoginPassword.setAttribute(
-                "aria-label",
-                "Show password"
-            );
+                    loginPassword.type = "text";
 
-        }
 
-    });
+                    loginEye.classList.remove(
+                        "fa-eye"
+                    );
 
-}
-```
+
+                    loginEye.classList.add(
+                        "fa-eye-slash"
+                    );
+
+
+                    toggleLoginPassword.setAttribute(
+                        "aria-label",
+                        "Hide password"
+                    );
+
+                } else {
+
+                    loginPassword.type = "password";
+
+
+                    loginEye.classList.remove(
+                        "fa-eye-slash"
+                    );
+
+
+                    loginEye.classList.add(
+                        "fa-eye"
+                    );
+
+
+                    toggleLoginPassword.setAttribute(
+                        "aria-label",
+                        "Show password"
+                    );
+                }
+
+            }
+        );
+    }
+
+});
