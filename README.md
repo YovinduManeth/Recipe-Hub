@@ -258,6 +258,11 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 - Fixed the recipe-key issue where ambulthiyal2 was mistakenly written as ambulthiyal12.
 - Continued testing the Recipe Hub pages and GitHub project.
 
+Development Progress
+
+During Phase 3, the Recipe Hub web application was converted from a mainly static website into a dynamic PHP and MySQL-based web application. The main focus was implementing authentication, database connectivity, recipe management, user profiles, favourites, password management, and improving the overall functionality of the system.
+
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
