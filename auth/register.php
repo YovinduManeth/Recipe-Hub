@@ -182,38 +182,35 @@ if ($message != "") {
     <i class="fa-solid fa-lock"></i>
 
     <input
-    type="password"
-    name="password"
-    id="password"
-    placeholder="Password"
-    required>
-
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        required>
 
     <i class="fa-solid fa-eye"
-        id="toggleConfirmPassword">
+       id="togglePassword">
     </i>
 
+</div>
 
-    </div>
 
-   <div class="input-box">
+<div class="input-box">
 
     <i class="fa-solid fa-lock"></i>
 
     <input
-    type="password"
-    name="confirmPassword"
-    id="confirmPassword"
-    placeholder="Confirm Password"
-    required>
-
+        type="password"
+        name="confirmPassword"
+        id="confirmPassword"
+        placeholder="Confirm Password"
+        required>
 
     <i class="fa-solid fa-eye"
-        id="toggleConfirmPassword">
+       id="toggleConfirmPassword">
     </i>
 
-
-    </div>
+</div>
 
     <label>
         <input type="checkbox" name="terms"id="terms"required>
@@ -257,55 +254,40 @@ Login
 <script src="../js/script.js"></script>
 
 <script>
+function setupPasswordToggle(inputId, eyeId) {
 
+    const input = document.getElementById(inputId);
+    const eye = document.getElementById(eyeId);
 
-const toggleConfirmPassword =
-document.getElementById("toggleConfirmPassword");
+    if (!input || !eye) {
+        return;
+    }
 
+    eye.addEventListener("click", function () {
 
-const confirmPassword =
-document.getElementById("confirmPassword");
+        if (input.type === "password") {
 
+            input.type = "text";
 
+            eye.classList.remove("fa-eye");
+            eye.classList.add("fa-eye-slash");
 
-if(toggleConfirmPassword && confirmPassword){
+        } else {
 
+            input.type = "password";
 
-    toggleConfirmPassword.addEventListener("click", function(){
-
-
-        if(confirmPassword.type === "password"){
-
-
-            confirmPassword.type = "text";
-
-
-            toggleConfirmPassword.classList.remove("fa-eye");
-
-            toggleConfirmPassword.classList.add("fa-eye-slash");
-
+            eye.classList.remove("fa-eye-slash");
+            eye.classList.add("fa-eye");
 
         }
-
-        else{
-
-
-            confirmPassword.type = "password";
-
-
-            toggleConfirmPassword.classList.remove("fa-eye-slash");
-
-            toggleConfirmPassword.classList.add("fa-eye");
-
-
-        }
-
 
     });
-
-
 }
 
+
+setupPasswordToggle("password", "togglePassword");
+
+setupPasswordToggle("confirmPassword", "toggleConfirmPassword");
 </script>
 
 </body>
