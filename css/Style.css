@@ -2602,3 +2602,345 @@ LOGIN PASSWORD EYE
     box-shadow: none !important;
     outline: none !important;
 }
+/* ==========================
+   DASHBOARD PAGE
+========================== */
+
+.dashboard-section {
+
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 50px 20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #E28D1E33,
+        #ffffff
+    );
+
+}
+
+
+.dashboard-card {
+
+    width: 600px;
+
+    max-width: 100%;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow:
+    0 5px 25px rgba(0,0,0,0.15);
+
+}
+
+
+.dashboard-logo {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+}
+
+
+.dashboard-logo img {
+
+    width: 45px;
+
+    height: 45px;
+
+    object-fit: contain;
+
+}
+
+
+.dashboard-welcome {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.dashboard-avatar {
+
+    font-size: 70px;
+
+    color: #E28D1E;
+
+    margin-bottom: 15px;
+
+}
+
+
+.dashboard-welcome h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.dashboard-welcome p {
+
+    color: #666;
+
+    font-size: 16px;
+
+}
+
+
+/* Dashboard Options */
+
+.dashboard-options {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+
+.dashboard-option {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 12px;
+
+    color: black;
+
+    background: white;
+
+    transition: 0.3s;
+
+}
+
+
+.dashboard-option i {
+
+    font-size: 28px;
+
+    color: #E28D1E;
+
+    width: 40px;
+
+    text-align: center;
+
+}
+
+
+.dashboard-option h3 {
+
+    margin: 0 0 5px;
+
+    font-size: 20px;
+
+}
+
+
+.dashboard-option p {
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 14px;
+
+}
+
+
+.dashboard-option:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.12);
+
+    border-color: #E28D1E;
+
+}
+
+
+/* Logout */
+
+.dashboard-logout {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    background: #D9D9D9;
+
+    color: black;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+.dashboard-logout:hover {
+
+    background: #E28D1E;
+
+    color: white;
+
+}
+
+
+/* ==========================
+   DASHBOARD DARK MODE
+========================== */
+
+body.dark-mode .dashboard-section {
+
+    background:
+    linear-gradient(
+        135deg,
+        #121212,
+        #1e1e1e
+    );
+
+}
+
+
+body.dark-mode .dashboard-card {
+
+    background: #1e1e1e;
+
+    color: white;
+
+}
+
+
+body.dark-mode .dashboard-logo {
+
+    color: white;
+
+}
+
+
+body.dark-mode .dashboard-welcome h1 {
+
+    color: white;
+
+}
+
+
+body.dark-mode .dashboard-welcome p {
+
+    color: #ccc;
+
+}
+
+
+body.dark-mode .dashboard-option {
+
+    background: #2b2b2b;
+
+    border-color: #444;
+
+    color: white;
+
+}
+
+
+body.dark-mode .dashboard-option h3 {
+
+    color: white;
+
+}
+
+
+body.dark-mode .dashboard-option p {
+
+    color: #ccc;
+
+}
+
+
+body.dark-mode .dashboard-logout {
+
+    background: #333;
+
+    color: white;
+
+}
+
+
+/* ==========================
+   DASHBOARD MOBILE
+========================== */
+
+@media (max-width: 576px) {
+
+    .dashboard-card {
+
+        padding: 25px;
+
+    }
+
+    .dashboard-welcome h1 {
+
+        font-size: 25px;
+
+    }
+
+    .dashboard-option {
+
+        padding: 15px;
+
+        gap: 12px;
+
+    }
+
+    .dashboard-option i {
+
+        font-size: 23px;
+
+    }
+
+}
