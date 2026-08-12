@@ -155,47 +155,46 @@ if (favouriteList) {
 
                 if (recipe) {
 
-                    favouriteList.innerHTML += `
-                        <div class="col">
+                    favouriteList.innerHTML +=
+`
+<div class="col">
 
-                            <div class="card h-100">
+    <div class="card h-100">
 
-                                <img
-                                    src="${recipe.image}"
-                                    class="card-img-top"
-                                    alt="${recipe.title}"
-                                >
+        <img
+            src="${recipe.image}"
+            class="card-img-top"
+            alt="${recipe.title}"
+        >
 
-                                <div class="card-body">
+        <div class="card-body">
 
-                                    <h5 class="card-title">
-                                        ${recipe.title}
-                                    </h5>
+            <h5 class="card-title">
+                ${recipe.title}
+            </h5>
 
-                                    <p class="card-text">
-                                        ${recipe.description}
-                                    </p>
+            <a
+                href="recipe-details.php?recipe=${recipeId}"
+                class="btn btn-warning"
+            >
+                View Recipe
+            </a>
 
-                                    <a
-                                        href="recipe-details.php?recipe=${recipeId}"
-                                        class="btn btn-warning"
-                                    >
-                                        View Recipe
-                                    </a>
+            <button
+                onclick="removeFavourite('${recipeId}')"
+                class="btn btn-danger"
+            >
+                Remove
+            </button>
 
-                                    <button
-                                        onclick="removeFavourite('${recipeId}')"
-                                        class="btn btn-danger"
-                                    >
-                                        Remove
-                                    </button>
+        </div>
 
-                                </div>
+    </div>
 
-                            </div>
+</div>
+`;
 
-                        </div>
-                    `;
+                    
                 }
 
             });
