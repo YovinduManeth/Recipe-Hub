@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2026 at 08:37 PM
+-- Generation Time: Aug 12, 2026 at 06:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,8 @@ INSERT INTO `messages` (`id`, `name`, `email`, `message`, `created_at`) VALUES
 (1, 'dinundu', 'dinu@gmail.com', 'test 1', '2026-08-06 17:25:31'),
 (2, 'yovindu', 'yovi@gmail.com', 'test2', '2026-08-06 17:26:13'),
 (3, 'vihanga', 'vi@gmail.com', 'test3', '2026-08-06 17:29:35'),
-(4, 'vihanga', 'vi@gmail.com', 'test3', '2026-08-06 17:36:54');
+(4, 'vihanga', 'vi@gmail.com', 'test3', '2026-08-06 17:36:54'),
+(5, 'jejejeje', 'je@gmail.com', 'eedefrfevevv', '2026-08-12 06:19:26');
 
 -- --------------------------------------------------------
 
@@ -71,7 +72,7 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`id`, `recipe_key`, `title`, `description`, `image`, `ingredients`, `instructions`, `prep_time`, `cook_time`, `total_time`, `servings`, `user_id`) VALUES
-(1, 'chickenkottu', 'Sri Lankan Chicken Kottu', 'Sri Lankan Chicken Kottu is one of the country\'s most popular street foods. It is prepared by chopping soft Godamba roti into small pieces and stir-frying it with juicy chicken, fresh vegetables, eggs, aromatic spices, and flavorful sauces. The famous rhythmic chopping sound made while preparing Kottu has become a symbol of Sri Lankan street food culture.', 'Images/Recipes/Koththu.webp', 'Godamba roti, chicken, onion, leeks, cabbage, carrot, eggs, curry powder, chilli, salt and pepper.', '\r\n        Cut the Godamba roti into thin strips or small bite-sized pieces.,\r\n\r\n        Heat oil in a large pan or flat griddle and sauté garlic, ginger, onions, curry leaves, and green chilies until fragrant.,\r\n\r\n        Add the chicken pieces and cook until they are golden brown and fully cooked.,\r\n\r\n        Mix in the carrots, cabbage, and leeks, then stir-fry for about 3–4 minutes.,\r\n\r\n        Push the vegetables to one side of the pan, crack the eggs, scramble them, and combine with the vegetables.,\r\n\r\n        Add the chopped Godamba roti and mix thoroughly.,\r\n\r\n        Season with curry powder, chili powder, black pepper, soy sauce, tomato sauce, and salt.,\r\n\r\n        Continue tossing and chopping the mixture until everything is evenly coated and heated through.,\r\n\r\n        Serve hot with spicy chicken curry, chili paste, or a refreshing soft drink.', '20 min', '25 min', '45 min', '4 Servings', NULL),
+(1, 'kottu', 'Sri Lankan Chicken Kottu', 'Sri Lankan Chicken Kottu is one of the country\'s most popular street foods. It is prepared by chopping soft Godamba roti into small pieces and stir-frying it with juicy chicken, fresh vegetables, eggs, aromatic spices, and flavorful sauces. The famous rhythmic chopping sound made while preparing Kottu has become a symbol of Sri Lankan street food culture.', 'Images/Recipes/Koththu.webp', 'Godamba roti, chicken, onion, leeks, cabbage, carrot, eggs, curry powder, chilli, salt and pepper.', '\r\n        Cut the Godamba roti into thin strips or small bite-sized pieces.,\r\n\r\n        Heat oil in a large pan or flat griddle and sauté garlic, ginger, onions, curry leaves, and green chilies until fragrant.,\r\n\r\n        Add the chicken pieces and cook until they are golden brown and fully cooked.,\r\n\r\n        Mix in the carrots, cabbage, and leeks, then stir-fry for about 3–4 minutes.,\r\n\r\n        Push the vegetables to one side of the pan, crack the eggs, scramble them, and combine with the vegetables.,\r\n\r\n        Add the chopped Godamba roti and mix thoroughly.,\r\n\r\n        Season with curry powder, chili powder, black pepper, soy sauce, tomato sauce, and salt.,\r\n\r\n        Continue tossing and chopping the mixture until everything is evenly coated and heated through.,\r\n\r\n        Serve hot with spicy chicken curry, chili paste, or a refreshing soft drink.', '20 min', '25 min', '45 min', '4 Servings', NULL),
 (2, 'stringhoppers', 'Sri Lankan String Hoppers', 'Sri Lankan String Hoppers are a traditional steamed food made from rice flour dough pressed into thin noodle-like strands. They are soft, light, and commonly enjoyed as a breakfast or dinner meal in Sri Lankan households. String hoppers are usually served with coconut sambol, dhal curry, or different types of spicy curries, making them a popular and healthy traditional dish.', 'Images/Recipes/String_hoppers.jpg', 'Rice flour,\r\nWarm water,\r\nSalt,\r\nCoconut sambol,\r\nCoconut milk\r\n\r\n', 'Mix rice flour with warm water and salt to prepare a soft dough.\r\n\r\nKnead the dough until it becomes smooth and easy to press.\r\n\r\nPlace the dough into a string hopper press and create thin noodle strands.\r\n\r\nArrange the strands on circular mats or plates.\r\n\r\nSteam the string hoppers until they are fully cooked.\r\n\r\nServe hot with dhal curry, coconut sambol, or other Sri Lankan curries.\r\n', '30 min', '20 min', '50 min', '4 Servings', NULL),
 (3, 'hoppers', 'Sri Lankan Hoppers', 'Sri Lankan Hoppers are a traditional bowl-shaped pancake made with fermented rice flour batter and coconut milk. They are crispy around the edges with a soft, fluffy center and are commonly enjoyed as a breakfast or dinner dish. Hoppers are usually served with coconut sambol, spicy curries, or a fried egg placed in the middle, making them one of the most loved foods in Sri Lankan cuisine.', 'Images/Recipes/Hoppers.jpg', 'Rice flour,\r\nCoconut milk,\r\nYeast,\r\nSugar,\r\nSalt,\r\nCoconut water', 'Prepare the hopper batter by mixing rice flour, coconut milk, yeast, sugar, and salt.\r\nAllow the batter to ferment for several hours to develop the flavour.\r\nHeat a hopper pan and pour a small amount of batter into it.\r\nSpread the batter around the pan to create a thin crispy edge.\r\nCook until the edges become golden and the center becomes soft.\r\nServe hot with coconut sambol, curry, or a fried egg.', '30 min', '20 min', '50 min', '10 Pieces', NULL),
 (4, 'fish', 'Fish Ambul Thiyal', 'Fish Ambul Thiyal is a famous traditional Sri Lankan dry fish curry known for its unique sour and spicy flavour. This dish is prepared by cooking fish pieces with goraka, black pepper, and aromatic spices until the flavours are deeply absorbed. Originally popular in the southern coastal areas of Sri Lanka, Ambul Thiyal is usually served with steamed rice and is loved for its rich taste and long shelf life.', 'Images/Recipes/Malu.jpg', 'Fish pieces,\r\nGoraka,\r\nBlack pepper,\r\nGarlic,\r\nCinnamon,\r\nTurmeric powder,\r\nSalt,\r\nCurry leaves\r\n', 'Wash and clean the fish pieces properly.\r\n\r\nPrepare a spice mixture using goraka, black pepper, turmeric, garlic, and salt.\r\n\r\nCoat the fish pieces with the spice mixture and allow them to absorb the flavours.\r\n\r\nArrange the fish pieces in a clay pot and cook slowly with a small amount of water.\r\n\r\nSimmer until the fish becomes tender and the mixture turns into a thick dry curry.\r\n\r\nServe hot with steamed rice and traditional Sri Lankan side dishes.\r\n', '20 min', '30 min', '50 min', '4 Servings', NULL),
@@ -141,7 +142,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`) VALUES
-(15, 'TestUser', 'test@gmail.com', '$2y$10$SEPaMPVriQcOPCzdFPVK8eOkfuck59xLYAumt1V17dPcRnph.f9tK', '2026-08-07 17:33:23'),
+(15, 'TestUser', 'test@gmail.com', '$2y$10$zSW15zdmEQHKSRFIj0H8n.liom5X7u7xMrhGRXY8NoFUeq.xn8cMu', '2026-08-12 15:35:07'),
 (27, 'Yovi', 'Yovi12@gmail.com', '$2y$10$/YDZEPZwQO5ic5Sw7iQk4.gCp7/ixMNwDNOcSfokRCuvUs0LPH17q', '2026-08-05 16:28:02'),
 (28, 'dinu', 'dinu@gmail.com', '$2y$10$O1.fQrz717I/gLRPRmu9xudL8otCAnYNxUPtuajVp/I3SBYTW.dVC', '2026-08-06 08:51:30'),
 (29, 'dinu', 'dinu@gmail.com', '$2y$10$nIfooBaHT56dqTxmB6.yVua1J98JHGqosI88u5OzART8CbybVZjMS', '2026-08-06 08:53:53'),
@@ -183,7 +184,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `recipes`
