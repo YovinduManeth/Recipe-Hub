@@ -413,11 +413,6 @@ alt="Sri Lankan Food Table">
 Categories
 </h2>
 
-<a href="#">
-View All
-</a>
-
-
 </div>
 
 
