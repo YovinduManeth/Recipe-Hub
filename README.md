@@ -326,6 +326,16 @@ The favourites functionality was implemented and tested.
 - Tested adding and removing favourite recipes.
 - Contact System
 
+The Contact Us functionality was integrated with the database.
+
+- Converted the Contact Us page to PHP.
+- Connected the contact form to MySQL.
+- Added message storage in the database.
+- Implemented form validation.
+- Added successful submission notifications.
+- Tested the contact form functionality.
+- Website Features and Interface Improvements
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
