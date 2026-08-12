@@ -262,6 +262,23 @@ Development Progress
 
 During Phase 3, the Recipe Hub web application was converted from a mainly static website into a dynamic PHP and MySQL-based web application. The main focus was implementing authentication, database connectivity, recipe management, user profiles, favourites, password management, and improving the overall functionality of the system.
 
+Authentication and User Management
+
+We developed and tested the complete user authentication system.
+
+Created the user registration system using PHP and MySQL.
+Connected the registration and login pages to the MySQL database using PDO.
+Added secure password hashing using password_hash().
+Added password verification using password_verify().
+Implemented username and email login.
+Added password confirmation validation during registration.
+Added Terms and Conditions validation.
+Added Remember Me functionality.
+Implemented secure PHP sessions.
+Added session_regenerate_id(true) after successful login.
+Added logout functionality.
+Added forgot-password and password-reset functionality.
+Added show/hide password functionality using eye icons.
 
 ## Developers
 
