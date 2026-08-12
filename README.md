@@ -280,6 +280,31 @@ Added logout functionality.
 Added forgot-password and password-reset functionality.
 Added show/hide password functionality using eye icons.
 
+User Dashboard
+
+A new user dashboard was developed after the authentication system.
+
+Created dashboard.php.
+Restricted dashboard access to logged-in users.
+Displayed the logged-in user's username.
+Added links to the user's profile, home page, and favourites.
+Added a logout option.
+Designed the dashboard separately without the normal website navigation bar.
+Updated the dashboard navigation according to the final system structure.
+Tested redirection from successful login to the dashboard.
+User Profile and Password Management
+
+The user profile system was implemented and tested.
+
+Added a profile page for logged-in users.
+Displayed user account information.
+Added password update functionality.
+Added new-password and confirm-password validation.
+Updated passwords securely in the database using password hashing.
+Tested logging in with the newly updated password.
+Added password visibility controls to password fields.
+Recipe Management and Database Integration
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
