@@ -349,6 +349,33 @@ Several existing website features were fixed and tested during Phase 3.
 - Fixed various UI issues discovered during development.
 - Testing and Debugging
 
+The completed features were tested throughout the development process.
+
+- Tested user registration and validation.
+- Tested login with username and email.
+- Tested incorrect login credentials.
+- Tested dashboard access.
+- Tested profile and password updates.
+- Tested favourites functionality.
+- Tested recipe navigation and details.
+- Tested logout and session protection.
+- Tested database operations.
+- Fixed issues discovered during testing.
+- Synchronized the project and database between team members using GitHub and MySQL.
+- GitHub and Project Synchronization
+
+GitHub was used to maintain and synchronize the project between team members.
+
+- Pushed updated PHP, CSS, JavaScript, and database files to GitHub.
+- Pulled changes from other team members.
+- Resolved local project folder synchronization issues.
+- Synchronized the project with XAMPP htdocs.
+- Shared the updated database.sql file so team members could import the latest database structure and data.
+- Continued testing the synchronized version of the project.
+- Current Phase 3 Status
+
+The main PHP and MySQL integration work has been completed. The team is currently focusing on final testing, debugging, security checks, responsive testing, and verifying that all major system features work correctly before the final submission.
+
 ## Developers
 
 **M.A.Y. Maneth - ITT/2024/066**
