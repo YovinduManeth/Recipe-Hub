@@ -396,10 +396,11 @@ $favouriteRecipes = $stmt->fetchAll();
 if (empty($favouriteRecipes)) {
 
     echo "
-    <div class='col-12'>
-        <div class='alert alert-info text-center'>
-            <i class='fa-solid fa-heart'></i>
-            You haven't added any favourite recipes yet.
+    <div class='col-12 empty-favourites'>
+        <div class='empty-favourites-content'>
+            <span class='empty-heart'>❤️</span>
+            <h3>You haven't added any favourite recipes yet.</h3>
+            <p>Add your favourite recipes and they will appear here ❤️</p>
         </div>
     </div>
     ";
@@ -407,8 +408,10 @@ if (empty($favouriteRecipes)) {
 } else {
 
     foreach ($favouriteRecipes as $recipe) {
-
 ?>
+
+
+
 
     <div class="col">
 
@@ -435,13 +438,7 @@ if (empty($favouriteRecipes)) {
                     View Recipe
                 </a>
 
-                <a
-                    href="Favourites.php?recipe_id=<?php echo $recipe['id']; ?>&action=remove"
-                    class="btn btn-outline-danger"
-                >
-                    <i class="fa-solid fa-heart-crack"></i>
-                    Remove
-                </a>
+               
 
             </div>
 
