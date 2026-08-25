@@ -2944,3 +2944,20 @@ body.dark-mode .dashboard-logout {
     }
 
 }
+
+
+.favourite-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.favourite-actions .fav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}

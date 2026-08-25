@@ -49,6 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     }
 
+    elseif (strlen($password) < 8) {
+
+    $message = "Password must be at least 8 characters.";
+
+}
+
 
     else {
 
@@ -97,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             // Registration successful
-            header("Location: Login.php?register=success");
+            header("Location: login.php?register=success");
 
             exit();
 

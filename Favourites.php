@@ -2,20 +2,149 @@
 
 session_start();
 
-if(!isset($_SESSION["username"])){
+require_once "includes/db.php";
+
+
+// ==============================
+// CHECK LOGIN
+// ==============================
+
+if (!isset($_SESSION["user_id"])) {
 
     header("Location: auth/Login.php");
     exit();
 
 }
 
-$username = $_SESSION["username"];
-$email = $_SESSION["email"];
+
+$userId = $_SESSION["user_id"];
+
+$username = $_SESSION["username"] ?? "";
+
+$email = $_SESSION["email"] ?? "";
+
+
+// ==============================
+// ADD / REMOVE FAVOURITE
+// ==============================
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $recipeId = isset($_POST["recipe_id"])
+        ? (int) $_POST["recipe_id"]
+        : 0;
+
+    $action = $_POST["action"] ?? "";
+
+
+    // ==========================
+    // ADD
+    // ==========================
+
+    if ($recipeId > 0 && $action === "add") {
+
+        // Check if already exists
+
+        $sql = "SELECT id
+                FROM favourites
+                WHERE user_id = ?
+                AND recipe_id = ?";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->execute([
+            $userId,
+            $recipeId
+        ]);
+
+        $existing = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+        // Insert only if not already favourite
+
+        if (!$existing) {
+
+            $sql = "INSERT INTO favourites
+                    (user_id, recipe_id)
+                    VALUES (?, ?)";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->execute([
+                $userId,
+                $recipeId
+            ]);
+        }
+    }
+
+
+    // ==========================
+    // REMOVE
+    // ==========================
+
+    elseif ($recipeId > 0 && $action === "remove") {
+
+        $sql = "DELETE FROM favourites
+                WHERE user_id = ?
+                AND recipe_id = ?";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->execute([
+            $userId,
+            $recipeId
+        ]);
+    }
+
+
+    // ==========================
+    // RETURN TO RECIPE
+    // ==========================
+
+    if ($recipeId > 0) {
+
+        $sql = "SELECT recipe_key
+                FROM recipes
+                WHERE id = ?";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->execute([$recipeId]);
+
+        $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+        if ($recipe) {
+
+            header(
+                "Location: recipe-details.php?recipe=" .
+                urlencode($recipe["recipe_key"])
+            );
+
+            exit();
+        }
+    }
+}
+
+
+// ==============================
+// GET FAVOURITE RECIPES
+// ==============================
+
+$sql = "SELECT recipes.*
+        FROM favourites
+        INNER JOIN recipes
+        ON favourites.recipe_id = recipes.id
+        WHERE favourites.user_id = ?
+        ORDER BY favourites.created_at DESC";
+
+$stmt = $conn->prepare($sql);
+
+$stmt->execute([$userId]);
+
+$favouriteRecipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -162,8 +291,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         <li>
 
-            <a class="dropdown-item"
-            href="profile.html">
+            <a class="dropdown-item" href="profile.php">
 
                 <i class="fa-solid fa-user-pen me-2"></i>
                 My Profile
@@ -174,8 +302,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         <li>
 
-            <a class="dropdown-item"
-            href="favourites.html">
+            <a class="dropdown-item" href="favourites.php">
 
                 <i class="fa-solid fa-heart me-2"></i>
                 My Favourites
@@ -187,8 +314,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         <li>
 
     <a class="dropdown-item"
-    href="#"
-    onclick="logout()">
+        href="auth/logout.php">
 
         <i class="fa-solid fa-right-from-bracket me-2"></i>
         Logout
@@ -250,7 +376,88 @@ Saved Recipes
 </h2>
 
 
-<div id="favouriteList" class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+<?php
+
+$sql = "SELECT recipes.*
+        FROM favourites
+        INNER JOIN recipes
+        ON favourites.recipe_id = recipes.id
+        WHERE favourites.user_id = ?
+        ORDER BY favourites.created_at DESC";
+
+$stmt = $conn->prepare($sql);
+
+$stmt->execute([$userId]);
+
+$favouriteRecipes = $stmt->fetchAll();
+
+if (empty($favouriteRecipes)) {
+
+    echo "
+    <div class='col-12'>
+        <div class='alert alert-info text-center'>
+            <i class='fa-solid fa-heart'></i>
+            You haven't added any favourite recipes yet.
+        </div>
+    </div>
+    ";
+
+} else {
+
+    foreach ($favouriteRecipes as $recipe) {
+
+?>
+
+    <div class="col">
+
+        <div class="card h-100">
+
+            <img
+                src="<?php echo htmlspecialchars($recipe['image']); ?>"
+                class="card-img-top"
+                alt="<?php echo htmlspecialchars($recipe['title']); ?>"
+            >
+
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    <?php echo htmlspecialchars($recipe['title']); ?>
+                </h5>
+
+                <p class="card-text">
+                    <?php echo htmlspecialchars($recipe['description']); ?>
+                </p>
+
+                <a href="recipe-details.php?recipe=<?php echo urlencode($recipe['recipe_key']); ?>"
+                class="btn btn-warning">
+                    View Recipe
+                </a>
+
+                <a
+                    href="Favourites.php?recipe_id=<?php echo $recipe['id']; ?>&action=remove"
+                    class="btn btn-outline-danger"
+                >
+                    <i class="fa-solid fa-heart-crack"></i>
+                    Remove
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<?php
+
+    }
+
+}
+
+?>
+
+</div>
 
 </div>
 

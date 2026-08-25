@@ -52,74 +52,7 @@ if (recipeSearchInput) {
 }
 
 
-// ===========================
-// ADD / REMOVE FAVOURITES
-// ===========================
 
-const favouriteButton =
-    document.getElementById("addFavouriteBtn");
-
-if (favouriteButton) {
-
-    const selectedRecipe =
-        new URLSearchParams(window.location.search).get("recipe");
-
-    let favourites =
-        JSON.parse(localStorage.getItem("favourites")) || [];
-
-
-    function updateFavouriteButton() {
-
-        if (favourites.includes(selectedRecipe)) {
-
-            favouriteButton.innerHTML =
-                '<i class="fa-solid fa-heart-crack"></i> Remove Favourite';
-
-        } else {
-
-            favouriteButton.innerHTML =
-                '<i class="fa-solid fa-heart"></i> Add Favourite';
-
-        }
-    }
-
-
-    updateFavouriteButton();
-
-
-    favouriteButton.addEventListener("click", function () {
-
-        if (!selectedRecipe) {
-            return;
-        }
-
-
-        if (favourites.includes(selectedRecipe)) {
-
-            favourites = favourites.filter(function (item) {
-                return item !== selectedRecipe;
-            });
-
-            alert("Recipe removed from favourites 💔");
-
-        } else {
-
-            favourites.push(selectedRecipe);
-
-            alert("Recipe added to favourites ❤️");
-        }
-
-
-        localStorage.setItem(
-            "favourites",
-            JSON.stringify(favourites)
-        );
-
-
-        updateFavouriteButton();
-
-    });
-}
 
 
 // ===========================

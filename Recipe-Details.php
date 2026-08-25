@@ -18,6 +18,9 @@ if ($recipeKey === "") {
     die("Invalid recipe key.");
 }
 
+
+// Get recipe
+
 $sql = "SELECT id, recipe_key, title, description, image,
                ingredients, instructions,
                prep_time, cook_time, total_time, servings
@@ -25,6 +28,7 @@ $sql = "SELECT id, recipe_key, title, description, image,
         WHERE recipe_key = ?";
 
 $stmt = $conn->prepare($sql);
+
 $stmt->execute([$recipeKey]);
 
 $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -32,6 +36,25 @@ $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$recipe) {
     die("Recipe not found.");
 }
+
+
+// Check favourite status
+
+$userId = $_SESSION["user_id"];
+
+$sql = "SELECT id
+        FROM favourites
+        WHERE user_id = ?
+        AND recipe_id = ?";
+
+$stmt = $conn->prepare($sql);
+
+$stmt->execute([
+    $userId,
+    $recipe["id"]
+]);
+
+$isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -365,34 +388,83 @@ if (!$recipe) {
             </p>
 
 
-            <!-- Favourite Button -->
+            <div class="favourite-actions">
+
+    <?php if ($isFavourite): ?>
+
+        <form method="POST" action="Favourites.php">
+
+            <input
+                type="hidden"
+                name="recipe_id"
+                value="<?php echo $recipe["id"]; ?>"
+            >
+
+            <input
+                type="hidden"
+                name="action"
+                value="remove"
+            >
 
             <button
-                id="addFavouriteBtn"
+                type="submit"
                 class="fav-btn"
-                type="button"
+            >
+
+                <i class="fa-solid fa-heart-crack"></i>
+
+                Remove Favourite
+
+            </button>
+
+        </form>
+
+    <?php else: ?>
+
+        <form method="POST" action="Favourites.php">
+
+            <input
+                type="hidden"
+                name="recipe_id"
+                value="<?php echo $recipe["id"]; ?>"
+            >
+
+            <input
+                type="hidden"
+                name="action"
+                value="add"
+            >
+
+            <button
+                type="submit"
+                class="fav-btn"
             >
 
                 <i class="fa-solid fa-heart"></i>
 
-                Add to Favourite
+                Add Favourite
 
             </button>
 
+        </form>
 
-            <!-- Share Button -->
+    <?php endif; ?>
 
-            <button
-                id="shareRecipeBtn"
-                class="btn btn-warning"
-                type="button"
-            >
 
-                <i class="fa-solid fa-share"></i>
+    <button
+        id="shareRecipeBtn"
+        class="btn btn-warning"
+        type="button"
+    >
 
-                Share
+        <i class="fa-solid fa-share"></i>
 
-            </button>
+        Share
+
+    </button>
+
+</div>
+
 
         </div>
 

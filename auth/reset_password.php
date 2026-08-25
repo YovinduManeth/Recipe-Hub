@@ -14,27 +14,27 @@ $email = $_GET["email"] ?? "";
 
 if(isset($_POST["resetPassword"])){
 
-
     $password = $_POST["password"];
 
     $confirmPassword = $_POST["confirmPassword"];
 
 
-
     if($password !== $confirmPassword){
-
 
         $message = "Passwords do not match.";
 
+    }
+
+    elseif(strlen($password) < 8){
+
+        $message = "Password must be at least 8 characters.";
 
     }
 
     else{
 
-
         $hashedPassword =
         password_hash($password, PASSWORD_DEFAULT);
-
 
 
         $sql = "
@@ -55,14 +55,11 @@ if(isset($_POST["resetPassword"])){
         ]);
 
 
-
         header("Location: Login.php?reset=success");
 
         exit();
 
-
     }
-
 
 }
 

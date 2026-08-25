@@ -2,68 +2,70 @@
 
 session_start();
 
-if(!isset($_SESSION["username"])){
+require_once "includes/functions.php";
 
-    header("Location: auth/Login.php");
-    exit();
+requireLogin();
 
-}
-
-$username = $_SESSION["username"];
-$email = $_SESSION["email"];
-
-?>
-
-<?php
+$username = getUsername();
+$email = getUserEmail();
 
 $message = "";
 
-if(isset($_POST["saveChanges"])){
+if (isset($_POST["saveChanges"])) {
 
-    $newPassword = $_POST["newPassword"];
-    $confirmPassword = $_POST["confirmNewPassword"];
+    $newPassword = $_POST["newPassword"] ?? "";
+    $confirmPassword = $_POST["confirmNewPassword"] ?? "";
 
+    // Only change password if the user entered one
+    if (!empty($newPassword)) {
 
-    if($newPassword != $confirmPassword){
+        if ($newPassword !== $confirmPassword) {
 
-        $message = "Passwords do not match!";
+            $message = "Passwords do not match.";
 
-    }
+        }
 
-    else{
+        elseif (strlen($newPassword) < 6) {
 
-        if(!empty($newPassword)){
+            $message = "Password must be at least 6 characters.";
 
-            include "includes/db.php";
+        }
 
+        else {
 
-            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            require_once "includes/db.php";
 
+            $hashedPassword = password_hash(
+                $newPassword,
+                PASSWORD_DEFAULT
+            );
 
-            $sql = "UPDATE users 
-                    SET password=? 
-                    WHERE email=?";
-
+            $sql = "UPDATE users
+                    SET password = ?
+                    WHERE email = ?";
 
             $stmt = $conn->prepare($sql);
-
 
             $stmt->execute([
                 $hashedPassword,
                 $email
             ]);
 
-
-            $message = "Profile updated successfully!";
+            $message = "Password updated successfully.";
 
         }
+
+    }
+
+    else {
+
+        $message = "No changes were made.";
 
     }
 
 }
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -180,7 +182,7 @@ if(isset($_POST["saveChanges"])){
                 type="text"
                 id="profileUsername"
                 value="<?php echo htmlspecialchars($username); ?>"
-                placeholder="Username">
+                readonly>
 
         </div>
 
@@ -195,7 +197,7 @@ if(isset($_POST["saveChanges"])){
                 type="email"
                 id="profileEmail"
                 value="<?php echo htmlspecialchars($email); ?>"
-                placeholder="Email">
+                readonly>
 
         </div>
 

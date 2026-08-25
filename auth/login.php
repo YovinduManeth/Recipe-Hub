@@ -12,6 +12,10 @@ if(isset($_GET["register"]) && $_GET["register"] == "success"){
 
 }
 
+if(isset($_GET["reset"]) && $_GET["reset"] == "success"){
+    $message = "Password reset successful! Please login.";
+}
+
 if(isset($_POST["forgotSubmit"])){
 
 
@@ -104,8 +108,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["forgotSubmit"])) {
 
             // Regenerate session ID for security
             session_regenerate_id(true);
+            
 
-
+    $_SESSION["user_id"] = $user["id"];
 
     $_SESSION["username"] = $user["username"];
 
@@ -239,9 +244,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["forgotSubmit"])) {
 
 
     if (
-        $message == "Login successful!" ||
-        $message == "Registration successful! Please login."
-    ) {
+    $message == "Login successful!" ||
+    $message == "Registration successful! Please login." ||
+    $message == "Password reset successful! Please login."
+) {
 
 
         echo "
