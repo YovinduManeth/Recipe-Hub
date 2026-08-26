@@ -219,8 +219,12 @@ if ($message != "") {
 </div>
 
     <label>
-        <input type="checkbox" name="terms"id="terms"required>
-        I agree to the Terms and Conditions
+        <input type="checkbox" name="terms" id="terms" required>
+
+        I agree to the
+        <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">
+            Terms and Conditions
+        </a>
     </label>
 
 
@@ -245,6 +249,121 @@ Login
 </div>
 
 </section>
+
+<!-- ================= TERMS AND CONDITIONS MODAL ================= -->
+
+<div
+    class="modal fade"
+    id="termsModal"
+    tabindex="-1"
+    aria-labelledby="termsModalLabel"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5
+                    class="modal-title"
+                    id="termsModalLabel"
+                >
+                    Recipe Hub - Terms and Conditions
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <h6>1. Account Registration</h6>
+
+                <p>
+                    Users must provide accurate and valid information
+                    when creating a Recipe Hub account.
+                </p>
+
+
+                <h6>2. Account Security</h6>
+
+                <p>
+                    Users are responsible for keeping their account
+                    information and password secure.
+                </p>
+
+
+                <h6>3. Favourite Recipes</h6>
+
+                <p>
+                    Users may save recipes to their favourites list
+                    for personal use. Favourite recipes are associated
+                    with the user's account.
+                </p>
+
+
+                <h6>4. Recipe Information</h6>
+
+                <p>
+                    Recipe Hub provides recipes for informational and
+                    educational purposes. Users should verify
+                    ingredients and cooking instructions before use.
+                </p>
+
+
+                <h6>5. User Conduct</h6>
+
+                <p>
+                    Users should use the Recipe Hub system responsibly
+                    and must not attempt to misuse or damage the system.
+                </p>
+
+
+                <h6>6. Privacy</h6>
+
+                <p>
+                    User information submitted through registration
+                    and contact forms is stored in the Recipe Hub
+                    database and should be handled responsibly.
+                </p>
+
+
+                <h6>7. Acceptance</h6>
+
+                <p>
+                    By creating an account, the user confirms that
+                    they have read and agreed to these Terms and
+                    Conditions.
+                </p>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Close
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <footer>
 
