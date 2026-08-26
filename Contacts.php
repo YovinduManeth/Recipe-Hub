@@ -38,9 +38,15 @@ if(isset($_POST["sendMessage"])){
 
     elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 
-        $message = "Please enter a valid email address.";
+    $message = "Please enter a valid email address.";
 
-    }
+}
+
+elseif(!checkdnsrr(substr(strrchr($email, "@"), 1), "MX")){
+
+    $message = "Please enter an email address with a valid domain.";
+
+}
 
 
     else{
