@@ -363,7 +363,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 <span>
 
-                    <i class="fa-regular fa-clock"></i>
+                    <i class="fa-solid fa-hourglass-half"></i>
 
                     <?php echo htmlspecialchars($recipe["total_time"]); ?>
 
@@ -538,16 +538,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 </p>
 
-
-                <p>
-
-                    <i class="fa-solid fa-utensils"></i>
-
-                    <strong>Servings:</strong>
-
-                    <?php echo htmlspecialchars($recipe["servings"]); ?>
-
-                </p>
 
             </div>
 
