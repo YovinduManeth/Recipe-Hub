@@ -429,9 +429,6 @@ if (empty($favouriteRecipes)) {
                     <?php echo htmlspecialchars($recipe['title']); ?>
                 </h5>
 
-                <p class="card-text">
-                    <?php echo htmlspecialchars($recipe['description']); ?>
-                </p>
 
                 <a href="recipe-details.php?recipe=<?php echo urlencode($recipe['recipe_key']); ?>"
                 class="btn btn-warning">
