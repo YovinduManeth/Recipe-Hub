@@ -315,16 +315,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 <!-- ================= BREADCRUMB ================= -->
 
-<section class="breadcrumb">
 
-    <span
-        class="current-page"
-        id="recipeBreadcrumb"
-    >
-        <?php echo htmlspecialchars($recipe["title"]); ?>
-    </span>
-
-</section>
 
 
 
