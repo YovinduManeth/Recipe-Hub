@@ -258,7 +258,7 @@ class="card-img-top">
 
 
 <h5 class="card-title">
-Sri Lankan Sailfish Curry
+Sailfish Curry
 </h5>
 
 <p class="card-text">
@@ -294,7 +294,7 @@ class="card-img-top">
 <div class="card-body">
 
 <h5 class="card-title">
-Sri Lankan Chicken Curry
+Chicken Curry
 </h5>
 
 <p class="card-text">
@@ -331,7 +331,7 @@ class="card-img-top">
 <div class="card-body">
 
 <h5 class="card-title">
-Sri Lankan Beef Curry
+Beef Curry
 </h5>
 
 <p class="card-text">

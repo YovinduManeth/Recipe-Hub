@@ -501,7 +501,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             recipe.title &&
                             recipe.title
                                 .toLowerCase()
-                                .includes(value)
+                                .startsWith(value)
                         ) {
 
                             foundRecipe = true;

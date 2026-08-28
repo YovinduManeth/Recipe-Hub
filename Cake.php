@@ -225,7 +225,7 @@ alt="Sri Lankan Butter Cake">
 
 <h5 class="card-title">
 
-Sri Lankan Butter Cake
+Butter Cake
 
 </h5>
 
@@ -266,7 +266,7 @@ alt="Sri Lankan Chocolate Cake">
 
 <h5 class="card-title">
 
-Sri Lankan Chocolate Cake
+Chocolate Cake
 
 </h5>
 
@@ -303,7 +303,7 @@ alt="Sri Lankan Ribbon Cake">
 
 <h5 class="card-title">
 
-Sri Lankan Ribbon Cake
+Ribbon Cake
 
 </h5>
 
@@ -342,7 +342,7 @@ alt="Sri Lankan Coconut Cake">
 
 <h5 class="card-title">
 
-Sri Lankan Coconut Cake (Bibikkan)
+Coconut Cake (Bibikkan)
 
 </h5>
 
@@ -384,7 +384,7 @@ alt="Sri Lankan Coffee Cake">
 
 <h5 class="card-title">
 
-Sri Lankan Coffee Cake
+Coffee Cake
 
 </h5>
 

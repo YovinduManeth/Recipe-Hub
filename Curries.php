@@ -224,7 +224,7 @@ class="card-img-top">
 
 
 <h5 class="card-title">
-Sri Lankan Dhal Curry
+Dhal Curry
 </h5>
 
 <p class="card-text">
@@ -261,7 +261,7 @@ class="card-img-top">
 <div class="card-body">
 
 <h5 class="card-title">
-Sri Lankan Potato Curry
+Potato Curry
 </h5>
 
 <p class="card-text">
@@ -296,7 +296,7 @@ class="card-img-top">
 <div class="card-body">
 
 <h5 class="card-title">
-Sri Lankan Brinjal Curry
+Brinjal Curry
 </h5>
 
 <p class="card-text">
@@ -332,7 +332,7 @@ class="card-img-top">
 <div class="card-body">
 
 <h5 class="card-title">
-Sri Lankan Pumpkin Curry
+Pumpkin Curry
 </h5>
 
 <p class="card-text">
@@ -371,7 +371,7 @@ class="card-img-top">
 
 
 <h5 class="card-title">
-Sri Lankan Jackfruit Curry
+Jackfruit Curry
 </h5>
 
 <p class="card-text">

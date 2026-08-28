@@ -5,7 +5,7 @@ const recipeData = {
 
     category: "Traditional Foods",
 
-    title: "Sri Lankan Chicken Kottu",
+    title: "Chicken Kottu",
 
     image: "Images/Recipes/Koththu.webp",
 
@@ -57,7 +57,7 @@ const recipeData = {
 
     category: "Traditional Foods",
 
-    title: "Sri Lankan Hoppers",
+    title: "Hoppers",
 
     image: "Images/Recipes/Hoppers.jpg",
 
@@ -100,7 +100,7 @@ const recipeData = {
 
     category: "Traditional Foods",
 
-    title: "Sri Lankan String Hoppers",
+    title: "String Hoppers",
 
     image: "Images/Recipes/String_hoppers.jpg",
 
@@ -186,7 +186,7 @@ const recipeData = {
 
     category: "Curries",
 
-    title: "Sri Lankan Dhal Curry",
+    title: "Dhal Curry",
 
     image: "Images/Recipes/Dhal.jpg",
 
@@ -523,7 +523,7 @@ potatocurry: {
 
     category: "Curries",
 
-    title: "Sri Lankan Potato Curry",
+    title: "Potato Curry",
 
     image: "Images/Recipes/Potato_Curry.jpg",
 
@@ -567,7 +567,7 @@ dhal: {
 
     category: "Curries",
 
-    title: "Sri Lankan Dhal Curry",
+    title: "Dhal Curry",
 
     image: "Images/Recipes/Dhal.jpg",
 
@@ -617,7 +617,7 @@ brinjalcurry: {
 
     category: "Curries",
 
-    title: "Sri Lankan Brinjal Curry",
+    title: "Brinjal Curry",
 
     image: "Images/Recipes/Brinjal_Curry.jpg",
 
@@ -661,7 +661,7 @@ pumpkincurry: {
 
     category: "Curries",
 
-    title: "Sri Lankan Pumpkin Curry",
+    title: "Pumpkin Curry",
 
     image: "Images/Recipes/Pumpkin_Curry.webp",
 
@@ -703,7 +703,7 @@ jackfruitcurry: {
 
     category: "Curries",
 
-    title: "Sri Lankan Jackfruit Curry",
+    title: "Jackfruit Curry",
 
     image: "Images/Recipes/Jackfruit_Curry.jpg",
 
@@ -811,7 +811,7 @@ sailfishcurry: {
 
     category: "Fish / Meat",
 
-    title: "Sri Lankan Sailfish Curry",
+    title: "Sailfish Curry",
 
     image: "Images/Recipes/Sailfish_Curry.jpg",
 
@@ -870,7 +870,7 @@ chickencurry: {
 
     category: "Fish / Meat",
 
-    title: "Sri Lankan Chicken Curry",
+    title: "Chicken Curry",
 
     image: "Images/Recipes/Chicken_Curry.jpg",
 
@@ -931,7 +931,7 @@ beefcurry: {
 
     category: "Fish / Meat",
 
-    title: "Sri Lankan Beef Curry",
+    title: "Beef Curry",
 
     image: "Images/Recipes/Beef_Curry.jpg",
 
@@ -992,7 +992,7 @@ buttercake: {
 
     category: "Cakes",
 
-    title: "Sri Lankan Butter Cake",
+    title: "Butter Cake",
 
     image: "Images/Recipes/Butter_Cake.jpg",
 
@@ -1061,7 +1061,7 @@ chocolatecake: {
 
     category: "Cakes",
 
-    title: "Sri Lankan Chocolate Cake",
+    title: "Chocolate Cake",
 
     image: "Images/Recipes/Chocolate_Cake.jpg",
 
@@ -1165,7 +1165,7 @@ ribboncake: {
 
     category: "Cakes",
 
-    title: "Sri Lankan Ribbon Cake",
+    title: "Ribbon Cake",
 
     image: "Images/Recipes/Ribbon_Cake.jpg",
 
@@ -1246,7 +1246,7 @@ coconutcake: {
 
     category: "Cakes",
 
-    title: "Sri Lankan Coconut Cake (Bibikkan)",
+    title: "Coconut Cake (Bibikkan)",
 
     image: "Images/Recipes/Coconut_Cake.jpg",
 
@@ -1335,7 +1335,7 @@ coffeecake: {
 
     category: "Cake",
 
-    title: "Sri Lankan Coffee Cake",
+    title: "Coffee Cake",
 
     image: "Images/Recipes/Coffee_Cake.jpg",
 
@@ -1416,7 +1416,7 @@ woodapplejuice: {
 
     category: "Juices",
 
-    title: "Sri Lankan Wood Apple Juice",
+    title: "Wood Apple Juice",
 
     image: "Images/Recipes/Wood_Apple_Juice.jpg",
 
@@ -1481,7 +1481,7 @@ mangojuice: {
 
     category: "Juices",
 
-    title: "Sri Lankan Mango Juice",
+    title: "Mango Juice",
 
     image: "Images/Recipes/Mango_Juice.jpg",
 
@@ -1593,7 +1593,7 @@ watermelonjuice: {
 
     category: "Juices",
 
-    title: "Sri Lankan Watermelon Juice",
+    title: "Watermelon Juice",
 
     image: "Images/Recipes/Watermelon_Juice.jpg",
 
@@ -2395,7 +2395,7 @@ watalappan: {
 
     category: "Ramadan",
 
-    title: "Sri Lankan Watalappan",
+    title: "Watalappan",
 
     image: "Images/Recipes/Watalappan.jpg",
 
@@ -2732,7 +2732,7 @@ christmascake: {
 
     category: "Christmas",
 
-    title: "Sri Lankan Joyous Christmas Cake",
+    title: "Joyous Christmas Cake",
 
     image: "Images/Recipes/Christmas_Cake.avif",
 

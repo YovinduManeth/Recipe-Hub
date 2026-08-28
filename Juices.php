@@ -228,7 +228,7 @@ alt="Wood Apple Juice">
 
 <h5 class="card-title">
 
-Sri Lankan Wood Apple Juice
+ Wood Apple Juice
 
 </h5>
 
@@ -271,7 +271,7 @@ alt="Sri Lankan Mango Juice">
 
 <h5 class="card-title">
 
-Sri Lankan Mango Juice
+ Mango Juice
 
 </h5>
 
@@ -312,7 +312,7 @@ alt="Fresh Orange Juice">
 
 <h5 class="card-title">
 
-Sri Lankan Orange Juice
+Orange Juice
 
 </h5>
 
@@ -355,7 +355,7 @@ alt="Sri Lankan Watermelon Juice">
 
 <h5 class="card-title">
 
-Sri Lankan Watermelon Juice
+Watermelon Juice
 
 </h5>
 
