@@ -37,7 +37,7 @@ if (isset($_POST["saveChanges"])) {
 
             $hashedPassword = password_hash(
                 $newPassword,
-                PASSWORD_DEFAULT
+                PASSWORD_BCRYPT
             );
 
             $sql = "UPDATE users
