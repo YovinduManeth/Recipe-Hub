@@ -3,11 +3,17 @@
 session_start();
 
 session_unset();
-
 session_destroy();
 
-header("Location: Login.php");
+// Delete Remember Me username cookie
+setcookie(
+    "username",
+    "",
+    time() - 3600,
+    "/"
+);
 
+header("Location: Login.php");
 exit();
 
 ?>
