@@ -1312,17 +1312,6 @@ body.dark-mode .mode-icon{
     color:#E28D1E;
 }
 
-body.dark-mode .search-container{
-    background:#2b2b2b;
-}
-
-body.dark-mode .search-container input{
-    color:white;
-}
-
-body.dark-mode .search-container input::placeholder{
-    color:#bdbdbd;
-}
 
 /* ================= LOGIN PAGE FOOTER FIX ================= */
 
@@ -1406,19 +1395,7 @@ body.dark-mode .contact-form label{
 
 /* Recipe Search Dark Mode */
 
-body.dark-mode .search-container{
-    background:#2b2b2b;
-}
 
-
-body.dark-mode .search-container input{
-    color:white !important;
-}
-
-
-body.dark-mode .search-container input::placeholder{
-    color:#cccccc !important;
-}
 
 
 .create-account{
@@ -2008,40 +1985,174 @@ body.dark-mode .login-link{
     justify-content:center;
 }
 
-.search-container{
-    width:700px;
-    max-width:90%;
-    display:flex;
-    align-items:center;
-    background:white;
-    border-radius:40px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.12);
+/* ===========================
+   SEARCH BAR
+=========================== */
+
+.search-container {
+
+    width: 700px;
+    max-width: 90%;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+    border-radius: 40px;
+
+    position: relative;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+
+    /* Allow search results to appear below */
+    overflow: visible;
 }
 
-.search-container input{
-    flex:1;
-    border:none;
-    outline:none;
-    padding:16px 25px;
-    font-size:16px;
-    background:transparent;
+
+.search-container input {
+
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 16px 25px;
+
+    font-size: 16px;
+
+    background: transparent;
 }
 
-.search-container button{
-    width:70px;
-    border:none;
-    background:#E28D1E;
-    color:white;
-    cursor:pointer;
-    font-size:20px;
-    height:56px;
-    transition:0.3s;
+
+.search-container button {
+
+    width: 70px;
+
+    border: none;
+
+    background: #E28D1E;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    height: 56px;
+
+    transition: 0.3s;
 }
 
-.search-container button:hover{
-    background:#c87612;
+
+.search-container button:hover {
+
+    background: #c87612;
+
 }
+
+
+/* ===========================
+   SEARCH SUGGESTIONS
+=========================== */
+
+#searchSuggestions {
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+    left: 0;
+
+    width: 100%;
+
+    background: white;
+
+    z-index: 1000;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+.suggestion-item {
+
+    padding: 12px 20px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid #eee;
+
+    background: white;
+
+    color: #333;
+
+    transition: 0.2s;
+}
+
+
+.suggestion-item:hover {
+
+    background: #f5a623;
+
+    color: white;
+
+}
+
+
+/* ===========================
+   DARK MODE SEARCH
+=========================== */
+
+body.dark-mode .search-container {
+
+    background: #2b2b2b;
+
+}
+
+
+body.dark-mode .search-container input {
+
+    color: white !important;
+
+}
+
+
+body.dark-mode .search-container input::placeholder {
+
+    color: #cccccc !important;
+
+}
+
+
+body.dark-mode #searchSuggestions {
+
+    background: #2b2b2b;
+
+}
+
+
+body.dark-mode .suggestion-item {
+
+    background: #2b2b2b;
+
+    color: white;
+
+    border-bottom: 1px solid #444;
+
+}
+
+
+body.dark-mode .suggestion-item:hover {
+
+    background: #f5a623;
+
+    color: white;
+
+}
+
+
 
 /* ================= PROFILE PAGE ================= */
 
@@ -2327,33 +2438,7 @@ body.dark-mode .login-link{
 
 }
 
-#searchSuggestions{
 
-    position:absolute;
-    background:white;
-    width:100%;
-    z-index:1000;
-    border-radius:10px;
-    overflow:hidden;
-
-}
-
-
-.suggestion-item{
-
-    padding:10px;
-    cursor:pointer;
-    border-bottom:1px solid #ddd;
-
-}
-
-
-.suggestion-item:hover{
-
-    background:#f5a623;
-    color:white;
-
-}
 
 .success-message {
 

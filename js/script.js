@@ -449,7 +449,6 @@ if (shareButton) {
     });
 }
 
-
 // ===========================
 // RECIPE SEARCH SUGGESTIONS
 // ===========================
@@ -458,7 +457,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const searchInput =
         document.getElementById("searchInput");
-
 
     const searchSuggestions =
         document.getElementById("searchSuggestions");
@@ -488,6 +486,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
+                let foundRecipe = false;
+
+
                 Object.keys(recipeData).forEach(
                     function (recipeId) {
 
@@ -502,6 +503,9 @@ document.addEventListener("DOMContentLoaded", function () {
                                 .toLowerCase()
                                 .includes(value)
                         ) {
+
+                            foundRecipe = true;
+
 
                             const suggestion =
                                 document.createElement("div");
@@ -537,11 +541,32 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 );
 
+
+                // Show message when no recipe matches
+                if (!foundRecipe) {
+
+                    const noResult =
+                        document.createElement("div");
+
+                    noResult.classList.add(
+                        "suggestion-item"
+                    );
+
+                    noResult.textContent =
+                        "No recipes found.";
+
+                    searchSuggestions.appendChild(
+                        noResult
+                    );
+
+                }
+
             }
         );
     }
 
 });
+
 
 
 // ===========================
