@@ -44,7 +44,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="container-fluid">
 
-<!-- Logo -->
 
 <a class="navbar-brand d-flex align-items-center" href="home.php">
 
@@ -59,7 +58,6 @@ Recipe Hub
 
 </a>
 
-<!-- Mobile Button -->
 
 <button class="navbar-toggler"
 type="button"
@@ -110,7 +108,6 @@ Contact Us
 
 </ul>
 
-<!-- User dropdown -->
 
 <div class="dropdown ms-3">
 
@@ -210,7 +207,6 @@ Sri Lankan Cake Recipes
 
 <div class="row g-4">
 
-<!-- Butter Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -249,7 +245,6 @@ View Recipe
 
 </div>
 
-<!-- Chocolate Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -289,7 +284,6 @@ View Recipe
 
 </div>
 
-<!-- Ribbon Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -326,7 +320,6 @@ View Recipe
 
 </div>
 
-<!-- Coconut Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -366,8 +359,6 @@ View Recipe
 
 </div>
 
-
-<!-- Coffee Cake -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
