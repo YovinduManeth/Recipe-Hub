@@ -44,7 +44,6 @@ $email = $_SESSION["email"];
 
     <div class="container-fluid">
 
-        <!-- Logo -->
 
         <a class="navbar-brand d-flex align-items-center" href="home.php">
 
@@ -58,8 +57,6 @@ $email = $_SESSION["email"];
             </span>
 
         </a>
-        <!-- Mobile Button -->
-
         <button class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
@@ -69,7 +66,6 @@ $email = $_SESSION["email"];
 
         </button>
 
-        <!-- Menu -->
 
         <div class="collapse navbar-collapse"
         id="navbarMenu">
@@ -186,7 +182,6 @@ $email = $_SESSION["email"];
 
 </div>
 
-    <!-- Dark Mode Icon -->
 
     <i class="fa-solid fa-moon mode-icon"></i>
 
@@ -209,7 +204,6 @@ Sri Lankan Curry Recipes
 <div class="row g-4">
 
 
-<!-- Dhal Curry -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -249,7 +243,6 @@ View Recipe
 
 </div>
 
-<!-- Potato Curry -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -283,7 +276,6 @@ View Recipe
 
 </div>
 
-<!-- Brinjal Curry -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -318,7 +310,6 @@ View Recipe
 
 </div>
 
-<!-- Pumpkin Curry -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -356,7 +347,6 @@ View Recipe
 </div>
 
 
-<!-- Jackfruit Curry -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -401,7 +391,6 @@ View Recipe
 </section>
 
 
-<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -409,7 +398,6 @@ View Recipe
 
 </footer>
 
-<!-- Favourite Modal -->
 
 <div class="modal fade" id="favouriteModal" tabindex="-1">
 
