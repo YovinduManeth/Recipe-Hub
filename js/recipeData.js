@@ -2872,7 +2872,7 @@ gingerbreadcookies: {
 
     title: "Merry Gingerbread Cookies",
 
-    image: "Images/Recipes/Gingerbread_Cookies.avif",
+    image: "Images/Recipes/Gingerbread_Cookies.jfif",
 
 
     description:
