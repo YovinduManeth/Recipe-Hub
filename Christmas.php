@@ -304,7 +304,7 @@ View Recipe
 
 <div class="card recipe-card h-100">
 
-<img src="Images/Recipes/Gingerbread_Cookies.avif"
+<img src="Images/Recipes/Gingerbread_Cookies.jpg"
 class="card-img-top"
 alt="Merry Gingerbread Cookies">
 
