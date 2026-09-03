@@ -27,8 +27,6 @@ if(isset($_POST["sendMessage"])){
     $msg = trim($_POST["message"] ?? "");
 
 
-    // Server-side validation
-
     if($name === "" || $email === "" || $msg === ""){
 
         $message = "Please fill in all fields.";
@@ -51,7 +49,6 @@ elseif(!checkdnsrr(substr(strrchr($email, "@"), 1), "MX")){
 
     else{
 
-        // Insert message into database
 
         $sql = "INSERT INTO messages
                 (name, email, message)
@@ -103,7 +100,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+
 
 <header>
 
@@ -112,7 +109,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     <div class="container-fluid">
 
 
-        <!-- Logo -->
+    
 
         <a class="navbar-brand d-flex align-items-center" href="home.php">
 
@@ -127,7 +124,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         </a>
 
-        <!-- Mobile Button -->
+       
 
         <button class="navbar-toggler"
         type="button"
@@ -138,7 +135,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         </button>
 
-        <!-- Menu -->
+       
 
         <div class="collapse navbar-collapse"
         id="navbarMenu">
@@ -184,7 +181,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
             </ul>
            
 
-            <!-- USER DROPDOWN -->
+          
 
 <div class="dropdown">
 
@@ -270,7 +267,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 </div>
 
-            <!-- Dark Mode Icon -->
+         
 
             <i class="fa-solid fa-moon mode-icon"></i>
 
@@ -315,7 +312,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <div class="row g-4">
 
 
-<!-- Contact Information -->
+
 
 <div class="col-md-5">
 
@@ -375,7 +372,7 @@ recipehub@gmail.com
 </div>
 
 
-<!-- Contact Form -->
+
 
 
 <div class="col-md-7">
