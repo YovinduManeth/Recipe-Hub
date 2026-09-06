@@ -1,8 +1,5 @@
 <?php
 
-// ==============================
-// CHECK USER LOGIN
-// ==============================
 
 function requireLogin()
 {
@@ -13,29 +10,16 @@ function requireLogin()
 }
 
 
-// ==============================
-// GET LOGGED-IN USERNAME
-// ==============================
-
 function getUsername()
 {
     return $_SESSION["username"] ?? "";
 }
 
 
-// ==============================
-// GET LOGGED-IN EMAIL
-// ==============================
-
 function getUserEmail()
 {
     return $_SESSION["email"] ?? "";
 }
-
-
-// ==============================
-// SAFE OUTPUT
-// ==============================
 
 function e($value)
 {
