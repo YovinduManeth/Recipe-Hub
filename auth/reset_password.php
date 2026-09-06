@@ -94,9 +94,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <div class="login-container">
 
 
-
-<!-- LEFT SIDE -->
-
 <div class="login-left">
 
 
@@ -129,11 +126,6 @@ and continue cooking.
 
 </div>
 
-
-
-
-
-<!-- RIGHT SIDE -->
 
 
 <div class="login-right">
@@ -325,8 +317,6 @@ if(toggleNewPassword && newPassword){
 
 }
 
-
-// Confirm password eye
 
 const toggleConfirmPassword =
 document.getElementById("toggleConfirmPassword");
