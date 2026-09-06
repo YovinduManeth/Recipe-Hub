@@ -5,9 +5,6 @@ session_start();
 require_once "includes/db.php";
 
 
-// ==============================
-// CHECK LOGIN
-// ==============================
 
 if (!isset($_SESSION["user_id"])) {
 
@@ -24,9 +21,7 @@ $username = $_SESSION["username"] ?? "";
 $email = $_SESSION["email"] ?? "";
 
 
-// ==============================
-// ADD / REMOVE FAVOURITE
-// ==============================
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -36,14 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $action = $_POST["action"] ?? "";
 
-
-    // ==========================
-    // ADD
-    // ==========================
-
     if ($recipeId > 0 && $action === "add") {
 
-        // Check if already exists
+        
 
         $sql = "SELECT id
                 FROM favourites
@@ -60,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $existing = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-        // Insert only if not already favourite
+      
 
         if (!$existing) {
 
@@ -78,9 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
 
-    // ==========================
-    // REMOVE
-    // ==========================
+    
 
     elseif ($recipeId > 0 && $action === "remove") {
 
@@ -97,10 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
 
-    // ==========================
-    // RETURN TO RECIPE
-    // ==========================
-
+    
     if ($recipeId > 0) {
 
         $sql = "SELECT recipe_key
@@ -127,9 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 
-// ==============================
-// GET FAVOURITE RECIPES
-// ==============================
+
 
 $sql = "SELECT recipes.*
         FROM favourites
@@ -176,7 +159,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     <div class="container-fluid">
 
 
-        <!-- Logo -->
+        
 
         <a class="navbar-brand d-flex align-items-center" href="home.php">
 
@@ -191,7 +174,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         </a>
 
-        <!-- Mobile Button -->
+        
 
         <button class="navbar-toggler"
         type="button"
@@ -202,7 +185,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
         </button>
 
-        <!-- Menu -->
+        
 
         <div class="collapse navbar-collapse"
         id="navbarMenu">
@@ -247,9 +230,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
             </ul>
 
 
-
-
-            <!-- Account Icon -->
 
 <div class="dropdown">
 
@@ -328,8 +308,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 </div>
 
-            <!-- Dark Mode Icon -->
-
+            
             <i class="fa-solid fa-moon mode-icon"></i>
 
 
@@ -365,7 +344,6 @@ Your saved recipes are displayed here.
 </section>
 
 
-<!-- FAVOURITE RECIPES -->
 
 
 <section class="all-recipes">
