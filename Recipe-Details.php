@@ -77,7 +77,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Recipe Details Navbar Spacing -->
+    
     <style>
 
         .recipe-details-page .recipe-navbar-actions {
@@ -145,7 +145,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </a>
 
 
-            <!-- Mobile Navbar Button -->
+            
 
             <button
                 class="navbar-toggler"
@@ -162,14 +162,14 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </button>
 
 
-            <!-- Navbar -->
+            
 
             <div
                 class="collapse navbar-collapse"
                 id="navbarMenu"
             >
 
-                <!-- Main Navigation -->
+              
 
                 <ul class="navbar-nav mx-auto">
 
@@ -223,11 +223,11 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
                 </ul>
 
 
-                <!-- User + Night Mode -->
+                
 
                 <div class="recipe-navbar-actions">
 
-                    <!-- User Dropdown -->
+                    
 
                     <div class="dropdown">
 
@@ -329,7 +329,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
                     </div>
 
 
-                    <!-- Night Mode -->
+                    
 
                     <i class="fa-solid fa-moon mode-icon"></i>
 
@@ -347,14 +347,12 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 <main>
 
-    <!-- ==========================
-         RECIPE DETAILS
-    ========================== -->
+    
 
     <section class="recipe-details">
 
 
-        <!-- LEFT: RECIPE IMAGE -->
+      
 
         <div class="recipe-image">
 
@@ -367,7 +365,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
 
 
-        <!-- MIDDLE: RECIPE INFORMATION -->
+        
 
         <div class="recipe-content">
 
@@ -378,7 +376,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </h1>
 
 
-            <!-- Recipe Meta -->
+            
 
             <div class="recipe-meta">
 
@@ -402,7 +400,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
 
-            <!-- Description -->
+            
 
             <p id="recipeDescription">
 
@@ -411,7 +409,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </p>
 
 
-            <!-- Favourite + Share Buttons -->
+           
 
             <div class="favourite-actions">
 
@@ -493,7 +491,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
 
 
-        <!-- RIGHT: INGREDIENTS -->
+      
 
         <aside class="ingredients-box">
 
@@ -536,7 +534,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </ul>
 
 
-            <!-- Time Details -->
+            
 
             <div class="recipe-info">
 
@@ -579,10 +577,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
     </section>
 
 
-
-    <!-- ==========================
-         INSTRUCTIONS
-    ========================== -->
 
     <section class="instructions">
 
@@ -630,8 +624,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 
-<!-- Footer -->
-
 <footer>
 
     © 2026 Recipe Hub. All Rights Reserved.
@@ -639,10 +631,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 </footer>
 
 
-
-<!-- ==========================
-     FAVOURITE MODAL
-========================== -->
 
 <div
     class="modal fade"
@@ -706,15 +694,10 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 </div>
 
 
-
-<!-- Bootstrap -->
-
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 ></script>
 
-
-<!-- Recipe Hub JavaScript -->
 
 <script src="js/script.js"></script>
 
