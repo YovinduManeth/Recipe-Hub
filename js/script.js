@@ -1,8 +1,5 @@
 console.log("SCRIPT JS LOADED");
 
-// ===========================
-// POPULAR SEARCHES
-// ===========================
 
 const popularSearches = document.querySelectorAll(".popular-search");
 const modalSearchInput = document.getElementById("modalSearchInput");
@@ -16,9 +13,7 @@ if (modalSearchInput) {
 }
 
 
-// ===========================
-// RECIPE SEARCH
-// ===========================
+
 
 const recipeSearchInput = document.getElementById("recipeSearch");
 
@@ -55,9 +50,6 @@ if (recipeSearchInput) {
 
 
 
-// ===========================
-// DISPLAY FAVOURITES
-// ===========================
 
 const favouriteList =
     document.getElementById("favouriteList");
@@ -75,10 +67,7 @@ if (favouriteList) {
 
     } else {
 
-        /*
-         * This section requires recipeData.js.
-         * It will only run if recipeData exists.
-         */
+    
 
         if (typeof recipeData !== "undefined") {
 
@@ -141,9 +130,6 @@ if (favouriteList) {
 }
 
 
-// ===========================
-// REMOVE FAVOURITE
-// ===========================
 
 function removeFavourite(recipeId) {
 
@@ -168,9 +154,7 @@ function removeFavourite(recipeId) {
 }
 
 
-// ===========================
-// LOGOUT
-// ===========================
+
 
 function logout() {
 
@@ -178,9 +162,6 @@ function logout() {
 }
 
 
-// ===========================
-// CONTACT FORM VALIDATION
-// ===========================
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -230,10 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// ===========================
-// DARK MODE
-// ===========================
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const modeButton =
@@ -245,7 +222,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // Load saved mode
 
     if (
         localStorage.getItem("darkMode") === "enabled"
@@ -259,7 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // Toggle mode
 
     modeButton.addEventListener("click", function () {
 
@@ -303,9 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// ===========================
-// SCROLL FADE-IN ANIMATION
-// ===========================
+
 
 const fadeElements =
     document.querySelectorAll(".fade-in");
@@ -342,11 +315,6 @@ if ("IntersectionObserver" in window) {
 
 }
 
-
-// ===========================
-// SHARE RECIPE
-// ===========================
-
 const shareButton =
     document.getElementById("shareRecipeBtn");
 
@@ -363,10 +331,7 @@ if (shareButton) {
             urlParams.get("recipe");
 
 
-        /*
-         * Do not depend on recipeData.js here.
-         * The recipe details are now loaded from PHP/database.
-         */
+
 
         const recipeTitleElement =
             document.getElementById("recipeTitle");
@@ -449,9 +414,6 @@ if (shareButton) {
     });
 }
 
-// ===========================
-// RECIPE SEARCH SUGGESTIONS
-// ===========================
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -542,7 +504,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-                // Show message when no recipe matches
+               
                 if (!foundRecipe) {
 
                     const noResult =
@@ -569,9 +531,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// ===========================
-// LOGIN PASSWORD SHOW / HIDE
-// ===========================
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -648,9 +608,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// ===========================
-// PROFILE PASSWORD SHOW / HIDE
-// ===========================
+
 
 function togglePassword(inputId, eyeIcon) {
 
