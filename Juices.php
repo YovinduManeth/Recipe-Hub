@@ -214,7 +214,7 @@ Sri Lankan Juice Recipes
 <div class="row g-4">
 
 
-<!-- Wood Apple Juice -->
+
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -254,7 +254,7 @@ View Recipe
 
 </div>
 
-<!-- Mango Juice -->
+
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -295,7 +295,7 @@ View Recipe
 
 </div>
 
-<!-- Orange Juice -->
+
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -338,7 +338,7 @@ View Recipe
 
 </div>
 
-<!-- Watermelon Juice -->
+
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -381,7 +381,6 @@ View Recipe
 
 </div>
 
-<!-- Avocado Juice -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -431,7 +430,7 @@ View Recipe
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+
 
 
 <footer>
@@ -440,8 +439,6 @@ View Recipe
 
 </footer>
 
-
-<!-- Bootstrap JS -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
