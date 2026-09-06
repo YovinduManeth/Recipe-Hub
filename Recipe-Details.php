@@ -19,7 +19,6 @@ if ($recipeKey === "") {
 }
 
 
-// Get recipe
 
 $sql = "SELECT id, recipe_key, title, description, image,
                ingredients, instructions,
@@ -38,7 +37,6 @@ if (!$recipe) {
 }
 
 
-// Check favourite status
 
 $userId = $_SESSION["user_id"];
 
@@ -72,19 +70,19 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php echo htmlspecialchars($recipe["title"]); ?> - Recipe Hub
     </title>
 
-    <!-- Font Awesome -->
+   
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     >
 
-    <!-- Bootstrap -->
+    
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
-    <!-- Recipe Hub CSS -->
+    
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -95,13 +93,13 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 <header>
 
-    <!-- ================= NAVBAR ================= -->
+  
 
     <nav class="navbar navbar-expand-lg bg-white border rounded">
 
         <div class="container-fluid">
 
-            <!-- Logo -->
+     
 
             <a class="navbar-brand d-flex align-items-center"
                href="home.php">
@@ -121,7 +119,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </a>
 
 
-            <!-- Mobile Button -->
+         
 
             <button
                 class="navbar-toggler"
@@ -138,7 +136,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </button>
 
 
-            <!-- Menu -->
+          
 
             <div
                 class="collapse navbar-collapse"
@@ -194,10 +192,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     </li>
 
-                </ul>
-
-
-                <!-- User Dropdown -->
 
                 <div class="dropdown">
 
@@ -299,7 +293,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
                 </div>
 
 
-                <!-- Dark Mode Icon -->
+                
 
                 <i class="fa-solid fa-moon mode-icon"></i>
 
@@ -313,13 +307,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 
-<!-- ================= BREADCRUMB ================= -->
-
-
-
-
-
-<!-- ================= MAIN CONTENT ================= -->
 
 <main>
 
@@ -460,7 +447,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
 
 
-        <!-- ================= INGREDIENTS ================= -->
+        <
 
         <aside class="ingredients-box">
 
@@ -493,8 +480,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 </ul>
 
 
-            <!-- Recipe Information -->
-
+        
             <div class="recipe-info">
 
                 <p>
@@ -538,8 +524,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 
-    <!-- ================= INSTRUCTIONS ================= -->
-
+   
     <section class="instructions">
 
         <h2>
@@ -579,8 +564,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 
-<!-- ================= FOOTER ================= -->
-
 <footer>
 
     © 2026 Recipe Hub. All Rights Reserved.
@@ -588,8 +571,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 </footer>
 
 
-
-<!-- ================= FAVOURITE MODAL ================= -->
 
 <div
     class="modal fade"
