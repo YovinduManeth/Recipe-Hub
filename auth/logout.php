@@ -5,7 +5,6 @@ session_start();
 session_unset();
 session_destroy();
 
-// Delete Remember Me username cookie
 setcookie(
     "username",
     "",
