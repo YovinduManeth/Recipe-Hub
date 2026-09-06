@@ -6,14 +6,12 @@ $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Get form data safely
+    
     $email = trim($_POST["email"] ?? "");
     $username = trim($_POST["username"] ?? "");
     $password = $_POST["password"] ?? "";
     $confirmPassword = $_POST["confirmPassword"] ?? "";
 
-
-    // 1. Check empty fields
     if (
         $email === "" ||
         $username === "" ||
@@ -26,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    // 2. Validate email
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
         $message = "Please enter a valid email address.";
@@ -34,15 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    // 3. Check Terms and Conditions
+
     elseif (!isset($_POST["terms"])) {
 
         $message = "Please accept the Terms and Conditions.";
 
     }
 
-
-    // 4. Check password confirmation
     elseif ($password !== $confirmPassword) {
 
         $message = "Passwords do not match.";
@@ -58,7 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     else {
 
-        // 5. Check duplicate username or email
         $sql = "SELECT id
                 FROM users
                 WHERE username = ?
@@ -81,14 +75,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         else {
 
-            // 6. Hash password using bcrypt
+          
             $hashedPassword = password_hash(
                 $password,
                 PASSWORD_BCRYPT
             );
 
 
-            // 7. Insert user
             $sql = "INSERT INTO users
                     (username, email, password)
                     VALUES (?, ?, ?)";
@@ -102,7 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ]);
 
 
-            // Registration successful
             header("Location: login.php?register=success");
 
             exit();
@@ -250,7 +242,6 @@ Login
 
 </section>
 
-<!-- ================= TERMS AND CONDITIONS MODAL ================= -->
 
 <div
     class="modal fade"
