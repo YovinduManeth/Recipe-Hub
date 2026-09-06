@@ -137,9 +137,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
             </div>
 
-            <!-- Account Icon -->
-
-            <!-- USER DROPDOWN -->
+            
 
 <div class="dropdown">
 
@@ -223,8 +221,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 
-            <!-- Dark Mode Icon -->
-
+            
             <i class="fa-solid fa-moon mode-icon"></i>
 
 
@@ -240,14 +237,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </header>
 
 
-<!-- ================= MAIN CONTENT ================= -->
+
 
 
 <main>
 
 
-
-<!-- ================= HERO SECTION ================= -->
 
 
 <section class="hero">
@@ -541,8 +536,6 @@ Categories
 </section>
 
 
-<!-- ================= SEASONAL RECIPES ================= -->
-
 <section class="seasonal">
 
 
@@ -662,7 +655,6 @@ Seasonal Recipes
 </main>
 
 
-<!-- ================= FOOTER ================= -->
 
 <footer>
 
