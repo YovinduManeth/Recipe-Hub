@@ -18,8 +18,6 @@ if ($recipeKey === "") {
     die("Invalid recipe key.");
 }
 
-
-
 $sql = "SELECT id, recipe_key, title, description, image,
                ingredients, instructions,
                prep_time, cook_time, total_time, servings
@@ -27,7 +25,6 @@ $sql = "SELECT id, recipe_key, title, description, image,
         WHERE recipe_key = ?";
 
 $stmt = $conn->prepare($sql);
-
 $stmt->execute([$recipeKey]);
 
 $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -35,8 +32,6 @@ $recipe = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$recipe) {
     die("Recipe not found.");
 }
-
-
 
 $userId = $_SESSION["user_id"];
 
@@ -70,36 +65,67 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php echo htmlspecialchars($recipe["title"]); ?> - Recipe Hub
     </title>
 
-   
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     >
 
-    
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
-    
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Recipe Details Navbar Spacing -->
+    <style>
+
+        .recipe-details-page .recipe-navbar-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .recipe-details-page .recipe-navbar-actions .dropdown {
+            margin-left: 35px;
+        }
+
+        .recipe-details-page .recipe-navbar-actions .mode-icon {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 991px) {
+
+            .recipe-details-page .recipe-navbar-actions {
+                justify-content: center;
+                margin-top: 15px;
+            }
+
+            .recipe-details-page .recipe-navbar-actions .dropdown {
+                margin-left: 0;
+            }
+
+            .recipe-details-page .recipe-navbar-actions .mode-icon {
+                margin-left: 15px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
-<body>
+<body class="recipe-details-page">
 
 
 <header>
-
-  
 
     <nav class="navbar navbar-expand-lg bg-white border rounded">
 
         <div class="container-fluid">
 
-     
+            <!-- Logo -->
 
             <a class="navbar-brand d-flex align-items-center"
                href="home.php">
@@ -119,7 +145,7 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </a>
 
 
-         
+            <!-- Mobile Navbar Button -->
 
             <button
                 class="navbar-toggler"
@@ -136,12 +162,14 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </button>
 
 
-          
+            <!-- Navbar -->
 
             <div
                 class="collapse navbar-collapse"
                 id="navbarMenu"
             >
+
+                <!-- Main Navigation -->
 
                 <ul class="navbar-nav mx-auto">
 
@@ -192,110 +220,120 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     </li>
 
-
-                <div class="dropdown">
-
-                    <a
-                        href="#"
-                        class="user-icon dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-
-                        <i class="fa-solid fa-user"></i>
-
-                    </a>
+                </ul>
 
 
-                    <ul class="dropdown-menu dropdown-menu-end">
+                <!-- User + Night Mode -->
 
-                        <li>
+                <div class="recipe-navbar-actions">
 
-                            <h6
-                                class="dropdown-header"
-                                id="dropdownUsername"
-                            >
-                                <?php echo htmlspecialchars($username); ?>
-                            </h6>
+                    <!-- User Dropdown -->
 
-                        </li>
+                    <div class="dropdown">
 
+                        <a
+                            href="#"
+                            class="user-icon dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
 
-                        <li>
+                            <i class="fa-solid fa-user"></i>
 
-                            <span
-                                class="dropdown-item-text"
-                                id="dropdownEmail"
-                            >
-                                <?php echo htmlspecialchars($email); ?>
-                            </span>
-
-                        </li>
+                        </a>
 
 
-                        <li>
+                        <ul class="dropdown-menu dropdown-menu-end">
 
-                            <hr class="dropdown-divider">
+                            <li>
 
-                        </li>
+                                <h6
+                                    class="dropdown-header"
+                                    id="dropdownUsername"
+                                >
+                                    <?php echo htmlspecialchars($username); ?>
+                                </h6>
 
-
-                        <li>
-
-                            <a
-                                class="dropdown-item"
-                                href="profile.php"
-                            >
-
-                                <i class="fa-solid fa-user-pen me-2"></i>
-
-                                My Profile
-
-                            </a>
-
-                        </li>
+                            </li>
 
 
-                        <li>
+                            <li>
 
-                            <a
-                                class="dropdown-item"
-                                href="favourites.php"
-                            >
+                                <span
+                                    class="dropdown-item-text"
+                                    id="dropdownEmail"
+                                >
+                                    <?php echo htmlspecialchars($email); ?>
+                                </span>
 
-                                <i class="fa-solid fa-heart me-2"></i>
-
-                                My Favourites
-
-                            </a>
-
-                        </li>
+                            </li>
 
 
-                        <li>
+                            <li>
 
-                            <a
-                                class="dropdown-item"
-                                href="#"
-                                onclick="logout(); return false;"
-                            >
+                                <hr class="dropdown-divider">
 
-                                <i class="fa-solid fa-right-from-bracket me-2"></i>
+                            </li>
 
-                                Logout
 
-                            </a>
+                            <li>
 
-                        </li>
+                                <a
+                                    class="dropdown-item"
+                                    href="profile.php"
+                                >
 
-                    </ul>
+                                    <i class="fa-solid fa-user-pen me-2"></i>
+
+                                    My Profile
+
+                                </a>
+
+                            </li>
+
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item"
+                                    href="favourites.php"
+                                >
+
+                                    <i class="fa-solid fa-heart me-2"></i>
+
+                                    My Favourites
+
+                                </a>
+
+                            </li>
+
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item"
+                                    href="#"
+                                    onclick="logout(); return false;"
+                                >
+
+                                    <i class="fa-solid fa-right-from-bracket me-2"></i>
+
+                                    Logout
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- Night Mode -->
+
+                    <i class="fa-solid fa-moon mode-icon"></i>
 
                 </div>
-
-
-                
-
-                <i class="fa-solid fa-moon mode-icon"></i>
 
             </div>
 
@@ -307,13 +345,16 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 
-
 <main>
+
+    <!-- ==========================
+         RECIPE DETAILS
+    ========================== -->
 
     <section class="recipe-details">
 
 
-        <!-- Recipe Image -->
+        <!-- LEFT: RECIPE IMAGE -->
 
         <div class="recipe-image">
 
@@ -326,16 +367,18 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
 
 
-        <!-- Recipe Information -->
+        <!-- MIDDLE: RECIPE INFORMATION -->
 
         <div class="recipe-content">
 
-            <h3 id="recipeTitle">
+            <h1 id="recipeTitle">
 
                 <?php echo htmlspecialchars($recipe["title"]); ?>
 
-            </h3>
+            </h1>
 
+
+            <!-- Recipe Meta -->
 
             <div class="recipe-meta">
 
@@ -359,6 +402,8 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
 
+            <!-- Description -->
+
             <p id="recipeDescription">
 
                 <?php echo htmlspecialchars($recipe["description"]); ?>
@@ -366,88 +411,89 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
             </p>
 
 
+            <!-- Favourite + Share Buttons -->
+
             <div class="favourite-actions">
 
-    <?php if ($isFavourite): ?>
+                <?php if ($isFavourite): ?>
 
-        <form method="POST" action="Favourites.php">
+                    <form method="POST" action="Favourites.php">
 
-            <input
-                type="hidden"
-                name="recipe_id"
-                value="<?php echo $recipe["id"]; ?>"
-            >
+                        <input
+                            type="hidden"
+                            name="recipe_id"
+                            value="<?php echo $recipe["id"]; ?>"
+                        >
 
-            <input
-                type="hidden"
-                name="action"
-                value="remove"
-            >
+                        <input
+                            type="hidden"
+                            name="action"
+                            value="remove"
+                        >
 
-            <button
-                type="submit"
-                class="fav-btn"
-            >
+                        <button
+                            type="submit"
+                            class="fav-btn"
+                        >
 
-                <i class="fa-solid fa-heart-crack"></i>
+                            <i class="fa-solid fa-heart-crack"></i>
 
-                Remove Favourite
+                            Remove Favourite
 
-            </button>
+                        </button>
 
-        </form>
+                    </form>
 
-    <?php else: ?>
+                <?php else: ?>
 
-        <form method="POST" action="Favourites.php">
+                    <form method="POST" action="Favourites.php">
 
-            <input
-                type="hidden"
-                name="recipe_id"
-                value="<?php echo $recipe["id"]; ?>"
-            >
+                        <input
+                            type="hidden"
+                            name="recipe_id"
+                            value="<?php echo $recipe["id"]; ?>"
+                        >
 
-            <input
-                type="hidden"
-                name="action"
-                value="add"
-            >
+                        <input
+                            type="hidden"
+                            name="action"
+                            value="add"
+                        >
 
-            <button
-                type="submit"
-                class="fav-btn"
-            >
+                        <button
+                            type="submit"
+                            class="fav-btn"
+                        >
 
-                <i class="fa-solid fa-heart"></i>
+                            <i class="fa-solid fa-heart"></i>
 
-                Add Favourite
+                            Add Favourite
 
-            </button>
+                        </button>
 
-        </form>
+                    </form>
 
-    <?php endif; ?>
+                <?php endif; ?>
 
 
-    <button
-        id="shareRecipeBtn"
-        class="btn btn-warning"
-        type="button"
-    >
+                <button
+                    id="shareRecipeBtn"
+                    class="btn btn-warning"
+                    type="button"
+                >
 
-        <i class="fa-solid fa-share"></i>
+                    <i class="fa-solid fa-share"></i>
 
-        Share
+                    Share
 
-    </button>
+                </button>
 
-</div>
-
+            </div>
 
         </div>
 
 
-        <
+        <!-- RIGHT: INGREDIENTS -->
 
         <aside class="ingredients-box">
 
@@ -458,29 +504,40 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <ul id="recipeIngredients">
 
-            <?php
-                $ingredients = preg_split('/\r\n|\r|\n|,/', $recipe["ingredients"]);
+                <?php
 
-            foreach ($ingredients as $ingredient):
+                $ingredients = preg_split(
+                    '/\r\n|\r|\n|,/',
+                    $recipe["ingredients"]
+                );
 
-             $ingredient = trim($ingredient);
+                foreach ($ingredients as $ingredient):
 
-             if ($ingredient !== ""):
+                    $ingredient = trim($ingredient);
+
+                    if ($ingredient !== ""):
+
                 ?>
 
-        <li>
-            <?php echo htmlspecialchars($ingredient); ?>
-        </li>
+                    <li>
 
-    <?php
-        endif;
-    endforeach;
-    ?>
+                        <?php echo htmlspecialchars($ingredient); ?>
 
-</ul>
+                    </li>
+
+                <?php
+
+                    endif;
+
+                endforeach;
+
+                ?>
+
+            </ul>
 
 
-        
+            <!-- Time Details -->
+
             <div class="recipe-info">
 
                 <p>
@@ -515,7 +572,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 </p>
 
-
             </div>
 
         </aside>
@@ -524,7 +580,10 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 
-   
+    <!-- ==========================
+         INSTRUCTIONS
+    ========================== -->
+
     <section class="instructions">
 
         <h2>
@@ -534,35 +593,44 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <ol id="recipeInstructions">
 
-    <?php
-    $instructions = preg_split(
-        '/\r\n|\r|\n/',
-        $recipe["instructions"]
-    );
+            <?php
 
-    foreach ($instructions as $instruction):
+            $instructions = preg_split(
+                '/\r\n|\r|\n/',
+                $recipe["instructions"]
+            );
 
-        $instruction = trim($instruction);
+            foreach ($instructions as $instruction):
 
-        if ($instruction !== ""):
-    ?>
+                $instruction = trim($instruction);
 
-        <li>
-            <?php echo htmlspecialchars($instruction); ?>
-        </li>
+                if ($instruction !== ""):
 
-    <?php
-        endif;
-    endforeach;
-    ?>
+            ?>
 
-</ol>
+                <li>
+
+                    <?php echo htmlspecialchars($instruction); ?>
+
+                </li>
+
+            <?php
+
+                endif;
+
+            endforeach;
+
+            ?>
+
+        </ol>
 
     </section>
 
 </main>
 
 
+
+<!-- Footer -->
 
 <footer>
 
@@ -571,6 +639,10 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
 </footer>
 
 
+
+<!-- ==========================
+     FAVOURITE MODAL
+========================== -->
 
 <div
     class="modal fade"
@@ -583,7 +655,6 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
     <div class="modal-dialog">
 
         <div class="modal-content">
-
 
             <div class="modal-header">
 
@@ -621,7 +692,9 @@ $isFavourite = $stmt->fetch(PDO::FETCH_ASSOC);
                     class="btn btn-secondary"
                     data-bs-dismiss="modal"
                 >
+
                     Close
+
                 </button>
 
             </div>
