@@ -250,9 +250,7 @@ a{
 
 }
 
-/* ==========================
-   NAVBAR
-========================== */
+
 
 header .navbar{
 
@@ -264,7 +262,7 @@ header .navbar{
 
 }
 
-/* LOGO */
+
 
 .logo{
 
@@ -294,8 +292,6 @@ header .navbar{
 
 }
 
-
-/* NAV LINKS */
 
 .nav-links{
 
@@ -416,9 +412,7 @@ header .navbar{
 
 
 
-/* ==========================
-   HERO SECTION
-========================== */
+
 
 
 .hero{
@@ -591,10 +585,6 @@ header .navbar{
 
 
 
-/* ==========================
-   CATEGORIES
-========================== */
-
 
 .categories,
 .seasonal{
@@ -632,10 +622,6 @@ header .navbar{
 
 }
 
-
-/* ==========================
-   RECIPE DETAILS PAGE
-========================== */
 
 
 /* BREADCRUMB */
@@ -901,11 +887,6 @@ header .navbar{
 
 
 
-/* ==========================
-   INSTRUCTIONS
-========================== */
-
-
 .instructions{
 
     margin:0 60px 40px;
@@ -955,13 +936,7 @@ header .navbar{
 
 }
 
-/* ==========================
-   RECIPE CARD HOVER EFFECT
-========================== */
 
-/* ==========================
-   CARD HOVER EFFECT
-========================== */
 
 
 .recipe-card,
@@ -988,9 +963,7 @@ header .navbar{
 
 }
 
-/* ==========================
-   FOOTER
-========================== */
+
 
 footer{
 
@@ -1014,7 +987,7 @@ footer{
 
 
 
-/* ================= RECIPES BANNER ================= */
+/*RECIPES BANNER */
 
 
 .recipes-banner{
@@ -1087,7 +1060,7 @@ footer{
 
 }
 
-/* ================= CONTACT PAGE ================= */
+
 
 
 .contact-section{
@@ -1213,11 +1186,6 @@ footer{
 }
 
 
-
-/* ==========================
-   DARK MODE
-========================== */
-
 body.dark-mode{
     background:#121212;
     color:#fff;
@@ -1303,7 +1271,6 @@ body.dark-mode .mode-icon{
 }
 
 
-/* ================= LOGIN PAGE FOOTER FIX ================= */
 
 .login-body{
     min-height:100vh;
@@ -1320,8 +1287,6 @@ body.dark-mode .mode-icon{
     flex:1;
 }
 
-
-/* ================= DARK MODE PAGE BACKGROUNDS ================= */
 
 
 /* Recipes Page Background */
@@ -1416,7 +1381,6 @@ body.dark-mode .contact-form label{
 
 }
 
-/* ================= REGISTER PAGE ================= */
 
 
 .register-section{
@@ -1580,7 +1544,6 @@ body.dark-mode .contact-form label{
 }
 
 
-/* ================= REGISTER PAGE DARK MODE ================= */
 
 
 body.dark-mode .register-section{
@@ -1688,13 +1651,6 @@ body.dark-mode .login-link{
 
 }
 
-/* ==========================================
-   RESPONSIVE DESIGN
-========================================== */
-
-/* ===========================
-   TABLETS (≤991px)
-=========================== */
 
 @media (max-width:991px){
 
@@ -1779,9 +1735,7 @@ body.dark-mode .login-link{
 
 
 
-/* ===========================
-   MOBILE (≤768px)
-=========================== */
+
 
 @media (max-width:768px){
 
@@ -1945,9 +1899,7 @@ body.dark-mode .login-link{
 
 
 
-/* ===========================
-   SMALL PHONES (≤576px)
-=========================== */
+
 
 @media (max-width:576px){
 
@@ -1965,9 +1917,7 @@ body.dark-mode .login-link{
 
 }
 
-/* ==========================
-   RECIPE SEARCH
-========================== */
+
 
 .recipe-search{
     padding:35px 0;
@@ -1975,9 +1925,7 @@ body.dark-mode .login-link{
     justify-content:center;
 }
 
-/* ===========================
-   SEARCH BAR
-=========================== */
+
 
 .search-container {
 
@@ -2041,9 +1989,6 @@ body.dark-mode .login-link{
 }
 
 
-/* ===========================
-   SEARCH SUGGESTIONS
-=========================== */
 
 #searchSuggestions {
 
@@ -2091,9 +2036,6 @@ body.dark-mode .login-link{
 }
 
 
-/* ===========================
-   DARK MODE SEARCH
-=========================== */
 
 body.dark-mode .search-container {
 
@@ -2144,8 +2086,6 @@ body.dark-mode .suggestion-item:hover {
 
 
 
-/* ================= PROFILE PAGE ================= */
-
 .profile-avatar{
 
     font-size:90px;
@@ -2184,7 +2124,7 @@ body.dark-mode .suggestion-item:hover {
 
 }
 
-/* ================= USER DROPDOWN ================= */
+
 
 
 .dropdown .user-icon{
@@ -2238,7 +2178,6 @@ body.dark-mode .suggestion-item:hover {
 
 }
 
-/* ================= PROFILE PAGE ================= */
 
 
 .profile-section{
@@ -2320,8 +2259,6 @@ body.dark-mode .suggestion-item:hover {
 }
 
 
-
-/* ================= MOBILE ================= */
 
 
 @media(max-width:768px){
@@ -2405,9 +2342,7 @@ body.dark-mode .suggestion-item:hover {
 
 }
 
-/* ==========================
-   SCROLL FADE-IN ANIMATION
-========================== */
+
 
 .fade-in{
 
@@ -2647,9 +2582,7 @@ body.dark-mode .suggestion-item:hover {
 
 }
 
-/* ==========================
-LOGIN PASSWORD EYE
-========================== */
+
 
 .input-box .password-eye {
     width: auto !important;
@@ -2677,9 +2610,7 @@ LOGIN PASSWORD EYE
     box-shadow: none !important;
     outline: none !important;
 }
-/* ==========================
-   DASHBOARD PAGE
-========================== */
+
 
 .dashboard-section {
 
@@ -2906,9 +2837,7 @@ LOGIN PASSWORD EYE
 }
 
 
-/* ==========================
-   DASHBOARD DARK MODE
-========================== */
+
 
 body.dark-mode .dashboard-section {
 
