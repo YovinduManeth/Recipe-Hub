@@ -16,7 +16,7 @@ if (isset($_POST["saveChanges"])) {
     $newPassword = $_POST["newPassword"] ?? "";
     $confirmPassword = $_POST["confirmNewPassword"] ?? "";
 
-    // Only change password if the user entered one
+
     if (!empty($newPassword)) {
 
         if ($newPassword !== $confirmPassword) {
@@ -172,7 +172,6 @@ if (isset($_POST["saveChanges"])) {
 
     <form id="profileForm" method="POST" action="profile.php">
 
-        <!-- Username -->
 
         <div class="register-input">
 
@@ -187,8 +186,7 @@ if (isset($_POST["saveChanges"])) {
         </div>
 
 
-        <!-- Email -->
-
+       
         <div class="register-input">
 
             <i class="fa-solid fa-envelope"></i>
@@ -202,7 +200,7 @@ if (isset($_POST["saveChanges"])) {
         </div>
 
 
-        <!-- New Password -->
+       
 
         <div class="register-input">
 
@@ -221,7 +219,7 @@ if (isset($_POST["saveChanges"])) {
 </div>
 
 
-        <!-- Confirm Password -->
+       
 
        <div class="register-input">
 
@@ -240,7 +238,7 @@ if (isset($_POST["saveChanges"])) {
 </div>
 
 
-        <!-- Save -->
+
 
         <button type="submit" name="saveChanges">
 
