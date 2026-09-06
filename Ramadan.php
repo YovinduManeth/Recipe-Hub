@@ -42,7 +42,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="container-fluid">
 
-<!-- Logo -->
 
 <a class="navbar-brand d-flex align-items-center" href="home.php">
 
@@ -204,7 +203,6 @@ Sri Lankan Ramadan Recipes
 <div class="row g-4">
 
 
-<!-- Watalappan -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -249,7 +247,7 @@ View Recipe
 
 </div>
 
-<!-- Gulab Jamun -->
+
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -296,7 +294,7 @@ View Recipe
 </div>
 
 
-<!-- Basbousa -->
+
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -343,8 +341,6 @@ View Recipe
 </div>
 
 
-<!-- Vermicelli Fruit Custard -->
-
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -390,7 +386,6 @@ View Recipe
 </div>
 
 
-<!-- Rasmalai -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
