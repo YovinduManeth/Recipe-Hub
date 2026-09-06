@@ -23,14 +23,13 @@
 <header>
 
 
-<!-- ================= NAVBAR ================= -->
 
 <nav class="navbar navbar-expand-lg bg-white border rounded">
 
     <div class="container-fluid">
 
 
-        <!-- Logo -->
+     
 
         <a class="navbar-brand d-flex align-items-center" href="home.php">
 
@@ -47,7 +46,6 @@
 
 
 
-        <!-- Mobile Button -->
 
         <button class="navbar-toggler"
         type="button"
@@ -61,7 +59,7 @@
 
 
 
-        <!-- Menu -->
+ 
 
         <div class="collapse navbar-collapse"
         id="navbarMenu">
@@ -197,7 +195,6 @@
 </div>
 
 
-    <!-- Dark Mode Icon -->
 
     <i class="fa-solid fa-moon mode-icon"></i>
 
@@ -224,7 +221,6 @@ Sri Lankan Rice Recipes
 <div class="row g-4">
 
 
-<!-- Vegetable Biriyani -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -268,7 +264,7 @@ View Recipe
 
 
 
-<!-- Chicken Fried Rice -->
+
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -312,7 +308,6 @@ View Recipe
 
 
 
-<!-- Paneer Rice -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -351,12 +346,6 @@ View Recipe
 
 </div>
 
-
-
-
-
-
-<!-- Prawns Masala Rice -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -398,10 +387,6 @@ View Recipe
 
 
 
-
-
-
-<!-- Dunthel Bath -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -449,10 +434,6 @@ View Recipe
 </section>
 
 
-
-<!-- ================= FOOTER ================= -->
-
-
 <footer>
 
 
@@ -461,7 +442,6 @@ View Recipe
 
 </footer>
 
-<!-- Favourite Modal -->
 
 <div class="modal fade" id="favouriteModal" tabindex="-1">
 
