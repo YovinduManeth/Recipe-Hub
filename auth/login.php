@@ -58,8 +58,6 @@ if(isset($_POST["forgotSubmit"])){
 $rememberedUser = "";
 
 
-// Remember username cookie
-
 if (isset($_COOKIE["username"])) {
 
     $rememberedUser = $_COOKIE["username"];
@@ -68,9 +66,6 @@ if (isset($_COOKIE["username"])) {
 
 
 
-// ==========================
-// NORMAL LOGIN
-// ==========================
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["forgotSubmit"])) {
 
@@ -106,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST["forgotSubmit"])) {
       if (password_verify($password, $user["password"])) {
 
 
-            // Regenerate session ID for security
+        
             session_regenerate_id(true);
             
 
