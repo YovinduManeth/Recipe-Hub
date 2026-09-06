@@ -26,7 +26,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="container-fluid">
 
-<!-- Logo -->
 
 <a class="navbar-brand d-flex align-items-center" href="home.php">
 
@@ -42,7 +41,6 @@ Recipe Hub
 
 </a>
 
-<!-- Mobile Button -->
 
 <button class="navbar-toggler"
 type="button"
@@ -189,8 +187,6 @@ Thai Pongal Recipes
 
 <div class="row g-4">
 
-<!-- Sweet Pongal -->
-
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -232,8 +228,6 @@ View Recipe
 
 </div>
 
-<!-- Savory Pongal -->
-
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -273,8 +267,6 @@ View Recipe
 
 </div>
 
-<!-- Vegetable Stew (Pongal Kootu) -->
-
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
 
@@ -313,7 +305,6 @@ View Recipe
 </div>
 
 </div>
-<!-- Medu Vada -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
@@ -351,7 +342,6 @@ View Recipe
 
 </div>
 
-<!-- Paal Payasam -->
 
 <div class="col-lg-4 col-md-6 col-sm-12 fade-in">
 
