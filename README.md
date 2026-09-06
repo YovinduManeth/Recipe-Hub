@@ -219,7 +219,7 @@ The project uses Bootstrap 5 components to create a responsive and user-friendly
 
 ## User Authentication System
 - Implemented user registration and login functionality.
-- Added password encryption using PHP `password_hash()`.
+- Added secure password hashing using PHP password_hash().
 - Added password verification using `password_verify()`.
 - Implemented secure session management.
 - Added `session_regenerate_id(true)` after successful login to improve session security.
@@ -413,6 +413,7 @@ The final project demonstrates the use of:
 - Figma
 
 The project source code, database file, documentation, and related resources are maintained in the GitHub repository.
+
 
 ## Developers
 
