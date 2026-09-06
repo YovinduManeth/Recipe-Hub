@@ -17,9 +17,6 @@ $username = $_SESSION["username"];
 $email = $_SESSION["email"];
 
 
-// ==========================
-// GET RECIPES FROM DATABASE
-// ==========================
 
 $sql = "SELECT id, recipe_key, title, description, image, ingredients, instructions
         FROM recipes
@@ -68,8 +65,6 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
 <header>
 
 <nav class="navbar navbar-expand-lg bg-white border rounded">
@@ -78,7 +73,7 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="container-fluid">
 
 
-    <!-- Logo -->
+
 
     <a class="navbar-brand d-flex align-items-center"
        href="home.php">
@@ -95,7 +90,7 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </a>
 
 
-    <!-- Mobile Button -->
+
 
     <button class="navbar-toggler"
             type="button"
@@ -107,7 +102,7 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </button>
 
 
-    <!-- Menu -->
+   
 
     <div class="collapse navbar-collapse"
          id="navbarMenu">
@@ -167,7 +162,7 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </ul>
 
 
-        <!-- USER DROPDOWN -->
+    
 
         <div class="dropdown">
 
@@ -258,7 +253,7 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
 
-        <!-- Dark Mode Icon -->
+        
 
         <i class="fa-solid fa-moon mode-icon"></i>
 
@@ -271,8 +266,6 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </nav>
 
 </header>
-
-<!-- ================= BANNER ================= -->
 
 <section class="recipes-banner">
 
@@ -303,7 +296,6 @@ $recipes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 </section>
 
-<!-- ================= RECIPES ================= -->
 
 <section class="all-recipes">
 
@@ -362,7 +354,7 @@ $description = $recipe["description"];
 
 </section>
 
-<!-- ================= FOOTER ================= -->
+
 
 <footer>
 
@@ -372,7 +364,7 @@ $description = $recipe["description"];
 
 </footer>
 
-<!-- ================= SEARCH MODAL ================= -->
+
 
 <div class="modal fade"
      id="searchModal">
@@ -472,9 +464,7 @@ $description = $recipe["description"];
 </div>
 ```
 
-</div>
-
-<!-- ================= JAVASCRIPT ================= -->
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
