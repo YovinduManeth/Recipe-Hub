@@ -31,13 +31,12 @@ $email = getUserEmail();
 
 <body>
 
-<!-- ================= DASHBOARD ================= -->
+
 
 <section class="dashboard-section">
 
     <div class="dashboard-card">
 
-        <!-- Logo -->
 
         <div class="dashboard-logo">
 
@@ -49,7 +48,7 @@ $email = getUserEmail();
         </div>
 
 
-        <!-- Welcome -->
+        
 
         <div class="dashboard-welcome">
 
@@ -66,11 +65,11 @@ $email = getUserEmail();
         </div>
 
 
-        <!-- Dashboard Options -->
+       
 
         <div class="dashboard-options">
 
-            <!-- Profile -->
+            
 
             <a href="profile.php" class="dashboard-option">
 
@@ -87,7 +86,7 @@ $email = getUserEmail();
             </a>
 
 
-            <!-- Recipes -->
+            
 
            <a href="home.php" class="dashboard-option">
 
@@ -103,7 +102,7 @@ $email = getUserEmail();
 
 </a>
 
-            <!-- Favourites -->
+            
 
             <a href="favourites.php" class="dashboard-option">
 
@@ -122,7 +121,7 @@ $email = getUserEmail();
         </div>
 
 
-        <!-- Logout -->
+        
 
         <a href="auth/logout.php" class="dashboard-logout">
 
@@ -137,7 +136,7 @@ $email = getUserEmail();
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+
 
 <footer>
 
