@@ -190,7 +190,7 @@ Contact Us
 </header>
 
 
-<!-- ================= FISH / MEAT RECIPES ================= -->
+<!-- Fish meat curry -->
 
 <section class="container my-5">
 

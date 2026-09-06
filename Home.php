@@ -396,7 +396,7 @@ alt="Sri Lankan Food Table">
 </div>
 
 
-<!-- ================= CATEGORIES ================= -->
+<!-- CATEGORIES  -->
 
 
 <section class="categories">
